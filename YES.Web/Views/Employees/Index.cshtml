@@ -1,0 +1,51 @@
+﻿
+<section class="content-header">
+    <h4>Employees
+                        <small>Control panel</small>
+    </h4>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i>Dashboard</a></li>
+        <li class="active">Employees</li>
+    </ol>
+</section>
+
+<!-- Main content -->
+<section class="content" ng-controller="EmployeeController">
+    <div class="col-xs-12 ContentPage">
+        <!-- /.box-header -->
+        <div class="box-body table-responsive no-padding">
+             <div class="box-tools row tableHeader">
+                            <button type="button" class="btn btn-primary col-md-1 col-sm-1" title="Create new employee record" ng-click="Create()">Create</button>
+                            <div class="input-group col-md-11 col-sm-11">
+                                <input type="text" name="table_search" class="form-control input-sm pull-right" style="width: 150px;" placeholder="Search" />
+                                <div class="input-group-btn">
+                                    <button class="btn btn-sm btn-default"><i class="fa fa-search"></i></button>
+                                </div>
+                            </div>
+                        </div>
+            <table class="table table-hover">
+                        <tr>
+                    <th>ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Mobile No.</th>
+                    <th>Designation</th>
+                    <th>City</th>
+                </tr>
+        <tr>
+            <td>183</td>
+            <td>John Doe</td>
+            <td>11-7-2014</td>
+            <td>Approved</td>
+            <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+            <td>Ghazipur</td>
+        </tr>
+
+        </table>
+    </div>
+    <!-- /.box-body -->
+    </div>
+</section>
+<script src="../Scripts/AngularScripts/Employees/YesEmployeesService.js"></script>
+<script src="../Scripts/AngularScripts/Employees/YesEmployeesController.js"></script>
+

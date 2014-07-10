@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="YesModelStoreContainer" CdmEntityContainer="YesEntities">
+    <EntitySetMapping Name="YesCourses">
+      <EntityTypeMapping TypeName="YesModel.YesCourse">
+        <MappingFragment StoreEntitySet="YesCourse">
+          <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+          <ScalarProperty Name="CourseName" ColumnName="CourseName" />
+          <ScalarProperty Name="CourseDescription" ColumnName="CourseDescription" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="YesCourseFees">
+      <EntityTypeMapping TypeName="YesModel.YesCourseFee">
+        <MappingFragment StoreEntitySet="YesCourseFee">
+          <ScalarProperty Name="CourseFeeID" ColumnName="CourseFeeID" />
+          <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+          <ScalarProperty Name="FeeID" ColumnName="FeeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="YesDesignations">
+      <EntityTypeMapping TypeName="YesModel.YesDesignation">
+        <MappingFragment StoreEntitySet="YesDesignation">
+          <ScalarProperty Name="DesignationID" ColumnName="DesignationID" />
+          <ScalarProperty Name="DesignationName" ColumnName="DesignationName" />
+          <ScalarProperty Name="DesignationDescription" ColumnName="DesignationDescription" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="YesEmployees">
+      <EntityTypeMapping TypeName="YesModel.YesEmployee">
+        <MappingFragment StoreEntitySet="YesEmployee">
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="EmployeeFirstName" ColumnName="EmployeeFirstName" />
+          <ScalarProperty Name="EmployeeMiddleName" ColumnName="EmployeeMiddleName" />
+          <ScalarProperty Name="EmployeeLastName" ColumnName="EmployeeLastName" />
+          <ScalarProperty Name="EmployeeMobileNo" ColumnName="EmployeeMobileNo" />
+          <ScalarProperty Name="EmployeeAlternateMobileNo" ColumnName="EmployeeAlternateMobileNo" />
+          <ScalarProperty Name="EmployeeEmailID" ColumnName="EmployeeEmailID" />
+          <ScalarProperty Name="EmployeeAddress1" ColumnName="EmployeeAddress1" />
+          <ScalarProperty Name="EmployeeAddress2" ColumnName="EmployeeAddress2" />
+          <ScalarProperty Name="EmployeeCity" ColumnName="EmployeeCity" />
+          <ScalarProperty Name="EmployeeDisctrict" ColumnName="EmployeeDisctrict" />
+          <ScalarProperty Name="EmployeeState" ColumnName="EmployeeState" />
+          <ScalarProperty Name="EmployeePinCode" ColumnName="EmployeePinCode" />
+          <ScalarProperty Name="DesignationID" ColumnName="DesignationID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="YesFees">
+      <EntityTypeMapping TypeName="YesModel.YesFee">
+        <MappingFragment StoreEntitySet="YesFee">
+          <ScalarProperty Name="FeeID" ColumnName="FeeID" />
+          <ScalarProperty Name="FeeName" ColumnName="FeeName" />
+          <ScalarProperty Name="FeeDescription" ColumnName="FeeDescription" />
+          <ScalarProperty Name="FeeAmount" ColumnName="FeeAmount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="YesParents">
+      <EntityTypeMapping TypeName="YesModel.YesParent">
+        <MappingFragment StoreEntitySet="YesParent">
+          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+          <ScalarProperty Name="ParentFirstName" ColumnName="ParentFirstName" />
+          <ScalarProperty Name="ParentMiddleName" ColumnName="ParentMiddleName" />
+          <ScalarProperty Name="ParentLastName" ColumnName="ParentLastName" />
+          <ScalarProperty Name="ParentMobileNo" ColumnName="ParentMobileNo" />
+          <ScalarProperty Name="ParentAlternateMobileNo" ColumnName="ParentAlternateMobileNo" />
+          <ScalarProperty Name="ParentEmailID" ColumnName="ParentEmailID" />
+          <ScalarProperty Name="ParentAddress1" ColumnName="ParentAddress1" />
+          <ScalarProperty Name="ParentAddress2" ColumnName="ParentAddress2" />
+          <ScalarProperty Name="ParentCity" ColumnName="ParentCity" />
+          <ScalarProperty Name="ParentDisctrict" ColumnName="ParentDisctrict" />
+          <ScalarProperty Name="ParentState" ColumnName="ParentState" />
+          <ScalarProperty Name="ParentPinCode" ColumnName="ParentPinCode" />
+          <ScalarProperty Name="ParentOccupation" ColumnName="ParentOccupation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="YesPrivileges">
+      <EntityTypeMapping TypeName="YesModel.YesPrivilege">
+        <MappingFragment StoreEntitySet="YesPrivilege">
+          <ScalarProperty Name="PrivilegeID" ColumnName="PrivilegeID" />
+          <ScalarProperty Name="PrivilegeName" ColumnName="PrivilegeName" />
+          <ScalarProperty Name="PrivilegeDescription" ColumnName="PrivilegeDescription" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="YesStudents">
+      <EntityTypeMapping TypeName="YesModel.YesStudent">
+        <MappingFragment StoreEntitySet="YesStudent">
+          <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+          <ScalarProperty Name="StudentFirstName" ColumnName="StudentFirstName" />
+          <ScalarProperty Name="StudentMiddleName" ColumnName="StudentMiddleName" />
+          <ScalarProperty Name="StudentLastName" ColumnName="StudentLastName" />
+          <ScalarProperty Name="StudentRollNumber" ColumnName="StudentRollNumber" />
+          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+          <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="YesUsers">
+      <EntityTypeMapping TypeName="YesModel.YesUser">
+        <MappingFragment StoreEntitySet="YesUser">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+          <ScalarProperty Name="FalseLoginCount" ColumnName="FalseLoginCount" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="YesUserPrivileges">
+      <EntityTypeMapping TypeName="YesModel.YesUserPrivilege">
+        <MappingFragment StoreEntitySet="YesUserPrivilege">
+          <ScalarProperty Name="UserPrivilegeID" ColumnName="UserPrivilegeID" />
+          <ScalarProperty Name="PrivilegeID" ColumnName="PrivilegeID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

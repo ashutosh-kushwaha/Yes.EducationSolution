@@ -1,0 +1,11 @@
+D:\Ashutosh\Google\School Management\Yes.DataAdaptder\bin\Debug\Yes.DataAdaptder.dll
+D:\Ashutosh\Google\School Management\Yes.DataAdaptder\bin\Debug\Yes.DataAdaptder.pdb
+D:\Ashutosh\Google\School Management\Yes.DataAdaptder\obj\Debug\Yes.DataAdaptder.csprojResolveAssemblyReference.cache
+D:\Ashutosh\Google\School Management\Yes.DataAdaptder\obj\Debug\Yes.DataAdaptder.dll
+D:\Ashutosh\Google\School Management\Yes.DataAdaptder\obj\Debug\Yes.DataAdaptder.pdb
+D:\Ashutosh\Google\School Management\Yes.DataAdaptder\bin\Debug\Yes.EntityFramework.dll
+D:\Ashutosh\Google\School Management\Yes.DataAdaptder\bin\Debug\Yes.Models.dll
+D:\Ashutosh\Google\School Management\Yes.DataAdaptder\bin\Debug\Yes.EntityFramework.pdb
+D:\Ashutosh\Google\School Management\Yes.DataAdaptder\bin\Debug\Yes.Models.pdb
+D:\Ashutosh\Google\School Management\Yes.DataAdaptder\bin\Debug\EntityFramework.dll
+D:\Ashutosh\Google\School Management\Yes.DataAdaptder\bin\Debug\EntityFramework.xml

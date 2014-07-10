@@ -1,0 +1,252 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="YesModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="YesModelStoreContainer">
+    <EntitySet Name="YesCourse" EntityType="YesModel.Store.YesCourse" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="YesCourseFee" EntityType="YesModel.Store.YesCourseFee" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="YesDesignation" EntityType="YesModel.Store.YesDesignation" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="YesEmployee" EntityType="YesModel.Store.YesEmployee" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="YesFee" EntityType="YesModel.Store.YesFee" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="YesParent" EntityType="YesModel.Store.YesParent" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="YesPrivilege" EntityType="YesModel.Store.YesPrivilege" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="YesStudent" EntityType="YesModel.Store.YesStudent" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="YesUser" EntityType="YesModel.Store.YesUser" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="YesUserPrivilege" EntityType="YesModel.Store.YesUserPrivilege" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_YesCourseFee_YesCourse" Association="YesModel.Store.FK_YesCourseFee_YesCourse">
+      <End Role="YesCourse" EntitySet="YesCourse" />
+      <End Role="YesCourseFee" EntitySet="YesCourseFee" />
+    </AssociationSet>
+    <AssociationSet Name="FK_YesCourseFee_YesFee" Association="YesModel.Store.FK_YesCourseFee_YesFee">
+      <End Role="YesFee" EntitySet="YesFee" />
+      <End Role="YesCourseFee" EntitySet="YesCourseFee" />
+    </AssociationSet>
+    <AssociationSet Name="FK_YesEmployee_YesDesignation" Association="YesModel.Store.FK_YesEmployee_YesDesignation">
+      <End Role="YesDesignation" EntitySet="YesDesignation" />
+      <End Role="YesEmployee" EntitySet="YesEmployee" />
+    </AssociationSet>
+    <AssociationSet Name="FK_YesStudent_YesCourse" Association="YesModel.Store.FK_YesStudent_YesCourse">
+      <End Role="YesCourse" EntitySet="YesCourse" />
+      <End Role="YesStudent" EntitySet="YesStudent" />
+    </AssociationSet>
+    <AssociationSet Name="FK_YesStudent_YesParent" Association="YesModel.Store.FK_YesStudent_YesParent">
+      <End Role="YesParent" EntitySet="YesParent" />
+      <End Role="YesStudent" EntitySet="YesStudent" />
+    </AssociationSet>
+    <AssociationSet Name="FK_YesUser_YesEmployee" Association="YesModel.Store.FK_YesUser_YesEmployee">
+      <End Role="YesEmployee" EntitySet="YesEmployee" />
+      <End Role="YesUser" EntitySet="YesUser" />
+    </AssociationSet>
+    <AssociationSet Name="FK_YesUserPrivilege_YesPrivilege" Association="YesModel.Store.FK_YesUserPrivilege_YesPrivilege">
+      <End Role="YesPrivilege" EntitySet="YesPrivilege" />
+      <End Role="YesUserPrivilege" EntitySet="YesUserPrivilege" />
+    </AssociationSet>
+    <AssociationSet Name="FK_YesUserPrivilege_YesUser" Association="YesModel.Store.FK_YesUserPrivilege_YesUser">
+      <End Role="YesUser" EntitySet="YesUser" />
+      <End Role="YesUserPrivilege" EntitySet="YesUserPrivilege" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="YesCourse">
+    <Key>
+      <PropertyRef Name="CourseID" />
+    </Key>
+    <Property Name="CourseID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CourseName" Type="nvarchar" MaxLength="100" />
+    <Property Name="CourseDescription" Type="text" />
+  </EntityType>
+  <EntityType Name="YesCourseFee">
+    <Key>
+      <PropertyRef Name="CourseFeeID" />
+    </Key>
+    <Property Name="CourseFeeID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CourseID" Type="int" />
+    <Property Name="FeeID" Type="int" />
+  </EntityType>
+  <EntityType Name="YesDesignation">
+    <Key>
+      <PropertyRef Name="DesignationID" />
+    </Key>
+    <Property Name="DesignationID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="DesignationName" Type="nvarchar" MaxLength="100" />
+    <Property Name="DesignationDescription" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="YesEmployee">
+    <Key>
+      <PropertyRef Name="EmployeeID" />
+    </Key>
+    <Property Name="EmployeeID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeFirstName" Type="nvarchar" MaxLength="200" />
+    <Property Name="EmployeeMiddleName" Type="nvarchar" MaxLength="200" />
+    <Property Name="EmployeeLastName" Type="nvarchar" MaxLength="200" />
+    <Property Name="EmployeeMobileNo" Type="bigint" />
+    <Property Name="EmployeeAlternateMobileNo" Type="bigint" />
+    <Property Name="EmployeeEmailID" Type="nvarchar" MaxLength="500" />
+    <Property Name="EmployeeAddress1" Type="nvarchar" MaxLength="300" />
+    <Property Name="EmployeeAddress2" Type="nvarchar" MaxLength="300" />
+    <Property Name="EmployeeCity" Type="nvarchar" MaxLength="100" />
+    <Property Name="EmployeeDisctrict" Type="nvarchar" MaxLength="100" />
+    <Property Name="EmployeeState" Type="nvarchar" MaxLength="100" />
+    <Property Name="EmployeePinCode" Type="int" />
+    <Property Name="DesignationID" Type="int" />
+  </EntityType>
+  <EntityType Name="YesFee">
+    <Key>
+      <PropertyRef Name="FeeID" />
+    </Key>
+    <Property Name="FeeID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="FeeName" Type="nvarchar" MaxLength="200" />
+    <Property Name="FeeDescription" Type="nvarchar" MaxLength="500" />
+    <Property Name="FeeAmount" Type="money" />
+  </EntityType>
+  <EntityType Name="YesParent">
+    <Key>
+      <PropertyRef Name="ParentID" />
+    </Key>
+    <Property Name="ParentID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ParentFirstName" Type="nvarchar" MaxLength="200" />
+    <Property Name="ParentMiddleName" Type="nvarchar" MaxLength="200" />
+    <Property Name="ParentLastName" Type="nvarchar" MaxLength="200" />
+    <Property Name="ParentMobileNo" Type="bigint" />
+    <Property Name="ParentAlternateMobileNo" Type="bigint" />
+    <Property Name="ParentEmailID" Type="nvarchar" MaxLength="500" />
+    <Property Name="ParentAddress1" Type="nvarchar" MaxLength="300" />
+    <Property Name="ParentAddress2" Type="nvarchar" MaxLength="300" />
+    <Property Name="ParentCity" Type="nvarchar" MaxLength="100" />
+    <Property Name="ParentDisctrict" Type="nvarchar" MaxLength="100" />
+    <Property Name="ParentState" Type="nvarchar" MaxLength="100" />
+    <Property Name="ParentPinCode" Type="int" />
+    <Property Name="ParentOccupation" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="YesPrivilege">
+    <Key>
+      <PropertyRef Name="PrivilegeID" />
+    </Key>
+    <Property Name="PrivilegeID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="PrivilegeName" Type="nvarchar" MaxLength="100" />
+    <Property Name="PrivilegeDescription" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="YesStudent">
+    <Key>
+      <PropertyRef Name="StudentID" />
+    </Key>
+    <Property Name="StudentID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="StudentFirstName" Type="nvarchar" MaxLength="200" />
+    <Property Name="StudentMiddleName" Type="nvarchar" MaxLength="200" />
+    <Property Name="StudentLastName" Type="nvarchar" MaxLength="200" />
+    <Property Name="StudentRollNumber" Type="int" />
+    <Property Name="ParentID" Type="int" />
+    <Property Name="CourseID" Type="int" />
+  </EntityType>
+  <EntityType Name="YesUser">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="200" />
+    <Property Name="UserPassword" Type="nvarchar" MaxLength="200" />
+    <Property Name="FalseLoginCount" Type="smallint" />
+    <Property Name="EmployeeID" Type="int" />
+  </EntityType>
+  <EntityType Name="YesUserPrivilege">
+    <Key>
+      <PropertyRef Name="UserPrivilegeID" />
+    </Key>
+    <Property Name="UserPrivilegeID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="PrivilegeID" Type="int" />
+    <Property Name="UserID" Type="int" />
+  </EntityType>
+  <Association Name="FK_YesCourseFee_YesCourse">
+    <End Role="YesCourse" Type="YesModel.Store.YesCourse" Multiplicity="0..1" />
+    <End Role="YesCourseFee" Type="YesModel.Store.YesCourseFee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="YesCourse">
+        <PropertyRef Name="CourseID" />
+      </Principal>
+      <Dependent Role="YesCourseFee">
+        <PropertyRef Name="CourseID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_YesCourseFee_YesFee">
+    <End Role="YesFee" Type="YesModel.Store.YesFee" Multiplicity="0..1" />
+    <End Role="YesCourseFee" Type="YesModel.Store.YesCourseFee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="YesFee">
+        <PropertyRef Name="FeeID" />
+      </Principal>
+      <Dependent Role="YesCourseFee">
+        <PropertyRef Name="FeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_YesEmployee_YesDesignation">
+    <End Role="YesDesignation" Type="YesModel.Store.YesDesignation" Multiplicity="0..1" />
+    <End Role="YesEmployee" Type="YesModel.Store.YesEmployee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="YesDesignation">
+        <PropertyRef Name="DesignationID" />
+      </Principal>
+      <Dependent Role="YesEmployee">
+        <PropertyRef Name="DesignationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_YesStudent_YesCourse">
+    <End Role="YesCourse" Type="YesModel.Store.YesCourse" Multiplicity="0..1" />
+    <End Role="YesStudent" Type="YesModel.Store.YesStudent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="YesCourse">
+        <PropertyRef Name="CourseID" />
+      </Principal>
+      <Dependent Role="YesStudent">
+        <PropertyRef Name="CourseID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_YesStudent_YesParent">
+    <End Role="YesParent" Type="YesModel.Store.YesParent" Multiplicity="0..1" />
+    <End Role="YesStudent" Type="YesModel.Store.YesStudent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="YesParent">
+        <PropertyRef Name="ParentID" />
+      </Principal>
+      <Dependent Role="YesStudent">
+        <PropertyRef Name="ParentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_YesUser_YesEmployee">
+    <End Role="YesEmployee" Type="YesModel.Store.YesEmployee" Multiplicity="0..1" />
+    <End Role="YesUser" Type="YesModel.Store.YesUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="YesEmployee">
+        <PropertyRef Name="EmployeeID" />
+      </Principal>
+      <Dependent Role="YesUser">
+        <PropertyRef Name="EmployeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_YesUserPrivilege_YesPrivilege">
+    <End Role="YesPrivilege" Type="YesModel.Store.YesPrivilege" Multiplicity="0..1" />
+    <End Role="YesUserPrivilege" Type="YesModel.Store.YesUserPrivilege" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="YesPrivilege">
+        <PropertyRef Name="PrivilegeID" />
+      </Principal>
+      <Dependent Role="YesUserPrivilege">
+        <PropertyRef Name="PrivilegeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_YesUserPrivilege_YesUser">
+    <End Role="YesUser" Type="YesModel.Store.YesUser" Multiplicity="0..1" />
+    <End Role="YesUserPrivilege" Type="YesModel.Store.YesUserPrivilege" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="YesUser">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="YesUserPrivilege">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

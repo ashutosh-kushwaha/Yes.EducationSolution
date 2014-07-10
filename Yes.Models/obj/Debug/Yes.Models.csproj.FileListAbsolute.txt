@@ -1,0 +1,5 @@
+D:\Ashutosh\Google\School Management\Yes.Models\bin\Debug\Yes.Models.dll
+D:\Ashutosh\Google\School Management\Yes.Models\bin\Debug\Yes.Models.pdb
+D:\Ashutosh\Google\School Management\Yes.Models\obj\Debug\Yes.Models.csprojResolveAssemblyReference.cache
+D:\Ashutosh\Google\School Management\Yes.Models\obj\Debug\Yes.Models.dll
+D:\Ashutosh\Google\School Management\Yes.Models\obj\Debug\Yes.Models.pdb

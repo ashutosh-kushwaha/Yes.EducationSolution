@@ -1,0 +1,19 @@
+﻿
+yesApp.factory('EmployeesService', function ($http) {
+    return {
+        // Get all the list of employees from the web api call
+        getEmployees: function () {
+
+            $http({ method: 'GET', url: 'api/Employees/GetAllEmployees' }).
+            success(function (data, status, headers, config) {
+                // this callback will be called asynchronously
+                // when the response is available
+            }).
+            error(function (data, status, headers, config) {
+                // called asynchronously if an error occurs
+                // or server returns response with an error status.
+            });
+
+        }
+    }
+});
