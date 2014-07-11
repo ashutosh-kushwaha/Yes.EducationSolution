@@ -41,8 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Employees\DaoEmployees.cs" />
-    <Compile Include="Employees\IDaoEmployees.cs" />
+    <Compile Include="Employees\DaoEmployee.cs" />
+    <Compile Include="Employees\IDaoEmployee.cs" />
     <Compile Include="Login\DaoLogin.cs" />
     <Compile Include="Login\IDaoLogin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

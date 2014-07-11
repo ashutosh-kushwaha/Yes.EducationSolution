@@ -8,7 +8,6 @@
         <EntityTypeShape EntityType="YesModel.YesCourse" Width="1.5" PointX="5.75" PointY="9.375" IsExpanded="true" />
         <EntityTypeShape EntityType="YesModel.YesCourseFee" Width="1.5" PointX="8" PointY="9.375" IsExpanded="true" />
         <EntityTypeShape EntityType="YesModel.YesDesignation" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="YesModel.YesEmployee" Width="1.5" PointX="3" PointY="2.625" IsExpanded="true" />
         <EntityTypeShape EntityType="YesModel.YesFee" Width="1.5" PointX="5.75" PointY="12.375" IsExpanded="true" />
         <EntityTypeShape EntityType="YesModel.YesParent" Width="1.5" PointX="8.75" PointY="12.5" IsExpanded="true" />
         <EntityTypeShape EntityType="YesModel.YesPrivilege" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
@@ -18,11 +17,12 @@
         <AssociationConnector Association="YesModel.FK_YesCourseFee_YesCourse" ManuallyRouted="false" />
         <AssociationConnector Association="YesModel.FK_YesStudent_YesCourse" ManuallyRouted="false" />
         <AssociationConnector Association="YesModel.FK_YesCourseFee_YesFee" ManuallyRouted="false" />
-        <AssociationConnector Association="YesModel.FK_YesEmployee_YesDesignation" ManuallyRouted="false" />
-        <AssociationConnector Association="YesModel.FK_YesUser_YesEmployee" ManuallyRouted="false" />
         <AssociationConnector Association="YesModel.FK_YesStudent_YesParent" ManuallyRouted="false" />
         <AssociationConnector Association="YesModel.FK_YesUserPrivilege_YesPrivilege" ManuallyRouted="false" />
         <AssociationConnector Association="YesModel.FK_YesUserPrivilege_YesUser" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="YesModel.YesEmployee" Width="1.5" PointX="2.875" PointY="9.125" />
+        <AssociationConnector Association="YesModel.FK_YesEmployee_YesDesignation" />
+        <AssociationConnector Association="YesModel.FK_YesUser_YesEmployee" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

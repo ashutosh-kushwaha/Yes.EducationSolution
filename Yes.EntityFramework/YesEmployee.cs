@@ -23,8 +23,8 @@ namespace Yes.EntityFramework
         public string EmployeeFirstName { get; set; }
         public string EmployeeMiddleName { get; set; }
         public string EmployeeLastName { get; set; }
-        public Nullable<long> EmployeeMobileNo { get; set; }
-        public Nullable<long> EmployeeAlternateMobileNo { get; set; }
+        public string EmployeeMobileNo { get; set; }
+        public string EmployeeAlternateMobileNo { get; set; }
         public string EmployeeEmailID { get; set; }
         public string EmployeeAddress1 { get; set; }
         public string EmployeeAddress2 { get; set; }

@@ -1,6 +1,7 @@
 using System.Web.Mvc;
 using Microsoft.Practices.Unity;
 using Unity.Mvc4;
+using System.Web.Http;
 using Yes.DataAdaptder;
 using Yes.Service;
 namespace YES.Web
@@ -12,7 +13,10 @@ namespace YES.Web
       var container = BuildUnityContainer();
 
       DependencyResolver.SetResolver(new UnityDependencyResolver(container));
-
+      // register dependency resolver for WebAPI RC
+      GlobalConfiguration.Configuration.DependencyResolver = new Unity.WebApi.UnityDependencyResolver(container);
+      // if you still use the beta version - change above line to:
+      //GlobalConfiguration.Configuration.ServiceResolver.SetResolver(new Unity.WebApi.UnityDependencyResolver(container));
       return container;
     }
 
@@ -33,6 +37,9 @@ namespace YES.Web
     {
         container.RegisterType<ILoginService, LoginService>();
         container.RegisterType<IDaoLogin, DaoLogin>();
+
+        container.RegisterType<IEmployeeService, EmployeeService>();
+        container.RegisterType<IDaoEmployee, DaoEmployee>();
     }
   }
 }

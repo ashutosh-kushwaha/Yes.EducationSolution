@@ -1,22 +1,27 @@
-﻿using AttributeRouting;
-using AttributeRouting.Web.Mvc;
+﻿using Microsoft.Practices.Unity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using Yes.Models;
+using Yes.Service;
+using AttributeRouting;
+using AttributeRouting.Web.Mvc;
 
 namespace YES.Web.Controllers
 {
-    [RoutePrefix("api/Employees")]
+    [AttributeRouting.RoutePrefix("Api/Employee")]
     public class EmployeesApiController : ApiController
     {
-        
-        [GET("GetAllEmployees")]
-        public void GetAllEmployees()
+        [Dependency]
+        public IEmployeeService _employeeService { get; set; }
+
+        [AttributeRouting.Web.Mvc.Route("GetAllEmployees")]
+        public List<EmployeeModel> GetAllEmployees()
         {
-            
+            return _employeeService.GetAllEmployees();
         }
     }
 }

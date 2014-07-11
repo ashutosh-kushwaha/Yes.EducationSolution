@@ -76,8 +76,8 @@
     <Property Name="EmployeeFirstName" Type="nvarchar" MaxLength="200" />
     <Property Name="EmployeeMiddleName" Type="nvarchar" MaxLength="200" />
     <Property Name="EmployeeLastName" Type="nvarchar" MaxLength="200" />
-    <Property Name="EmployeeMobileNo" Type="bigint" />
-    <Property Name="EmployeeAlternateMobileNo" Type="bigint" />
+    <Property Name="EmployeeMobileNo" Type="nvarchar" MaxLength="10" />
+    <Property Name="EmployeeAlternateMobileNo" Type="nvarchar" MaxLength="10" />
     <Property Name="EmployeeEmailID" Type="nvarchar" MaxLength="500" />
     <Property Name="EmployeeAddress1" Type="nvarchar" MaxLength="300" />
     <Property Name="EmployeeAddress2" Type="nvarchar" MaxLength="300" />

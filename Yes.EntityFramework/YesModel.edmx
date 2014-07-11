@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="YesModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="YesModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityContainer Name="YesModelStoreContainer">
           <EntitySet Name="YesCourse" EntityType="YesModel.Store.YesCourse" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="YesCourseFee" EntityType="YesModel.Store.YesCourseFee" store:Type="Tables" Schema="dbo" />
@@ -81,8 +81,8 @@
           <Property Name="EmployeeFirstName" Type="nvarchar" MaxLength="200" />
           <Property Name="EmployeeMiddleName" Type="nvarchar" MaxLength="200" />
           <Property Name="EmployeeLastName" Type="nvarchar" MaxLength="200" />
-          <Property Name="EmployeeMobileNo" Type="bigint" />
-          <Property Name="EmployeeAlternateMobileNo" Type="bigint" />
+          <Property Name="EmployeeMobileNo" Type="nvarchar" MaxLength="10" />
+          <Property Name="EmployeeAlternateMobileNo" Type="nvarchar" MaxLength="10" />
           <Property Name="EmployeeEmailID" Type="nvarchar" MaxLength="500" />
           <Property Name="EmployeeAddress1" Type="nvarchar" MaxLength="300" />
           <Property Name="EmployeeAddress2" Type="nvarchar" MaxLength="300" />
@@ -254,8 +254,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="YesModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -263,7 +262,6 @@
           <EntitySet Name="YesCourses" EntityType="YesModel.YesCourse" />
           <EntitySet Name="YesCourseFees" EntityType="YesModel.YesCourseFee" />
           <EntitySet Name="YesDesignations" EntityType="YesModel.YesDesignation" />
-          <EntitySet Name="YesEmployees" EntityType="YesModel.YesEmployee" />
           <EntitySet Name="YesFees" EntityType="YesModel.YesFee" />
           <EntitySet Name="YesParents" EntityType="YesModel.YesParent" />
           <EntitySet Name="YesPrivileges" EntityType="YesModel.YesPrivilege" />
@@ -282,14 +280,6 @@
             <End Role="YesFee" EntitySet="YesFees" />
             <End Role="YesCourseFee" EntitySet="YesCourseFees" />
           </AssociationSet>
-          <AssociationSet Name="FK_YesEmployee_YesDesignation" Association="YesModel.FK_YesEmployee_YesDesignation">
-            <End Role="YesDesignation" EntitySet="YesDesignations" />
-            <End Role="YesEmployee" EntitySet="YesEmployees" />
-          </AssociationSet>
-          <AssociationSet Name="FK_YesUser_YesEmployee" Association="YesModel.FK_YesUser_YesEmployee">
-            <End Role="YesEmployee" EntitySet="YesEmployees" />
-            <End Role="YesUser" EntitySet="YesUsers" />
-          </AssociationSet>
           <AssociationSet Name="FK_YesStudent_YesParent" Association="YesModel.FK_YesStudent_YesParent">
             <End Role="YesParent" EntitySet="YesParents" />
             <End Role="YesStudent" EntitySet="YesStudents" />
@@ -301,6 +291,15 @@
           <AssociationSet Name="FK_YesUserPrivilege_YesUser" Association="YesModel.FK_YesUserPrivilege_YesUser">
             <End Role="YesUser" EntitySet="YesUsers" />
             <End Role="YesUserPrivilege" EntitySet="YesUserPrivileges" />
+          </AssociationSet>
+          <EntitySet Name="YesEmployees" EntityType="YesModel.YesEmployee" />
+          <AssociationSet Name="FK_YesEmployee_YesDesignation" Association="YesModel.FK_YesEmployee_YesDesignation">
+            <End Role="YesDesignation" EntitySet="YesDesignations" />
+            <End Role="YesEmployee" EntitySet="YesEmployees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_YesUser_YesEmployee" Association="YesModel.FK_YesUser_YesEmployee">
+            <End Role="YesEmployee" EntitySet="YesEmployees" />
+            <End Role="YesUser" EntitySet="YesUsers" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="YesCourse">
@@ -331,27 +330,6 @@
           <Property Name="DesignationName" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
           <Property Name="DesignationDescription" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
           <NavigationProperty Name="YesEmployees" Relationship="YesModel.FK_YesEmployee_YesDesignation" FromRole="YesDesignation" ToRole="YesEmployee" />
-        </EntityType>
-        <EntityType Name="YesEmployee">
-          <Key>
-            <PropertyRef Name="EmployeeID" />
-          </Key>
-          <Property Name="EmployeeID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <Property Name="EmployeeFirstName" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
-          <Property Name="EmployeeMiddleName" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
-          <Property Name="EmployeeLastName" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
-          <Property Name="EmployeeMobileNo" Type="Int64" />
-          <Property Name="EmployeeAlternateMobileNo" Type="Int64" />
-          <Property Name="EmployeeEmailID" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
-          <Property Name="EmployeeAddress1" Type="String" MaxLength="300" Unicode="true" FixedLength="false" />
-          <Property Name="EmployeeAddress2" Type="String" MaxLength="300" Unicode="true" FixedLength="false" />
-          <Property Name="EmployeeCity" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
-          <Property Name="EmployeeDisctrict" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
-          <Property Name="EmployeeState" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
-          <Property Name="EmployeePinCode" Type="Int32" />
-          <Property Name="DesignationID" Type="Int32" />
-          <NavigationProperty Name="YesDesignation" Relationship="YesModel.FK_YesEmployee_YesDesignation" FromRole="YesEmployee" ToRole="YesDesignation" />
-          <NavigationProperty Name="YesUsers" Relationship="YesModel.FK_YesUser_YesEmployee" FromRole="YesEmployee" ToRole="YesUser" />
         </EntityType>
         <EntityType Name="YesFee">
           <Key>
@@ -415,8 +393,8 @@
           <Property Name="UserPassword" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
           <Property Name="FalseLoginCount" Type="Int16" />
           <Property Name="EmployeeID" Type="Int32" />
-          <NavigationProperty Name="YesEmployee" Relationship="YesModel.FK_YesUser_YesEmployee" FromRole="YesUser" ToRole="YesEmployee" />
           <NavigationProperty Name="YesUserPrivileges" Relationship="YesModel.FK_YesUserPrivilege_YesUser" FromRole="YesUser" ToRole="YesUserPrivilege" />
+          <NavigationProperty Name="YesEmployee" Relationship="YesModel.FK_YesUser_YesEmployee" FromRole="YesUser" ToRole="YesEmployee" />
         </EntityType>
         <EntityType Name="YesUserPrivilege">
           <Key>
@@ -464,30 +442,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_YesEmployee_YesDesignation">
-          <End Role="YesDesignation" Type="YesModel.YesDesignation" Multiplicity="0..1" />
-          <End Role="YesEmployee" Type="YesModel.YesEmployee" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="YesDesignation">
-              <PropertyRef Name="DesignationID" />
-            </Principal>
-            <Dependent Role="YesEmployee">
-              <PropertyRef Name="DesignationID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_YesUser_YesEmployee">
-          <End Role="YesEmployee" Type="YesModel.YesEmployee" Multiplicity="0..1" />
-          <End Role="YesUser" Type="YesModel.YesUser" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="YesEmployee">
-              <PropertyRef Name="EmployeeID" />
-            </Principal>
-            <Dependent Role="YesUser">
-              <PropertyRef Name="EmployeeID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_YesStudent_YesParent">
           <End Role="YesParent" Type="YesModel.YesParent" Multiplicity="0..1" />
           <End Role="YesStudent" Type="YesModel.YesStudent" Multiplicity="*" />
@@ -524,6 +478,51 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="YesEmployee">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+          </Key>
+          <Property Type="Int32" Name="EmployeeID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="EmployeeFirstName" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="EmployeeMiddleName" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="EmployeeLastName" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="EmployeeMobileNo" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="EmployeeAlternateMobileNo" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="EmployeeEmailID" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="EmployeeAddress1" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="EmployeeAddress2" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="EmployeeCity" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="EmployeeDisctrict" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="EmployeeState" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="EmployeePinCode" />
+          <Property Type="Int32" Name="DesignationID" />
+          <NavigationProperty Name="YesDesignation" Relationship="YesModel.FK_YesEmployee_YesDesignation" FromRole="YesEmployee" ToRole="YesDesignation" />
+          <NavigationProperty Name="YesUsers" Relationship="YesModel.FK_YesUser_YesEmployee" FromRole="YesEmployee" ToRole="YesUser" />
+        </EntityType>
+        <Association Name="FK_YesEmployee_YesDesignation">
+          <End Type="YesModel.YesDesignation" Role="YesDesignation" Multiplicity="0..1" />
+          <End Type="YesModel.YesEmployee" Role="YesEmployee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="YesDesignation">
+              <PropertyRef Name="DesignationID" />
+            </Principal>
+            <Dependent Role="YesEmployee">
+              <PropertyRef Name="DesignationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_YesUser_YesEmployee">
+          <End Type="YesModel.YesEmployee" Role="YesEmployee" Multiplicity="0..1" />
+          <End Type="YesModel.YesUser" Role="YesUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="YesEmployee">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="YesUser">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -554,26 +553,6 @@
                 <ScalarProperty Name="DesignationID" ColumnName="DesignationID" />
                 <ScalarProperty Name="DesignationName" ColumnName="DesignationName" />
                 <ScalarProperty Name="DesignationDescription" ColumnName="DesignationDescription" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="YesEmployees">
-            <EntityTypeMapping TypeName="YesModel.YesEmployee">
-              <MappingFragment StoreEntitySet="YesEmployee">
-                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
-                <ScalarProperty Name="EmployeeFirstName" ColumnName="EmployeeFirstName" />
-                <ScalarProperty Name="EmployeeMiddleName" ColumnName="EmployeeMiddleName" />
-                <ScalarProperty Name="EmployeeLastName" ColumnName="EmployeeLastName" />
-                <ScalarProperty Name="EmployeeMobileNo" ColumnName="EmployeeMobileNo" />
-                <ScalarProperty Name="EmployeeAlternateMobileNo" ColumnName="EmployeeAlternateMobileNo" />
-                <ScalarProperty Name="EmployeeEmailID" ColumnName="EmployeeEmailID" />
-                <ScalarProperty Name="EmployeeAddress1" ColumnName="EmployeeAddress1" />
-                <ScalarProperty Name="EmployeeAddress2" ColumnName="EmployeeAddress2" />
-                <ScalarProperty Name="EmployeeCity" ColumnName="EmployeeCity" />
-                <ScalarProperty Name="EmployeeDisctrict" ColumnName="EmployeeDisctrict" />
-                <ScalarProperty Name="EmployeeState" ColumnName="EmployeeState" />
-                <ScalarProperty Name="EmployeePinCode" ColumnName="EmployeePinCode" />
-                <ScalarProperty Name="DesignationID" ColumnName="DesignationID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -646,6 +625,26 @@
                 <ScalarProperty Name="UserPrivilegeID" ColumnName="UserPrivilegeID" />
                 <ScalarProperty Name="PrivilegeID" ColumnName="PrivilegeID" />
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="YesEmployees">
+            <EntityTypeMapping TypeName="YesModel.YesEmployee">
+              <MappingFragment StoreEntitySet="YesEmployee">
+                <ScalarProperty Name="DesignationID" ColumnName="DesignationID" />
+                <ScalarProperty Name="EmployeePinCode" ColumnName="EmployeePinCode" />
+                <ScalarProperty Name="EmployeeState" ColumnName="EmployeeState" />
+                <ScalarProperty Name="EmployeeDisctrict" ColumnName="EmployeeDisctrict" />
+                <ScalarProperty Name="EmployeeCity" ColumnName="EmployeeCity" />
+                <ScalarProperty Name="EmployeeAddress2" ColumnName="EmployeeAddress2" />
+                <ScalarProperty Name="EmployeeAddress1" ColumnName="EmployeeAddress1" />
+                <ScalarProperty Name="EmployeeEmailID" ColumnName="EmployeeEmailID" />
+                <ScalarProperty Name="EmployeeAlternateMobileNo" ColumnName="EmployeeAlternateMobileNo" />
+                <ScalarProperty Name="EmployeeMobileNo" ColumnName="EmployeeMobileNo" />
+                <ScalarProperty Name="EmployeeLastName" ColumnName="EmployeeLastName" />
+                <ScalarProperty Name="EmployeeMiddleName" ColumnName="EmployeeMiddleName" />
+                <ScalarProperty Name="EmployeeFirstName" ColumnName="EmployeeFirstName" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -25,7 +25,7 @@ namespace Yes.EntityFramework
         public Nullable<short> FalseLoginCount { get; set; }
         public Nullable<int> EmployeeID { get; set; }
     
-        public virtual YesEmployee YesEmployee { get; set; }
         public virtual ICollection<YesUserPrivilege> YesUserPrivileges { get; set; }
+        public virtual YesEmployee YesEmployee { get; set; }
     }
 }
