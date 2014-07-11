@@ -6,3 +6,10 @@ D:\Ashutosh\Google\School Management\Yes.EntityFramework\bin\Debug\EntityFramewo
 D:\Ashutosh\Google\School Management\Yes.EntityFramework\obj\Debug\Yes.EntityFramework.dll
 D:\Ashutosh\Google\School Management\Yes.EntityFramework\obj\Debug\Yes.EntityFramework.pdb
 D:\Ashutosh\Google\School Management\Yes.EntityFramework\obj\Debug\Yes.EntityFramework.csprojResolveAssemblyReference.cache
+D:\Ashutosh\Google\Yes.EducationSolution\Yes.EntityFramework\bin\Debug\Yes.EntityFramework.dll.config
+D:\Ashutosh\Google\Yes.EducationSolution\Yes.EntityFramework\bin\Debug\Yes.EntityFramework.dll
+D:\Ashutosh\Google\Yes.EducationSolution\Yes.EntityFramework\bin\Debug\Yes.EntityFramework.pdb
+D:\Ashutosh\Google\Yes.EducationSolution\Yes.EntityFramework\bin\Debug\EntityFramework.dll
+D:\Ashutosh\Google\Yes.EducationSolution\Yes.EntityFramework\bin\Debug\EntityFramework.xml
+D:\Ashutosh\Google\Yes.EducationSolution\Yes.EntityFramework\obj\Debug\Yes.EntityFramework.dll
+D:\Ashutosh\Google\Yes.EducationSolution\Yes.EntityFramework\obj\Debug\Yes.EntityFramework.pdb

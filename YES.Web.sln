@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yes.Web", "YES.Web\Yes.Web.
 		{05093CC9-29E1-4845-973F-9FBF1D76B522} = {05093CC9-29E1-4845-973F-9FBF1D76B522}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yes.Modals", "Yes.Models\Yes.Modals.csproj", "{05093CC9-29E1-4845-973F-9FBF1D76B522}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yes.Models", "Yes.Models\Yes.Models.csproj", "{05093CC9-29E1-4845-973F-9FBF1D76B522}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yes.Service", "Yes.Service\Yes.Service.csproj", "{487B1332-1E79-4A91-B6F9-C2D8B793DA68}"
 	ProjectSection(ProjectDependencies) = postProject

@@ -15,3 +15,20 @@ D:\Ashutosh\Google\School Management\Yes.Service\bin\Debug\Yes.EntityFramework.p
 D:\Ashutosh\Google\School Management\Yes.Service\bin\Debug\EntityFramework.xml
 D:\Ashutosh\Google\School Management\Yes.Service\obj\Debug\Yes.Service.dll
 D:\Ashutosh\Google\School Management\Yes.Service\obj\Debug\Yes.Service.pdb
+D:\Ashutosh\Google\Yes.EducationSolution\Yes.Service\bin\Debug\Yes.Service.dll
+D:\Ashutosh\Google\Yes.EducationSolution\Yes.Service\bin\Debug\Yes.Service.pdb
+D:\Ashutosh\Google\Yes.EducationSolution\Yes.Service\bin\Debug\Microsoft.Practices.Unity.Configuration.dll
+D:\Ashutosh\Google\Yes.EducationSolution\Yes.Service\bin\Debug\Microsoft.Practices.Unity.dll
+D:\Ashutosh\Google\Yes.EducationSolution\Yes.Service\bin\Debug\Yes.DataAdaptder.dll
+D:\Ashutosh\Google\Yes.EducationSolution\Yes.Service\bin\Debug\Yes.Models.dll
+D:\Ashutosh\Google\Yes.EducationSolution\Yes.Service\bin\Debug\Yes.EntityFramework.dll
+D:\Ashutosh\Google\Yes.EducationSolution\Yes.Service\bin\Debug\EntityFramework.dll
+D:\Ashutosh\Google\Yes.EducationSolution\Yes.Service\bin\Debug\Yes.DataAdaptder.pdb
+D:\Ashutosh\Google\Yes.EducationSolution\Yes.Service\bin\Debug\Yes.Models.pdb
+D:\Ashutosh\Google\Yes.EducationSolution\Yes.Service\bin\Debug\Microsoft.Practices.Unity.xml
+D:\Ashutosh\Google\Yes.EducationSolution\Yes.Service\bin\Debug\Microsoft.Practices.Unity.Configuration.xml
+D:\Ashutosh\Google\Yes.EducationSolution\Yes.Service\bin\Debug\Yes.EntityFramework.pdb
+D:\Ashutosh\Google\Yes.EducationSolution\Yes.Service\bin\Debug\EntityFramework.xml
+D:\Ashutosh\Google\Yes.EducationSolution\Yes.Service\obj\Debug\Yes.Service.csprojResolveAssemblyReference.cache
+D:\Ashutosh\Google\Yes.EducationSolution\Yes.Service\obj\Debug\Yes.Service.dll
+D:\Ashutosh\Google\Yes.EducationSolution\Yes.Service\obj\Debug\Yes.Service.pdb

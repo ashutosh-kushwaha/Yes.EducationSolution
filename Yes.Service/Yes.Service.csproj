@@ -53,9 +53,9 @@
       <Project>{0d6123a2-7269-465d-ae3e-42fbf28aa9e9}</Project>
       <Name>Yes.DataAdapter</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Yes.Models\Yes.Modals.csproj">
+    <ProjectReference Include="..\Yes.Models\Yes.Models.csproj">
       <Project>{05093cc9-29e1-4845-973f-9fbf1d76b522}</Project>
-      <Name>Yes.Modals</Name>
+      <Name>Yes.Models</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

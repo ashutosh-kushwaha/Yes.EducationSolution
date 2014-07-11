@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Employees\DaoEmployees.cs" />
+    <Compile Include="Employees\IDaoEmployees.cs" />
     <Compile Include="Login\DaoLogin.cs" />
     <Compile Include="Login\IDaoLogin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -50,9 +52,9 @@
       <Project>{05adc4e3-ff02-4bae-957b-9c6b8d58c594}</Project>
       <Name>Yes.EntityFramework</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Yes.Models\Yes.Modals.csproj">
+    <ProjectReference Include="..\Yes.Models\Yes.Models.csproj">
       <Project>{05093cc9-29e1-4845-973f-9fbf1d76b522}</Project>
-      <Name>Yes.Modals</Name>
+      <Name>Yes.Models</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

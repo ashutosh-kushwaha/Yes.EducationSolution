@@ -7,7 +7,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 
-namespace YES.Web.Controllers.Employees
+namespace YES.Web.Controllers
 {
     [RoutePrefix("api/Employees")]
     public class EmployeesApiController : ApiController

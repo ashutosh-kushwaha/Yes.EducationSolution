@@ -4,7 +4,7 @@ yesApp.factory('EmployeesService', function ($http) {
         // Get all the list of employees from the web api call
         getEmployees: function () {
 
-            $http({ method: 'GET', url: 'api/Employees/GetAllEmployees' }).
+            $http({ method: 'GET', url: 'Api/Employees/GetAllEmployees' }).
             success(function (data, status, headers, config) {
                 // this callback will be called asynchronously
                 // when the response is available
@@ -15,5 +15,5 @@ yesApp.factory('EmployeesService', function ($http) {
             });
 
         }
-    }
+    };
 });
