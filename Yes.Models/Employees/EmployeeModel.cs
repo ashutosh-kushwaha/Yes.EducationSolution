@@ -23,6 +23,7 @@ namespace Yes.Models
         public string EmployeeState { get; set; }
         public Nullable<int> EmployeePinCode { get; set; }
         public Nullable<int> DesignationID { get; set; }
+        public string DesignationName { get; set; }
    
     }
 }

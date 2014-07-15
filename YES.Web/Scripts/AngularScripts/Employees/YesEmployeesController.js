@@ -1,9 +1,12 @@
 ﻿function EmployeeController($scope, EmployeesService) {
     $scope.Employees = [];
-    $scope.Create=function () {
-        //EmployeesService.getEmployees().then(function (response) {
-        //    console.log('success');
-        //});
-        EmployeesService.getEmployees();
-    } 
+
+    // ************************* Get All Employees List ********************************
+    $scope.GetAllEmployees=function () {
+        EmployeesService.getEmployees().then(function (response) {
+            $scope.Employees = response.data;
+        });
+    }
+    $scope.GetAllEmployees();
+    // ***************************Get All Employees List ************************************8
 }

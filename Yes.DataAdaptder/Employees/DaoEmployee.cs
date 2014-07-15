@@ -24,6 +24,7 @@ namespace Yes.DataAdaptder
                         Employees = new List<EmployeeModel>();
                        var Employee = new EmployeeModel();
                        Employee.DesignationID = employee.DesignationID;
+                       Employee.DesignationName = employee.YesDesignation.DesignationName;
                        Employee.EmployeeAddress1 = employee.EmployeeAddress1;
                        Employee.EmployeeAddress2 = employee.EmployeeAddress2;
                        Employee.EmployeeAlternateMobileNo = employee.EmployeeAlternateMobileNo;
