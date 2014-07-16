@@ -18,10 +18,10 @@ namespace Yes.DataAdaptder
                 {
                     var employees = context.YesEmployees.Select(c => c).ToList();
                     List<EmployeeModel> Employees = null;
+                    Employees = new List<EmployeeModel>();
                     if (employees!=null)
                     foreach (var employee in employees)
                     {
-                        Employees = new List<EmployeeModel>();
                        var Employee = new EmployeeModel();
                        Employee.DesignationID = employee.DesignationID;
                        Employee.DesignationName = employee.YesDesignation.DesignationName;
