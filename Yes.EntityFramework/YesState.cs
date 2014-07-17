@@ -12,20 +12,17 @@ namespace Yes.EntityFramework
     using System;
     using System.Collections.Generic;
     
-    public partial class YesUser
+    public partial class YesState
     {
-        public YesUser()
+        public YesState()
         {
-            this.YesUserPrivileges = new HashSet<YesUserPrivilege>();
+            this.YesDistricts = new HashSet<YesDistrict>();
         }
     
-        public int UserID { get; set; }
-        public string UserName { get; set; }
-        public string UserPassword { get; set; }
-        public Nullable<short> FalseLoginCount { get; set; }
-        public Nullable<int> EmployeeID { get; set; }
+        public int StateID { get; set; }
+        public string StateName { get; set; }
+        public string StateDescription { get; set; }
     
-        public virtual YesEmployee YesEmployee { get; set; }
-        public virtual ICollection<YesUserPrivilege> YesUserPrivileges { get; set; }
+        public virtual ICollection<YesDistrict> YesDistricts { get; set; }
     }
 }

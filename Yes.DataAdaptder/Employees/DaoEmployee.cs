@@ -25,19 +25,19 @@ namespace Yes.DataAdaptder
                        var Employee = new EmployeeModel();
                        Employee.DesignationID = employee.DesignationID;
                        Employee.DesignationName = employee.YesDesignation.DesignationName;
-                       Employee.EmployeeAddress1 = employee.EmployeeAddress1;
-                       Employee.EmployeeAddress2 = employee.EmployeeAddress2;
-                       Employee.EmployeeAlternateMobileNo = employee.EmployeeAlternateMobileNo;
-                       Employee.EmployeeCity = employee.EmployeeCity;
-                       Employee.EmployeeDisctrict = employee.EmployeeDisctrict;
-                       Employee.EmployeeEmailID = employee.EmployeeEmailID;
-                       Employee.EmployeeFirstName = employee.EmployeeFirstName;
-                       Employee.EmployeeID = employee.EmployeeID;
-                       Employee.EmployeeLastName = employee.EmployeeLastName;
-                       Employee.EmployeeMiddleName = employee.EmployeeMiddleName;
-                       Employee.EmployeeMobileNo = employee.EmployeeMobileNo;
-                       Employee.EmployeePinCode = employee.EmployeePinCode;
-                       Employee.EmployeeState = employee.EmployeeState;
+                       Employee.Address1 = employee.EmployeeAddress1;
+                       Employee.Address2 = employee.EmployeeAddress2;
+                       Employee.AlternateMobileNo = employee.EmployeeAlternateMobileNo;
+                       Employee.City = employee.EmployeeCity;
+                       Employee.Disctrict = employee.EmployeeDisctrict;
+                       Employee.EmailID = employee.EmployeeEmailID;
+                       Employee.FirstName = employee.EmployeeFirstName;
+                       Employee.ID = employee.EmployeeID;
+                       Employee.LastName = employee.EmployeeLastName;
+                       Employee.MiddleName = employee.EmployeeMiddleName;
+                       Employee.MobileNo = employee.EmployeeMobileNo;
+                       Employee.PinCode = employee.EmployeePinCode;
+                       Employee.State = employee.EmployeeState;
 
                        Employees.Add(Employee);
                     }
@@ -48,6 +48,38 @@ namespace Yes.DataAdaptder
             catch (Exception ex)
             {
                 return null;
+            }
+        }
+
+
+        public int CreateEmployee(EmployeeModel NewEmployee, int SchoolID = 0)
+        {
+            try
+            {
+                using (YesEntities context = new YesEntities())
+                {
+                    var newEmployee = new YesEmployee();
+                    newEmployee.DesignationID = NewEmployee.DesignationID;
+                    newEmployee.EmployeeAddress1 = NewEmployee.Address1;
+                    newEmployee.EmployeeAddress2 = NewEmployee.Address2;
+                    newEmployee.EmployeeAlternateMobileNo = NewEmployee.AlternateMobileNo;
+                    newEmployee.EmployeeCity = NewEmployee.City;
+                    newEmployee.EmployeeDisctrict = NewEmployee.Disctrict;
+                    newEmployee.EmployeeEmailID = NewEmployee.EmailID;
+                    newEmployee.EmployeeFirstName = NewEmployee.FirstName;
+                    newEmployee.EmployeeMiddleName = NewEmployee.MiddleName;
+                    newEmployee.EmployeeMobileNo = NewEmployee.MobileNo;
+                    newEmployee.EmployeePinCode = NewEmployee.PinCode;
+                    newEmployee.EmployeeState = NewEmployee.State;
+
+                    context.YesEmployees.Add(newEmployee);
+                    context.SaveChanges();
+                    return newEmployee.EmployeeID;
+                }
+            }
+            catch (Exception ex)
+            {
+                return 0;
             }
         }
     }

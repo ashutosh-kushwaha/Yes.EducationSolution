@@ -12,19 +12,21 @@ namespace Yes.EntityFramework
     using System;
     using System.Collections.Generic;
     
-    public partial class YesStudent
+    public partial class YesSchool
     {
-        public int StudentID { get; set; }
-        public string StudentFirstName { get; set; }
-        public string StudentMiddleName { get; set; }
-        public string StudentLastName { get; set; }
-        public Nullable<int> StudentRollNumber { get; set; }
-        public Nullable<int> ParentID { get; set; }
-        public Nullable<int> CourseID { get; set; }
-        public int SchoolID { get; set; }
+        public YesSchool()
+        {
+            this.YesEmployees = new HashSet<YesEmployee>();
+            this.YesStudents = new HashSet<YesStudent>();
+        }
     
-        public virtual YesCourse YesCourse { get; set; }
-        public virtual YesParent YesParent { get; set; }
-        public virtual YesSchool YesSchool { get; set; }
+        public int SchoolID { get; set; }
+        public string SchoolName { get; set; }
+        public string SchoolAddress1 { get; set; }
+        public string SchoolAddress2 { get; set; }
+        public Nullable<int> SchoolEstiblishmentYear { get; set; }
+    
+        public virtual ICollection<YesEmployee> YesEmployees { get; set; }
+        public virtual ICollection<YesStudent> YesStudents { get; set; }
     }
 }

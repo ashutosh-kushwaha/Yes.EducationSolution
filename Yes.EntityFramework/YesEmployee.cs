@@ -33,8 +33,10 @@ namespace Yes.EntityFramework
         public string EmployeeState { get; set; }
         public Nullable<int> EmployeePinCode { get; set; }
         public Nullable<int> DesignationID { get; set; }
+        public Nullable<int> SchoolID { get; set; }
     
         public virtual YesDesignation YesDesignation { get; set; }
+        public virtual YesSchool YesSchool { get; set; }
         public virtual ICollection<YesUser> YesUsers { get; set; }
     }
 }

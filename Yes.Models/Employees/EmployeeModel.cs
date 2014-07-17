@@ -9,19 +9,19 @@ namespace Yes.Models
 {
     public class EmployeeModel
     {
-        public int EmployeeID { get; set; }
-        public string EmployeeFirstName { get; set; }
-        public string EmployeeMiddleName { get; set; }
-        public string EmployeeLastName { get; set; }
-        public string EmployeeMobileNo { get; set; }
-        public string EmployeeAlternateMobileNo { get; set; }
-        public string EmployeeEmailID { get; set; }
-        public string EmployeeAddress1 { get; set; }
-        public string EmployeeAddress2 { get; set; }
-        public string EmployeeCity { get; set; }
-        public string EmployeeDisctrict { get; set; }
-        public string EmployeeState { get; set; }
-        public Nullable<int> EmployeePinCode { get; set; }
+        public int ID { get; set; }
+        public string FirstName { get; set; }
+        public string MiddleName { get; set; }
+        public string LastName { get; set; }
+        public string MobileNo { get; set; }
+        public string AlternateMobileNo { get; set; }
+        public string EmailID { get; set; }
+        public string Address1 { get; set; }
+        public string Address2 { get; set; }
+        public string City { get; set; }
+        public string Disctrict { get; set; }
+        public string State { get; set; }
+        public Nullable<int> PinCode { get; set; }
         public Nullable<int> DesignationID { get; set; }
         public string DesignationName { get; set; }
    

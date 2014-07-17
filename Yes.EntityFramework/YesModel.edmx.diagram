@@ -5,24 +5,30 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="68d61df32cb740a8b4d82bf21d26d879" Name="Diagram1">
-        <EntityTypeShape EntityType="YesModel.YesCourse" Width="1.5" PointX="5.75" PointY="9.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="YesModel.YesCourseFee" Width="1.5" PointX="8" PointY="9.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="YesModel.YesDesignation" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="YesModel.YesFee" Width="1.5" PointX="5.75" PointY="12.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="YesModel.YesParent" Width="1.5" PointX="8.75" PointY="12.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="YesModel.YesPrivilege" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="YesModel.YesStudent" Width="1.5" PointX="11" PointY="9" IsExpanded="true" />
-        <EntityTypeShape EntityType="YesModel.YesUser" Width="1.5" PointX="5.25" PointY="3.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="YesModel.YesUserPrivilege" Width="1.5" PointX="7.5" PointY="3.625" IsExpanded="true" />
-        <AssociationConnector Association="YesModel.FK_YesCourseFee_YesCourse" ManuallyRouted="false" />
-        <AssociationConnector Association="YesModel.FK_YesStudent_YesCourse" ManuallyRouted="false" />
-        <AssociationConnector Association="YesModel.FK_YesCourseFee_YesFee" ManuallyRouted="false" />
-        <AssociationConnector Association="YesModel.FK_YesStudent_YesParent" ManuallyRouted="false" />
-        <AssociationConnector Association="YesModel.FK_YesUserPrivilege_YesPrivilege" ManuallyRouted="false" />
-        <AssociationConnector Association="YesModel.FK_YesUserPrivilege_YesUser" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="YesModel.YesEmployee" Width="1.5" PointX="2.875" PointY="9.125" />
+        <EntityTypeShape EntityType="YesModel.YesCourse" Width="1.5" PointX="3.5828528830701734" PointY="21.488639945857525" />
+        <EntityTypeShape EntityType="YesModel.YesCourseFee" Width="1.5" PointX="4.7617301534683119" PointY="8.7712378542736342" />
+        <EntityTypeShape EntityType="YesModel.YesDesignation" Width="1.5" PointX="0.866738168926322" PointY="22.454403202261034" />
+        <EntityTypeShape EntityType="YesModel.YesDistrict" Width="1.5" PointX="6.1053428734211916" PointY="26.048318994254021" />
+        <EntityTypeShape EntityType="YesModel.YesEmployee" Width="1.5" PointX="9.122990485803685" PointY="23.092553507114086" />
+        <EntityTypeShape EntityType="YesModel.YesFee" Width="1.5" PointX="0.40875105206330825" PointY="18.791658708263029" />
+        <EntityTypeShape EntityType="YesModel.YesParent" Width="1.5" PointX="10.073219205286922" PointY="11.219775503137976" />
+        <EntityTypeShape EntityType="YesModel.YesPrivilege" Width="1.5" PointX="5.7542303026440695" PointY="20.819144184151266" />
+        <EntityTypeShape EntityType="YesModel.YesSchool" Width="1.5" PointX="1.1532950872337888" PointY="21.253964389326967" />
+        <EntityTypeShape EntityType="YesModel.YesState" Width="1.5" PointX="7.0418212763228549" PointY="15.755978830045079" />
+        <EntityTypeShape EntityType="YesModel.YesStudent" Width="1.5" PointX="3.9283257964664724" PointY="15.419434971837063" />
+        <EntityTypeShape EntityType="YesModel.YesUser" Width="1.5" PointX="2.6036064841801334" PointY="23.2445174712895" />
+        <EntityTypeShape EntityType="YesModel.YesUserPrivilege" Width="1.5" PointX="8.509720219536554" PointY="13.652579015890407" />
+        <AssociationConnector Association="YesModel.FK_YesCourseFee_YesCourse" />
+        <AssociationConnector Association="YesModel.FK_YesStudent_YesCourse" />
+        <AssociationConnector Association="YesModel.FK_YesCourseFee_YesFee" />
         <AssociationConnector Association="YesModel.FK_YesEmployee_YesDesignation" />
+        <AssociationConnector Association="YesModel.FK_YesDistrict_YesState" />
+        <AssociationConnector Association="YesModel.FK_YesEmployee_YesSchool" />
         <AssociationConnector Association="YesModel.FK_YesUser_YesEmployee" />
+        <AssociationConnector Association="YesModel.FK_YesStudent_YesParent" />
+        <AssociationConnector Association="YesModel.FK_YesUserPrivilege_YesPrivilege" />
+        <AssociationConnector Association="YesModel.FK_YesStudent_YesSchool" />
+        <AssociationConnector Association="YesModel.FK_YesUserPrivilege_YesUser" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

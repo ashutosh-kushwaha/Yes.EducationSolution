@@ -55,6 +55,9 @@
     <Compile Include="YesDesignation.cs">
       <DependentUpon>YesModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="YesDistrict.cs">
+      <DependentUpon>YesModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="YesEmployee.cs">
       <DependentUpon>YesModel.tt</DependentUpon>
     </Compile>
@@ -80,6 +83,12 @@
       <DependentUpon>YesModel.tt</DependentUpon>
     </Compile>
     <Compile Include="YesPrivilege.cs">
+      <DependentUpon>YesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="YesSchool.cs">
+      <DependentUpon>YesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="YesState.cs">
       <DependentUpon>YesModel.tt</DependentUpon>
     </Compile>
     <Compile Include="YesStudent.cs">

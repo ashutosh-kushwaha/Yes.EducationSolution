@@ -10,5 +10,6 @@ namespace Yes.DataAdaptder
     public interface IDaoEmployee
     {
         List<EmployeeModel> GetAllEmployees(int SchoolID=0);
+        int CreateEmployee(EmployeeModel NewEmployee, int SchoolID=0);
     }
 }

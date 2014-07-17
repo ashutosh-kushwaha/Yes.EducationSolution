@@ -3,7 +3,8 @@
     $scope.NewEmployee = {};
     // ************************* Get All Employees List ********************************
     $scope.GetAllEmployees=function () {
-        EmployeesService.getEmployees().then(function (response) {
+        EmployeesService.GetEmployees().then(function (response) {
+            if(response.status===200)
             $scope.Employees = response.data;
         });
     }
@@ -11,8 +12,11 @@
     // ***************************Get All Employees List ************************************
 
     //***************************Create Employee start ************************************
-    $scope.CreateEmployee = function () {
-    
+    $scope.SaveEmployeeDetails = function (NewEmployee) {
+        EmployeesService.GetEmployees(NewEmployee).then(function (response) {
+            if (response.status === 200)
+                $('#employee-modal').modal('hide');
+        });
     }
 
     //**************************Create Employee end ***************************************
