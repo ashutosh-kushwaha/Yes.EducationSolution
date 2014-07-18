@@ -18,6 +18,9 @@ namespace YES.Web.Controllers
         [Dependency]
         public IEmployeeService _employeeService { get; set; }
 
+        [Dependency]
+        public IStateDistrictService _stateDistrictService { get; set; }
+
         [AttributeRouting.Web.Mvc.Route("GetAllEmployees")]
         public List<EmployeeModel> GetAllEmployees()
         {
@@ -29,5 +32,6 @@ namespace YES.Web.Controllers
         {
             return 0;
         }
+
     }
 }
