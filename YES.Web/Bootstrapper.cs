@@ -40,6 +40,9 @@ namespace YES.Web
 
         container.RegisterType<IEmployeeService, EmployeeService>();
         container.RegisterType<IDaoEmployee, DaoEmployee>();
+
+        container.RegisterType<IStateDistrictService, StateDistrictService>();
+        container.RegisterType<IDaoStateDistrict, DaoStateDistrict>();
     }
   }
 }

@@ -20,5 +20,11 @@ namespace YES.Web.Controllers
         {
             return _stateDistrictService.GetStatesList();
         }
+
+        [AttributeRouting.Web.Mvc.Route("GetAllDistricts/{StateID}")]
+        public IEnumerable<KeyValuePair<int, string>> GetAllDistricts(int StateID)
+        {
+            return _stateDistrictService.GetDistrictList(StateID);
+        }
     }
 }

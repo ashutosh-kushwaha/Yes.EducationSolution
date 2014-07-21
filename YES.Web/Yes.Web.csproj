@@ -542,6 +542,7 @@
     <Content Include="Scripts\jquery-2.1.0.js" />
     <Content Include="Scripts\jquery-2.1.0.min.js" />
     <Content Include="Scripts\jquery-2.1.0.min.map" />
+    <Content Include="Scripts\YesLoadingScreen.js" />
     <Content Include="Unity.Mvc4.README.txt" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>

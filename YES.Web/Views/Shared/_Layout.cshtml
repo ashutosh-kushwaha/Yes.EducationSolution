@@ -18,6 +18,7 @@
      <script src="../Scripts/angular.min.js"></script>
     <script src="../Scripts/AngularScripts/YesLayoutController.js"></script>
 
+
 </head>
 <body class="skin-blue" ng-controller="LayoutController">
     <!-- header logo: style can be found in header.less -->
@@ -404,13 +405,23 @@
         <!-- /.right-side -->
     </div>
     <!-- ./wrapper -->
+    <div class="modal fade" id="pleaseWaitDialog" data-backdrop="static" data-keyboard="false">
+        <div class="modal-header">
+            <h1>Processing...</h1>
+        </div>
+        <div class="modal-body">
+            <div class="progress progress-striped active">
+                <div class="bar" style="width: 100%;"></div>
+            </div>
+        </div>
+    </div>
 
 
     <!-- jQuery 2.1.0 -->
     <script src="../Scripts/jquery-2.1.0.min.js"></script>
     <!-- Bootstrap -->
     <script src="../Scripts/bootstrap.js"></script>
-    @*<script src="../Scripts/AdminLTE/app.js"></script>*@
-         
+    <!-- Showing screen busy    -->
+    <script src="~/Scripts/YesLoadingScreen.js"></script> 
 </body>
 </html>

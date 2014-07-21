@@ -14,7 +14,7 @@
         <!-- /.box-header -->
         <div class="box-body table-responsive no-padding">
             <div class="box-tools row tableHeader">
-                <button type="button" class="btn btn-primary col-md-1 col-sm-1" title="Create new employee record" data-target="#employee-modal" data-toggle="modal" ng-click="CreateEmployee()">Create</button>
+                <button type="button" class="btn btn-primary col-md-1 col-sm-1" ng-click="OpenCreateEmployeeModalPopup()" title="Create new employee record" data-target="#employee-modal" data-toggle="modal" ng-click="CreateEmployee()">Create</button>
                 <div class="input-group col-md-11 col-sm-11">
                     <input type="text" name="table_search" class="form-control input-sm pull-right" style="width: 150px;" placeholder="Search" />
                     <div class="input-group-btn">
@@ -49,34 +49,44 @@
         <!-- /.box-body -->
     </div>
 
-     <!-- EMPLOYEE CREATE MODAL -->
-        <div class="modal fade" id="employee-modal" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title"><i class="fa fa-envelope-o"></i> Create New Employee</h4>
-                    </div>
-                    <form action="#" method="post">
-                        <div class="modal-body  box box-warning">
-                              @*  <div class="box-header">
+    <!-- EMPLOYEE CREATE MODAL -->
+    <div class="modal fade" id="employee-modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title"><i class="fa fa-user"></i> Create New Employee</h4>
+                </div>
+                <div class="modal-body  box box-warning">
+                    @*  <div class="box-header">
                                     <h3 class="box-title">General Elements</h3>
                                 </div><!-- /.box-header -->*@
-                                <div class="box-body">
-                                    <form role="form">
-                                        <!-- text input -->
+                    <div class="box-body">
+                        <form role="form">
+                            <table width="100%">
+                                <tr class="row">
+                                    <td class="col-md-6">
                                         <div class="form-group">
                                             <label>First Name</label>
-                                            <input type="text" class="form-control" placeholder="Enter ..." ng-model="NewEmployee.FirstName"/>
+                                            <input type="text" class="form-control" placeholder="Enter ..." ng-model="NewEmployee.FirstName" />
                                         </div>
+                                    </td>
+
+                                    <td class="col-md-6">
                                         <div class="form-group">
                                             <label>Middle Name</label>
                                             <input type="text" class="form-control" placeholder="Enter ..." ng-model="NewEmployee.MiddleName" />
                                         </div>
+                                    </td>
+                                </tr>
+                                <tr class="row">
+                                    <td class="col-md-6">
                                         <div class="form-group">
                                             <label>Last Name</label>
-                                            <input type="text" class="form-control" placeholder="Enter ..." ng-model="NewEmployee.LastName"/>
+                                            <input type="text" class="form-control" placeholder="Enter ..." ng-model="NewEmployee.LastName" />
                                         </div>
+                                    </td>
+                                    <td class="col-md-6">
                                         <div class="form-group">
                                             <label>Designation</label>
                                             <select class="form-control" ng-model="NewEmployee.DesignationID">
@@ -87,72 +97,93 @@
                                                 <option>Delhi</option>
                                             </select>
                                         </div>
+                                    </td>
+                                </tr>
+                                <tr class="row">
+                                    <td class="col-md-6">
                                         <div class="form-group">
                                             <label>Mobile Phone No.</label>
-                                            <input type="text" class="form-control" placeholder="Enter ..." ng-model="NewEmployee.MobileNo"/>
+                                            <input type="text" class="form-control" placeholder="Enter ..." ng-model="NewEmployee.MobileNo" />
                                         </div>
+                                    </td>
+                                    <td class="col-md-6">
                                         <div class="form-group">
                                             <label>Alternate Phone No.</label>
-                                            <input type="text" class="form-control" placeholder="Enter ..." ng-model="NewEmployee.AlternateMobileNo"/>
+                                            <input type="text" class="form-control" placeholder="Enter ..." ng-model="NewEmployee.AlternateMobileNo" />
                                         </div>
+                                    </td>
+                                </tr>
+                                <tr class="row">
+                                    <td class="col-md-6">
                                         <div class="form-group">
                                             <label>Email Address</label>
-                                            <input type="text" class="form-control" placeholder="Enter ..." ng-model="NewEmployee.EmailId"/>
+                                            <input type="text" class="form-control" placeholder="Enter ..." ng-model="NewEmployee.EmailId" />
                                         </div>
-                                        <!-- textarea -->
+                                    </td>
+                                    <td class="col-md-6">
+                                        <div class="form-group">
+                                            <label>State</label>
+                                            <select class="form-control" ng-model="NewEmployee.StateID" ng-change="GetAllDistricts(NewEmployee.StateID)">
+                                                <option value="{{state.Key}}" ng-repeat="state in States">{{state.Value}}</option>
+                                                
+                                            </select>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="row">
+                                    <td class="col-md-6">
+                                        <div class="form-group">
+                                            <label>District</label>
+                                            <select class="form-control" ng-model="NewEmployee.DistrictID">
+                                                 <option value="{{district.Key}}" ng-repeat="district in Districts">{{district.Value}}</option>
+                                               
+                                            </select>
+                                        </div>
+                                    </td>
+                                    <td class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Pin</label>
+                                            <input type="text" class="form-control" placeholder="Enter ..." ng-model="NewEmployee.PinCode" />
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="row">
+                                    <td class="col-md-6">
                                         <div class="form-group">
                                             <label>Address Line1</label>
                                             <textarea class="form-control" rows="3" placeholder="Enter ..." ng-model="NewEmployee.Address1"></textarea>
                                         </div>
+                                    </td>
+                                    <td class="col-md-6">
                                         <div class="form-group">
                                             <label>Address Lin2</label>
                                             <textarea class="form-control" rows="3" placeholder="Enter ..." ng-model="NewEmployee.Address2"></textarea>
                                         </div>
 
-                                      
-                                        <!-- select -->
-                                        <div class="form-group">
-                                            <label>State</label>
-                                            <select class="form-control" ng-model="NewEmployee.StateID">
-                                                <option>Utter Pradesh</option>
-                                                <option>Bihar</option>
-                                                <option>Jharkhand</option>
-                                                <option>Uttranchal</option>
-                                                <option>Delhi</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>District</label>
-                                            <select class="form-control" ng-model="NewEmployee.DistrictID" >
-                                                <option>Disctrict 1</option>
-                                                <option>Disctrict 2</option>
-                                                <option>Disctrict 3</option>
-                                                <option>Disctrict 4</option>
-                                                <option>Disctrict 5</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Pin</label>
-                                            <input type="text" class="form-control" placeholder="Enter ..." ng-model="NewEmployee.PinCode"/>
-                                        </div>
-                                       
-                                    </form>
-                                </div><!-- /.box-body -->
-                      
-                        </div>
-                        <div class="modal-footer clearfix">
+                                    </td>
+                                </tr>
+                            </table>
+                        </form>
+                    </div>
+                    <!-- /.box-body -->
 
-                            <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> Discard</button>
+                </div>
+                <div class="modal-footer clearfix">
 
-                            <button type="submit" class="btn btn-primary pull-left" ng-click="SaveEmployeeDetails(NewEmployee)"><i class="fa fa-envelope"></i> Send Message</button>
-                        </div>
-                    </form>
-                </div><!-- /.modal-content -->
-            </div><!-- /.modal-dialog -->
-        </div><!-- /.modal -->
+                    <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i>Discard</button>
+
+                    <button type="submit" class="btn btn-primary pull-left" ng-click="SaveEmployeeDetails(NewEmployee)"><i class="fa fa-user"></i> Save</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
 </section>
 
 
 <script src="../Scripts/AngularScripts/Employees/YesEmployeesService.js"></script>
+<script src="~/Scripts/AngularScripts/State_District/YesStateDistrictService.js"></script>
 <script src="../Scripts/AngularScripts/Employees/YesEmployeesController.js"></script>
 

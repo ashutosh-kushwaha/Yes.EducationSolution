@@ -12,7 +12,7 @@ using AttributeRouting.Web.Mvc;
 
 namespace YES.Web.Controllers
 {
-    [AttributeRouting.RoutePrefix("Api/Employee")]
+    [AttributeRouting.RoutePrefix("api/Employee")]
     public class EmployeesApiController : ApiController
     {
         [Dependency]
