@@ -3,12 +3,14 @@
     $scope.NewEmployee = {};
     $scope.States = [];
     $scope.Districs = [];
+    $scope.Designations = [];
     // ************************* Get All Employees List *************************************
     $scope.GetAllEmployees = function () {
-        //  myApp.showPleaseWait();
+        myApp.showPleaseWait();
         EmployeesService.GetEmployees().then(function (response) {
             if (response.status === 200)
                 $scope.Employees = response.data;
+            myApp.hidePleaseWait();
         });
     }
     $scope.GetAllEmployees();
@@ -55,6 +57,21 @@
     $scope.OpenCreateEmployeeModalPopup = function () {
 
         $scope.GetAllStates();
+        $scope.GetAllDesignations();
     }
     //************************Open create employee modal popup end ***************************
+    //*************************Get list of all designations start***********************************
+    $scope.GetAllDesignations = function () {
+        EmployeesService.GetAllDesignations().then(function (response) {
+            if (response.status == 200) {
+                $scope.Designations = response.data;
+                if ($scope.Designations.length > 0) {
+                    $scope.NewEmployee.DesignationID = $scope.StatesDesignations[0].Key; //Set default designation
+                }
+            }
+
+        });
+    }
+    // ************************Get list of all designations end ************************************
+
 }

@@ -33,5 +33,11 @@ namespace YES.Web.Controllers
             return 0;
         }
 
+        [AttributeRouting.Web.Mvc.Route("GetAllDesignations")]
+        public IEnumerable<KeyValuePair<int,string>> GetAllDesignations()
+        {
+            return _employeeService.GetAllDesignations();
+        }
+
     }
 }

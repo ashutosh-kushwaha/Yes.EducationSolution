@@ -90,11 +90,7 @@
                                         <div class="form-group">
                                             <label>Designation</label>
                                             <select class="form-control" ng-model="NewEmployee.DesignationID">
-                                                <option>Utter Pradesh</option>
-                                                <option>Bihar</option>
-                                                <option>Jharkhand</option>
-                                                <option>Uttranchal</option>
-                                                <option>Delhi</option>
+                                                 <option value="{{designation.Key}}" ng-repeat="designation in Designations">{{designation.Value}}</option>
                                             </select>
                                         </div>
                                     </td>

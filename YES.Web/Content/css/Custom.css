@@ -1,10 +1,22 @@
 ﻿.ContentPage {
-    background-color:white;
+    background-color: white;
 }
+
 .tableHeader {
-    margin:5px 0px 7px 0px;
+    margin: 5px 0px 7px 0px;
 }
 
 .cursorPointer {
-    cursor:pointer;
+    cursor: pointer;
+}
+
+#pleaseWaitImage {
+    background-color: white;
+    height: 150px;
+    width: 200px;
+    position: fixed;
+    z-index: 100000;
+    left: 50%;
+    top: 50%;
+    margin: -25px 0 0 -25px;
 }

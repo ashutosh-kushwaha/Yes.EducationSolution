@@ -10,5 +10,6 @@ namespace Yes.Service
     public interface IEmployeeService
     {
         List<EmployeeModel> GetAllEmployees();
+        IEnumerable<KeyValuePair<int, string>> GetAllDesignations();
     }
 }

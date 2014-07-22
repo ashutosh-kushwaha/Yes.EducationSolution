@@ -10,6 +10,11 @@ namespace Yes.DataAdaptder
 {
     public class DaoEmployee : IDaoEmployee
     {
+        /// <summary>
+        /// Get all the employees for a school. Currently it is not associated with school
+        /// </summary>
+        /// <param name="SchoolID"></param>
+        /// <returns>List of employees</returns>
         public List<EmployeeModel> GetAllEmployees(int SchoolID = 0)
         {
             try
@@ -19,28 +24,28 @@ namespace Yes.DataAdaptder
                     var employees = context.YesEmployees.Select(c => c).ToList();
                     List<EmployeeModel> Employees = null;
                     Employees = new List<EmployeeModel>();
-                    if (employees!=null)
-                    foreach (var employee in employees)
-                    {
-                       var Employee = new EmployeeModel();
-                       Employee.DesignationID = employee.DesignationID;
-                       Employee.DesignationName = employee.YesDesignation.DesignationName;
-                       Employee.Address1 = employee.EmployeeAddress1;
-                       Employee.Address2 = employee.EmployeeAddress2;
-                       Employee.AlternateMobileNo = employee.EmployeeAlternateMobileNo;
-                       Employee.City = employee.EmployeeCity;
-                       Employee.Disctrict = employee.EmployeeDisctrict;
-                       Employee.EmailID = employee.EmployeeEmailID;
-                       Employee.FirstName = employee.EmployeeFirstName;
-                       Employee.ID = employee.EmployeeID;
-                       Employee.LastName = employee.EmployeeLastName;
-                       Employee.MiddleName = employee.EmployeeMiddleName;
-                       Employee.MobileNo = employee.EmployeeMobileNo;
-                       Employee.PinCode = employee.EmployeePinCode;
-                       Employee.State = employee.EmployeeState;
+                    if (employees != null)
+                        foreach (var employee in employees)
+                        {
+                            var Employee = new EmployeeModel();
+                            Employee.DesignationID = employee.DesignationID;
+                            Employee.DesignationName = employee.YesDesignation.DesignationName;
+                            Employee.Address1 = employee.EmployeeAddress1;
+                            Employee.Address2 = employee.EmployeeAddress2;
+                            Employee.AlternateMobileNo = employee.EmployeeAlternateMobileNo;
+                            Employee.City = employee.EmployeeCity;
+                            Employee.Disctrict = employee.EmployeeDisctrict;
+                            Employee.EmailID = employee.EmployeeEmailID;
+                            Employee.FirstName = employee.EmployeeFirstName;
+                            Employee.ID = employee.EmployeeID;
+                            Employee.LastName = employee.EmployeeLastName;
+                            Employee.MiddleName = employee.EmployeeMiddleName;
+                            Employee.MobileNo = employee.EmployeeMobileNo;
+                            Employee.PinCode = employee.EmployeePinCode;
+                            Employee.State = employee.EmployeeState;
 
-                       Employees.Add(Employee);
-                    }
+                            Employees.Add(Employee);
+                        }
                     return Employees;
                 }
             }
@@ -51,7 +56,12 @@ namespace Yes.DataAdaptder
             }
         }
 
-
+        /// <summary>
+        /// Create new employee
+        /// </summary>
+        /// <param name="NewEmployee">Object of new employee</param>
+        /// <param name="SchoolID"> School for which you are creating employee</param>
+        /// <returns>EmployeeID</returns>
         public int CreateEmployee(EmployeeModel NewEmployee, int SchoolID = 0)
         {
             try
@@ -80,6 +90,27 @@ namespace Yes.DataAdaptder
             catch (Exception ex)
             {
                 return 0;
+            }
+        }
+
+        /// <summary>
+        /// Get all the list of designation
+        /// </summary>
+        /// <returns>Key value pair collection of designations</returns>
+        public IEnumerable<KeyValuePair<int, string>> GetAllDesignations()
+        {
+            try
+            {
+                using (YesEntities context = new YesEntities())
+                {
+                    return context.YesDesignations.ToDictionary(c => c.DesignationID, s => s.DesignationName).ToList();
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                throw;
             }
         }
     }

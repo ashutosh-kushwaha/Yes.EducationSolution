@@ -18,5 +18,11 @@ namespace Yes.Service
         {
             return _employeeAdapter.GetAllEmployees();
         }
+
+
+        public IEnumerable<KeyValuePair<int, string>> GetAllDesignations()
+        {
+            return _employeeAdapter.GetAllDesignations();
+        }
     }
 }
