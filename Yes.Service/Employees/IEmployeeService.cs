@@ -11,5 +11,6 @@ namespace Yes.Service
     {
         List<EmployeeModel> GetAllEmployees();
         IEnumerable<KeyValuePair<int, string>> GetAllDesignations();
+        int CreateEmployee(EmployeeModel NewEmployee);
     }
 }

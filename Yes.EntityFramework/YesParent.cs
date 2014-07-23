@@ -29,11 +29,12 @@ namespace Yes.EntityFramework
         public string ParentAddress1 { get; set; }
         public string ParentAddress2 { get; set; }
         public string ParentCity { get; set; }
-        public string ParentDisctrict { get; set; }
-        public string ParentState { get; set; }
+        public Nullable<int> DistrictID { get; set; }
+        public Nullable<int> StateID { get; set; }
         public Nullable<int> ParentPinCode { get; set; }
         public string ParentOccupation { get; set; }
     
+        public virtual YesDistrict YesDistrict { get; set; }
         public virtual ICollection<YesStudent> YesStudents { get; set; }
     }
 }

@@ -38,27 +38,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="YesEmployees">
-      <EntityTypeMapping TypeName="YesModel.YesEmployee">
-        <MappingFragment StoreEntitySet="YesEmployee">
-          <ScalarProperty Name="SchoolID" ColumnName="SchoolID" />
-          <ScalarProperty Name="DesignationID" ColumnName="DesignationID" />
-          <ScalarProperty Name="EmployeePinCode" ColumnName="EmployeePinCode" />
-          <ScalarProperty Name="EmployeeState" ColumnName="EmployeeState" />
-          <ScalarProperty Name="EmployeeDisctrict" ColumnName="EmployeeDisctrict" />
-          <ScalarProperty Name="EmployeeCity" ColumnName="EmployeeCity" />
-          <ScalarProperty Name="EmployeeAddress2" ColumnName="EmployeeAddress2" />
-          <ScalarProperty Name="EmployeeAddress1" ColumnName="EmployeeAddress1" />
-          <ScalarProperty Name="EmployeeEmailID" ColumnName="EmployeeEmailID" />
-          <ScalarProperty Name="EmployeeAlternateMobileNo" ColumnName="EmployeeAlternateMobileNo" />
-          <ScalarProperty Name="EmployeeMobileNo" ColumnName="EmployeeMobileNo" />
-          <ScalarProperty Name="EmployeeLastName" ColumnName="EmployeeLastName" />
-          <ScalarProperty Name="EmployeeMiddleName" ColumnName="EmployeeMiddleName" />
-          <ScalarProperty Name="EmployeeFirstName" ColumnName="EmployeeFirstName" />
-          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="YesFees">
       <EntityTypeMapping TypeName="YesModel.YesFee">
         <MappingFragment StoreEntitySet="YesFee">
@@ -66,26 +45,6 @@
           <ScalarProperty Name="FeeDescription" ColumnName="FeeDescription" />
           <ScalarProperty Name="FeeName" ColumnName="FeeName" />
           <ScalarProperty Name="FeeID" ColumnName="FeeID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="YesParents">
-      <EntityTypeMapping TypeName="YesModel.YesParent">
-        <MappingFragment StoreEntitySet="YesParent">
-          <ScalarProperty Name="ParentOccupation" ColumnName="ParentOccupation" />
-          <ScalarProperty Name="ParentPinCode" ColumnName="ParentPinCode" />
-          <ScalarProperty Name="ParentState" ColumnName="ParentState" />
-          <ScalarProperty Name="ParentDisctrict" ColumnName="ParentDisctrict" />
-          <ScalarProperty Name="ParentCity" ColumnName="ParentCity" />
-          <ScalarProperty Name="ParentAddress2" ColumnName="ParentAddress2" />
-          <ScalarProperty Name="ParentAddress1" ColumnName="ParentAddress1" />
-          <ScalarProperty Name="ParentEmailID" ColumnName="ParentEmailID" />
-          <ScalarProperty Name="ParentAlternateMobileNo" ColumnName="ParentAlternateMobileNo" />
-          <ScalarProperty Name="ParentMobileNo" ColumnName="ParentMobileNo" />
-          <ScalarProperty Name="ParentLastName" ColumnName="ParentLastName" />
-          <ScalarProperty Name="ParentMiddleName" ColumnName="ParentMiddleName" />
-          <ScalarProperty Name="ParentFirstName" ColumnName="ParentFirstName" />
-          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -149,6 +108,47 @@
           <ScalarProperty Name="UserID" ColumnName="UserID" />
           <ScalarProperty Name="PrivilegeID" ColumnName="PrivilegeID" />
           <ScalarProperty Name="UserPrivilegeID" ColumnName="UserPrivilegeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="YesEmployees">
+      <EntityTypeMapping TypeName="YesModel.YesEmployee">
+        <MappingFragment StoreEntitySet="YesEmployee">
+          <ScalarProperty Name="SchoolID" ColumnName="SchoolID" />
+          <ScalarProperty Name="DesignationID" ColumnName="DesignationID" />
+          <ScalarProperty Name="EmployeePinCode" ColumnName="EmployeePinCode" />
+          <ScalarProperty Name="DistrictID" ColumnName="DistrictID" />
+          <ScalarProperty Name="StateID" ColumnName="StateID" />
+          <ScalarProperty Name="EmployeeCity" ColumnName="EmployeeCity" />
+          <ScalarProperty Name="EmployeeAddress2" ColumnName="EmployeeAddress2" />
+          <ScalarProperty Name="EmployeeAddress1" ColumnName="EmployeeAddress1" />
+          <ScalarProperty Name="EmployeeEmailID" ColumnName="EmployeeEmailID" />
+          <ScalarProperty Name="EmployeeAlternateMobileNo" ColumnName="EmployeeAlternateMobileNo" />
+          <ScalarProperty Name="EmployeeMobileNo" ColumnName="EmployeeMobileNo" />
+          <ScalarProperty Name="EmployeeLastName" ColumnName="EmployeeLastName" />
+          <ScalarProperty Name="EmployeeMiddleName" ColumnName="EmployeeMiddleName" />
+          <ScalarProperty Name="EmployeeFirstName" ColumnName="EmployeeFirstName" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="YesParents">
+      <EntityTypeMapping TypeName="YesModel.YesParent">
+        <MappingFragment StoreEntitySet="YesParent">
+          <ScalarProperty Name="ParentOccupation" ColumnName="ParentOccupation" />
+          <ScalarProperty Name="ParentPinCode" ColumnName="ParentPinCode" />
+          <ScalarProperty Name="StateID" ColumnName="StateID" />
+          <ScalarProperty Name="DistrictID" ColumnName="DistrictID" />
+          <ScalarProperty Name="ParentCity" ColumnName="ParentCity" />
+          <ScalarProperty Name="ParentAddress2" ColumnName="ParentAddress2" />
+          <ScalarProperty Name="ParentAddress1" ColumnName="ParentAddress1" />
+          <ScalarProperty Name="ParentEmailID" ColumnName="ParentEmailID" />
+          <ScalarProperty Name="ParentAlternateMobileNo" ColumnName="ParentAlternateMobileNo" />
+          <ScalarProperty Name="ParentMobileNo" ColumnName="ParentMobileNo" />
+          <ScalarProperty Name="ParentLastName" ColumnName="ParentLastName" />
+          <ScalarProperty Name="ParentMiddleName" ColumnName="ParentMiddleName" />
+          <ScalarProperty Name="ParentFirstName" ColumnName="ParentFirstName" />
+          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

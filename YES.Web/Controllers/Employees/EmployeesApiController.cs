@@ -30,7 +30,7 @@ namespace YES.Web.Controllers
         [AttributeRouting.Web.Mvc.Route("CreateEmployee")]
         public int CreateEmployee(EmployeeModel NewEmployee)
         {
-            return 0;
+            return _employeeService.CreateEmployee(NewEmployee);
         }
 
         [AttributeRouting.Web.Mvc.Route("GetAllDesignations")]

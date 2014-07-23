@@ -24,7 +24,7 @@ namespace Yes.EntityFramework
         public int SchoolID { get; set; }
     
         public virtual YesCourse YesCourse { get; set; }
-        public virtual YesParent YesParent { get; set; }
         public virtual YesSchool YesSchool { get; set; }
+        public virtual YesParent YesParent { get; set; }
     }
 }

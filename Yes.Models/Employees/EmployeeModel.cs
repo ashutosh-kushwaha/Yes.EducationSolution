@@ -19,7 +19,9 @@ namespace Yes.Models
         public string Address1 { get; set; }
         public string Address2 { get; set; }
         public string City { get; set; }
-        public string Disctrict { get; set; }
+        public int DistrictID { get; set; }
+        public string District { get; set; }
+        public int StateID { get; set; }
         public string State { get; set; }
         public Nullable<int> PinCode { get; set; }
         public Nullable<int> DesignationID { get; set; }

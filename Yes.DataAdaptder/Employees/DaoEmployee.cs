@@ -34,7 +34,9 @@ namespace Yes.DataAdaptder
                             Employee.Address2 = employee.EmployeeAddress2;
                             Employee.AlternateMobileNo = employee.EmployeeAlternateMobileNo;
                             Employee.City = employee.EmployeeCity;
-                            Employee.Disctrict = employee.EmployeeDisctrict;
+                            if (employee.YesDistrict!=null)
+                            Employee.District = employee.YesDistrict.DisctrictName;
+                            Employee.DistrictID = (int)employee.DistrictID;
                             Employee.EmailID = employee.EmployeeEmailID;
                             Employee.FirstName = employee.EmployeeFirstName;
                             Employee.ID = employee.EmployeeID;
@@ -42,7 +44,9 @@ namespace Yes.DataAdaptder
                             Employee.MiddleName = employee.EmployeeMiddleName;
                             Employee.MobileNo = employee.EmployeeMobileNo;
                             Employee.PinCode = employee.EmployeePinCode;
-                            Employee.State = employee.EmployeeState;
+                            Employee.StateID = (int)employee.StateID;
+                            if (employee.YesDistrict != null && employee.YesDistrict.YesState!=null)
+                            Employee.State = employee.YesDistrict.YesState.StateName;
 
                             Employees.Add(Employee);
                         }
@@ -74,13 +78,14 @@ namespace Yes.DataAdaptder
                     newEmployee.EmployeeAddress2 = NewEmployee.Address2;
                     newEmployee.EmployeeAlternateMobileNo = NewEmployee.AlternateMobileNo;
                     newEmployee.EmployeeCity = NewEmployee.City;
-                    newEmployee.EmployeeDisctrict = NewEmployee.Disctrict;
+                    newEmployee.DistrictID = NewEmployee.DistrictID;
                     newEmployee.EmployeeEmailID = NewEmployee.EmailID;
                     newEmployee.EmployeeFirstName = NewEmployee.FirstName;
                     newEmployee.EmployeeMiddleName = NewEmployee.MiddleName;
+                    newEmployee.EmployeeLastName = NewEmployee.LastName;
                     newEmployee.EmployeeMobileNo = NewEmployee.MobileNo;
                     newEmployee.EmployeePinCode = NewEmployee.PinCode;
-                    newEmployee.EmployeeState = NewEmployee.State;
+                    newEmployee.StateID = NewEmployee.StateID;
 
                     context.YesEmployees.Add(newEmployee);
                     context.SaveChanges();

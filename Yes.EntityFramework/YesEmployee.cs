@@ -29,13 +29,14 @@ namespace Yes.EntityFramework
         public string EmployeeAddress1 { get; set; }
         public string EmployeeAddress2 { get; set; }
         public string EmployeeCity { get; set; }
-        public string EmployeeDisctrict { get; set; }
-        public string EmployeeState { get; set; }
+        public Nullable<int> StateID { get; set; }
+        public Nullable<int> DistrictID { get; set; }
         public Nullable<int> EmployeePinCode { get; set; }
         public Nullable<int> DesignationID { get; set; }
         public Nullable<int> SchoolID { get; set; }
     
         public virtual YesDesignation YesDesignation { get; set; }
+        public virtual YesDistrict YesDistrict { get; set; }
         public virtual YesSchool YesSchool { get; set; }
         public virtual ICollection<YesUser> YesUsers { get; set; }
     }

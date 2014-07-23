@@ -29,14 +29,14 @@ namespace Yes.EntityFramework
         public DbSet<YesCourseFee> YesCourseFees { get; set; }
         public DbSet<YesDesignation> YesDesignations { get; set; }
         public DbSet<YesDistrict> YesDistricts { get; set; }
-        public DbSet<YesEmployee> YesEmployees { get; set; }
         public DbSet<YesFee> YesFees { get; set; }
-        public DbSet<YesParent> YesParents { get; set; }
         public DbSet<YesPrivilege> YesPrivileges { get; set; }
         public DbSet<YesSchool> YesSchools { get; set; }
         public DbSet<YesState> YesStates { get; set; }
         public DbSet<YesStudent> YesStudents { get; set; }
         public DbSet<YesUser> YesUsers { get; set; }
         public DbSet<YesUserPrivilege> YesUserPrivileges { get; set; }
+        public DbSet<YesEmployee> YesEmployees { get; set; }
+        public DbSet<YesParent> YesParents { get; set; }
     }
 }

@@ -16,8 +16,8 @@ namespace Yes.EntityFramework
     {
         public YesSchool()
         {
-            this.YesEmployees = new HashSet<YesEmployee>();
             this.YesStudents = new HashSet<YesStudent>();
+            this.YesEmployees = new HashSet<YesEmployee>();
         }
     
         public int SchoolID { get; set; }
@@ -26,7 +26,7 @@ namespace Yes.EntityFramework
         public string SchoolAddress2 { get; set; }
         public Nullable<int> SchoolEstiblishmentYear { get; set; }
     
-        public virtual ICollection<YesEmployee> YesEmployees { get; set; }
         public virtual ICollection<YesStudent> YesStudents { get; set; }
+        public virtual ICollection<YesEmployee> YesEmployees { get; set; }
     }
 }

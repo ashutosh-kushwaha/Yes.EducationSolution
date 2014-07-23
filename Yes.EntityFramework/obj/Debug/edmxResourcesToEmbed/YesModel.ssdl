@@ -30,9 +30,17 @@
       <End Role="YesDesignation" EntitySet="YesDesignation" />
       <End Role="YesEmployee" EntitySet="YesEmployee" />
     </AssociationSet>
+    <AssociationSet Name="FK_YesEmployee_YesDistrict" Association="YesModel.Store.FK_YesEmployee_YesDistrict">
+      <End Role="YesDistrict" EntitySet="YesDistrict" />
+      <End Role="YesEmployee" EntitySet="YesEmployee" />
+    </AssociationSet>
     <AssociationSet Name="FK_YesEmployee_YesSchool" Association="YesModel.Store.FK_YesEmployee_YesSchool">
       <End Role="YesSchool" EntitySet="YesSchool" />
       <End Role="YesEmployee" EntitySet="YesEmployee" />
+    </AssociationSet>
+    <AssociationSet Name="FK_YesParent_YesDistrict" Association="YesModel.Store.FK_YesParent_YesDistrict">
+      <End Role="YesDistrict" EntitySet="YesDistrict" />
+      <End Role="YesParent" EntitySet="YesParent" />
     </AssociationSet>
     <AssociationSet Name="FK_YesStudent_YesCourse" Association="YesModel.Store.FK_YesStudent_YesCourse">
       <End Role="YesCourse" EntitySet="YesCourse" />
@@ -97,17 +105,17 @@
       <PropertyRef Name="EmployeeID" />
     </Key>
     <Property Name="EmployeeID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="EmployeeFirstName" Type="nvarchar" MaxLength="200" />
+    <Property Name="EmployeeFirstName" Type="nvarchar" Nullable="false" MaxLength="200" />
     <Property Name="EmployeeMiddleName" Type="nvarchar" MaxLength="200" />
     <Property Name="EmployeeLastName" Type="nvarchar" MaxLength="200" />
-    <Property Name="EmployeeMobileNo" Type="nvarchar" MaxLength="10" />
+    <Property Name="EmployeeMobileNo" Type="nvarchar" Nullable="false" MaxLength="10" />
     <Property Name="EmployeeAlternateMobileNo" Type="nvarchar" MaxLength="10" />
     <Property Name="EmployeeEmailID" Type="nvarchar" MaxLength="500" />
     <Property Name="EmployeeAddress1" Type="nvarchar" MaxLength="300" />
     <Property Name="EmployeeAddress2" Type="nvarchar" MaxLength="300" />
     <Property Name="EmployeeCity" Type="nvarchar" MaxLength="100" />
-    <Property Name="EmployeeDisctrict" Type="nvarchar" MaxLength="100" />
-    <Property Name="EmployeeState" Type="nvarchar" MaxLength="100" />
+    <Property Name="StateID" Type="int" />
+    <Property Name="DistrictID" Type="int" />
     <Property Name="EmployeePinCode" Type="int" />
     <Property Name="DesignationID" Type="int" />
     <Property Name="SchoolID" Type="int" />
@@ -135,8 +143,8 @@
     <Property Name="ParentAddress1" Type="nvarchar" MaxLength="300" />
     <Property Name="ParentAddress2" Type="nvarchar" MaxLength="300" />
     <Property Name="ParentCity" Type="nvarchar" MaxLength="100" />
-    <Property Name="ParentDisctrict" Type="nvarchar" MaxLength="100" />
-    <Property Name="ParentState" Type="nvarchar" MaxLength="100" />
+    <Property Name="DistrictID" Type="int" />
+    <Property Name="StateID" Type="int" />
     <Property Name="ParentPinCode" Type="int" />
     <Property Name="ParentOccupation" Type="nvarchar" MaxLength="100" />
   </EntityType>
@@ -245,6 +253,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_YesEmployee_YesDistrict">
+    <End Role="YesDistrict" Type="YesModel.Store.YesDistrict" Multiplicity="0..1" />
+    <End Role="YesEmployee" Type="YesModel.Store.YesEmployee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="YesDistrict">
+        <PropertyRef Name="DistrictID" />
+      </Principal>
+      <Dependent Role="YesEmployee">
+        <PropertyRef Name="DistrictID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_YesEmployee_YesSchool">
     <End Role="YesSchool" Type="YesModel.Store.YesSchool" Multiplicity="0..1" />
     <End Role="YesEmployee" Type="YesModel.Store.YesEmployee" Multiplicity="*" />
@@ -254,6 +274,18 @@
       </Principal>
       <Dependent Role="YesEmployee">
         <PropertyRef Name="SchoolID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_YesParent_YesDistrict">
+    <End Role="YesDistrict" Type="YesModel.Store.YesDistrict" Multiplicity="0..1" />
+    <End Role="YesParent" Type="YesModel.Store.YesParent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="YesDistrict">
+        <PropertyRef Name="DistrictID" />
+      </Principal>
+      <Dependent Role="YesParent">
+        <PropertyRef Name="DistrictID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

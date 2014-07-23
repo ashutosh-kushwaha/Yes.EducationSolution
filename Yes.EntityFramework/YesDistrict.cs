@@ -14,11 +14,19 @@ namespace Yes.EntityFramework
     
     public partial class YesDistrict
     {
+        public YesDistrict()
+        {
+            this.YesEmployees = new HashSet<YesEmployee>();
+            this.YesParents = new HashSet<YesParent>();
+        }
+    
         public int DistrictID { get; set; }
         public string DisctrictName { get; set; }
         public int StateID { get; set; }
         public string DisctrictDescription { get; set; }
     
         public virtual YesState YesState { get; set; }
+        public virtual ICollection<YesEmployee> YesEmployees { get; set; }
+        public virtual ICollection<YesParent> YesParents { get; set; }
     }
 }

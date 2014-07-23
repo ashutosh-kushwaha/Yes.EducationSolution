@@ -210,6 +210,7 @@
     <Content Include="Content\fonts\ionicons.svg" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Images\YesLoading.gif" />
     <Content Include="Images\ajax-loader.gif" />
     <Content Include="Images\ajax-loader1.gif" />
     <Content Include="Images\avatar.png" />
@@ -238,7 +239,6 @@
     <Content Include="Images\user-bg.png" />
     <Content Include="Images\user.jpg" />
     <Content Include="Images\user2.jpg" />
-    <Content Include="Images\YesLoading.gif" />
     <Content Include="Scripts\AdminLTE\app.js" />
     <Content Include="Scripts\AdminLTE\dashboard.js" />
     <Content Include="Scripts\AdminLTE\demo.js" />

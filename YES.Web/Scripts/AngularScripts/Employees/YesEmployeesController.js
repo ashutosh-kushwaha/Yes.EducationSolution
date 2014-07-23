@@ -18,9 +18,10 @@
 
     //***************************Create Employee start **************************************
     $scope.SaveEmployeeDetails = function (NewEmployee) {
-        EmployeesService.GetEmployees(NewEmployee).then(function (response) {
-            if (response.status === 200)
+        EmployeesService.CreateEmployee(NewEmployee).then(function (response) {
+            if (response.status === 200 && response.data>0)
                 $('#employee-modal').modal('hide');
+            $scope.GetAllEmployees();
         });
     }
 
@@ -60,7 +61,7 @@
         $scope.GetAllDesignations();
     }
     //************************Open create employee modal popup end ***************************
-    //*************************Get list of all designations start***********************************
+    //*************************Get list of all designations start*****************************
     $scope.GetAllDesignations = function () {
         EmployeesService.GetAllDesignations().then(function (response) {
             if (response.status == 200) {
@@ -72,6 +73,6 @@
 
         });
     }
-    // ************************Get list of all designations end ************************************
+    // ************************Get list of all designations end *******************************
 
 }
