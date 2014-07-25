@@ -14,7 +14,7 @@
         <!-- /.box-header -->
         <div class="box-body table-responsive no-padding">
             <div class="box-tools row tableHeader">
-                <button type="button" class="btn btn-primary col-md-1 col-sm-1" ng-click="OpenCreateEmployeeModalPopup()" title="Create new employee record" data-target="#employee-modal" data-toggle="modal" ng-click="CreateEmployee()">Create</button>
+                <button type="button" class="btn btn-primary col-md-1 col-sm-1" ng-click="OpenCreateEmployeeModalPopup()" title="Create new employee record" data-target="#employee-modal" data-toggle="modal" ng-click="CreateEmployee()"><i class="fa fa-new"></i> Create</button>
                 <div class="input-group col-md-11 col-sm-11">
                     <input type="text" name="table_search" class="form-control input-sm pull-right" style="width: 150px;" placeholder="Search" />
                     <div class="input-group-btn">
@@ -53,29 +53,30 @@
     <div class="modal fade" id="employee-modal" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title"><i class="fa fa-user"></i> Create New Employee</h4>
-                </div>
-                <div class="modal-body  box box-warning">
-                    @*  <div class="box-header">
+                <form role="form" name="EmployeeForm" novalidate>
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title"><i class="fa fa-user"></i> New Employee</h4>
+                    </div>
+                    <div class="modal-body  box box-warning">
+                        @*  <div class="box-header">
                                     <h3 class="box-title">General Elements</h3>
                                 </div><!-- /.box-header -->*@
-                    <div class="box-body">
-                        <form role="form">
+                        <div class="box-body">
                             <table width="100%">
                                 <tr class="row">
                                     <td class="col-md-6">
                                         <div class="form-group">
                                             <label>First Name</label>
-                                            <input type="text" class="form-control" placeholder="Enter ..." ng-model="NewEmployee.FirstName" required/>
+                                            <input type="text" class="form-control" name="EmployeeFirstName" placeholder="Required" ng-model="NewEmployee.FirstName" required />
+                                            <p ng-show="EmployeeForm.EmployeeFirstName.$invalid && !EmployeeForm.EmployeeFirstName.$pristine" class="text-danger yesErrorMessage">Enter a valid first name.</p>
                                         </div>
                                     </td>
 
                                     <td class="col-md-6">
                                         <div class="form-group">
                                             <label>Middle Name</label>
-                                            <input type="text" class="form-control" placeholder="Enter ..." ng-model="NewEmployee.MiddleName" />
+                                            <input type="text" class="form-control" name="EmployeeMiddleName" placeholder="Enter ..." ng-model="NewEmployee.MiddleName" />
                                         </div>
                                     </td>
                                 </tr>
@@ -83,14 +84,15 @@
                                     <td class="col-md-6">
                                         <div class="form-group">
                                             <label>Last Name</label>
-                                            <input type="text" class="form-control" placeholder="Enter ..." ng-model="NewEmployee.LastName" required/>
+                                            <input type="text" class="form-control" name="EmployeeLastName" placeholder="Required" ng-model="NewEmployee.LastName" required />
+                                            <p ng-show="EmployeeForm.EmployeeLastName.$invalid && !EmployeeForm.EmployeeLastName.$pristine" class="text-danger yesErrorMessage">Enter a valid last name.</p>
                                         </div>
                                     </td>
                                     <td class="col-md-6">
                                         <div class="form-group">
                                             <label>Designation</label>
-                                            <select class="form-control" ng-model="NewEmployee.DesignationID">
-                                                 <option value="{{designation.Key}}" ng-repeat="designation in Designations">{{designation.Value}}</option>
+                                            <select class="form-control" ng-model="NewEmployee.DesignationID" name="EmployeeDesignation">
+                                                <option value="{{designation.Key}}" ng-repeat="designation in Designations">{{designation.Value}}</option>
                                             </select>
                                         </div>
                                     </td>
@@ -99,13 +101,15 @@
                                     <td class="col-md-6">
                                         <div class="form-group">
                                             <label>Mobile Phone No.</label>
-                                            <input type="number" min="10" max="10" class="form-control" placeholder="Enter ..." ng-model="NewEmployee.MobileNo" required/>
+                                            <input type="number" ng-minlength="10" ng-maxlength="10" class="form-control" name="EmployeeMobileNo" placeholder="Required" ng-model="NewEmployee.MobileNo" required />
+                                            <p ng-show="EmployeeForm.EmployeeMobileNo.$invalid && !EmployeeForm.EmployeeMobileNo.$pristine" class="text-danger yesErrorMessage">Enter a valid 10 digit mobile no.</p>
                                         </div>
                                     </td>
                                     <td class="col-md-6">
                                         <div class="form-group">
                                             <label>Alternate Phone No.</label>
-                                            <input type="number" min="10" max="10" class="form-control" placeholder="Enter ..." ng-model="NewEmployee.AlternateMobileNo" />
+                                            <input type="number" ng-minlength="10" ng-maxlength="10" class="form-control" name="EmployeeAlternateMobileNo" placeholder="Enter ..." ng-model="NewEmployee.AlternateMobileNo" />
+                                            <p ng-show="EmployeeForm.EmployeeAlternateMobileNo.$invalid && !EmployeeForm.EmployeeAlternateMobileNo.$pristine" class="text-dange yesErrorMessage">Enter a valid 10 digit alternate mobile number.</p>
                                         </div>
                                     </td>
                                 </tr>
@@ -113,7 +117,8 @@
                                     <td class="col-md-6">
                                         <div class="form-group">
                                             <label>Email Address</label>
-                                            <input type="email" class="form-control" placeholder="Enter ..." ng-model="NewEmployee.EmailId" />
+                                            <input type="email" class="form-control" placeholder="Enter ..." name="EmployeeEmailId" ng-model="NewEmployee.EmailId" />
+                                            <p ng-show="EmployeeForm.EmployeeEmailId.$invalid && !EmployeeForm.EmployeeEmailId.$pristine" class="text-danger yesErrorMessage">Enter a valid e-mail address.</p>
                                         </div>
                                     </td>
                                     <td class="col-md-6">
@@ -121,7 +126,7 @@
                                             <label>State</label>
                                             <select class="form-control" ng-model="NewEmployee.StateID" ng-change="GetAllDistricts(NewEmployee.StateID)">
                                                 <option value="{{state.Key}}" ng-repeat="state in States">{{state.Value}}</option>
-                                                
+
                                             </select>
                                         </div>
                                     </td>
@@ -131,15 +136,16 @@
                                         <div class="form-group">
                                             <label>District</label>
                                             <select class="form-control" ng-model="NewEmployee.DistrictID">
-                                                 <option value="{{district.Key}}" ng-repeat="district in Districts">{{district.Value}}</option>
-                                               
+                                                <option value="{{district.Key}}" ng-repeat="district in Districts">{{district.Value}}</option>
+
                                             </select>
                                         </div>
                                     </td>
                                     <td class="col-md-6">
                                         <div class="form-group">
                                             <label>Pin</label>
-                                            <input type="number" min="6" max="6" class="form-control" placeholder="Enter ..." ng-model="NewEmployee.PinCode" />
+                                            <input type="number" mg-minlength="6" ng-maxlength="6" class="form-control" name="EmployeePIN" placeholder="Enter ..." ng-model="NewEmployee.PinCode" />
+                                            <p ng-show="EmployeeForm.EmployeePIN.$invalid && !EmployeeForm.EmployeePIN.$pristine" class="text-danger yesErrorMessage">Enter a valid 6 digit PIN.</p>
                                         </div>
                                     </td>
                                 </tr>
@@ -147,30 +153,33 @@
                                     <td class="col-md-6">
                                         <div class="form-group">
                                             <label>Address Line1</label>
-                                            <textarea class="form-control" rows="3" placeholder="Enter ..." ng-model="NewEmployee.Address1" required></textarea>
+                                            <textarea class="form-control" rows="3" name="EmployeeAddress1" placeholder="Required" ng-model="NewEmployee.Address1" required></textarea>
+                                            <p ng-show="EmployeeForm.EmployeeAddress1.$invalid && !EmployeeForm.EmployeeAddress1.$pristine" class="text-danger yesErrorMessage">Enter a valid address.</p>
                                         </div>
                                     </td>
                                     <td class="col-md-6">
                                         <div class="form-group">
                                             <label>Address Lin2</label>
-                                            <textarea class="form-control" rows="3" placeholder="Enter ..." ng-model="NewEmployee.Address2"></textarea>
+                                            <textarea class="form-control" rows="3" name="EmployeeAddress2" placeholder="Enter ..." ng-model="NewEmployee.Address2"></textarea>
                                         </div>
 
                                     </td>
                                 </tr>
                             </table>
-                        </form>
+
+                        </div>
+                        <!-- /.box-body -->
+
                     </div>
-                    <!-- /.box-body -->
+                    <div class="modal-footer clearfix">
 
-                </div>
-                <div class="modal-footer clearfix">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> Discard</button>
 
-                    <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i>Discard</button>
-
-                    <button type="submit" class="btn btn-primary pull-left" ng-click="SaveEmployeeDetails(NewEmployee)"><i class="fa fa-user"></i> Save</button>
-                </div>
+                        <button type="submit" class="btn btn-primary pull-left" ng-disabled="EmployeeForm.$invalid" ng-click="SaveEmployeeDetails(NewEmployee)"><i class="fa fa-check"></i> Save</button>
+                    </div>
+                </form>
             </div>
+
             <!-- /.modal-content -->
         </div>
         <!-- /.modal-dialog -->

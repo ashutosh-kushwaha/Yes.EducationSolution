@@ -67,7 +67,7 @@
             if (response.status == 200) {
                 $scope.Designations = response.data;
                 if ($scope.Designations.length > 0) {
-                    $scope.NewEmployee.DesignationID = $scope.StatesDesignations[0].Key; //Set default designation
+                    $scope.NewEmployee.DesignationID = $scope.Designations[0].Key; //Set default designation
                 }
             }
 
