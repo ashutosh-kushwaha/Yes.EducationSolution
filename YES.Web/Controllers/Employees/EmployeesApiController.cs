@@ -39,6 +39,10 @@ namespace YES.Web.Controllers
         {
             return _employeeService.GetAllDesignations();
         }
-
+        [AttributeRouting.Web.Mvc.Route("GetEmployee/{EmployeeID}")]
+        public EmployeeModel GetEmployees(Int32 EmployeeID)
+        {
+            return _employeeService.GetEmployee(EmployeeID);
+        }
     }
 }

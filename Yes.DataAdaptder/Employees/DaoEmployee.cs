@@ -34,8 +34,8 @@ namespace Yes.DataAdaptder
                             Employee.Address2 = employee.EmployeeAddress2;
                             Employee.AlternateMobileNo = employee.EmployeeAlternateMobileNo;
                             Employee.City = employee.EmployeeCity;
-                            if (employee.YesDistrict!=null)
-                            Employee.District = employee.YesDistrict.DisctrictName;
+                            if (employee.YesDistrict != null)
+                                Employee.District = employee.YesDistrict.DisctrictName;
                             Employee.DistrictID = (int)employee.DistrictID;
                             Employee.EmailID = employee.EmployeeEmailID;
                             Employee.FirstName = employee.EmployeeFirstName;
@@ -45,8 +45,8 @@ namespace Yes.DataAdaptder
                             Employee.MobileNo = employee.EmployeeMobileNo;
                             Employee.PinCode = employee.EmployeePinCode;
                             Employee.StateID = (int)employee.StateID;
-                            if (employee.YesDistrict != null && employee.YesDistrict.YesState!=null)
-                            Employee.State = employee.YesDistrict.YesState.StateName;
+                            if (employee.YesDistrict != null && employee.YesDistrict.YesState != null)
+                                Employee.State = employee.YesDistrict.YesState.StateName;
 
                             Employees.Add(Employee);
                         }
@@ -116,6 +116,50 @@ namespace Yes.DataAdaptder
             {
 
                 throw;
+            }
+        }
+
+
+        public EmployeeModel GetEmployee(int SchoolID = 0, int EmployeeID = 0)
+        {
+            try
+            {
+                using (YesEntities context = new YesEntities())
+                {
+                    var employee = context.YesEmployees.Where(x => x.EmployeeID == EmployeeID && x.SchoolID == SchoolID).FirstOrDefault();
+                    if (employee != null)
+                    {
+                        EmployeeModel employeeRecord = new EmployeeModel();
+                        employeeRecord.Address1 = employee.EmployeeAddress1;
+                        employeeRecord.Address2 = employee.EmployeeAddress2;
+                        employeeRecord.AlternateMobileNo = employee.EmployeeAlternateMobileNo;
+                        employeeRecord.City = employee.EmployeeCity;
+                        employeeRecord.DesignationID = employee.DesignationID;
+                        if (employee.YesDesignation != null)
+                            employeeRecord.DesignationName = employee.YesDesignation.DesignationName;
+                        employeeRecord.District = employee.YesDistrict.DisctrictName;
+                        if (employee.DistrictID != null)
+                            employeeRecord.DistrictID = (int)employee.DistrictID;
+                        employeeRecord.EmailID = employee.EmployeeEmailID;
+                        employeeRecord.FirstName = employee.EmployeeFirstName;
+                        employeeRecord.ID = employee.EmployeeID;
+                        employeeRecord.LastName = employee.EmployeeLastName;
+                        employeeRecord.MiddleName = employee.EmployeeMiddleName;
+                        employeeRecord.MobileNo = employee.EmployeeMobileNo;
+                        employeeRecord.PinCode = employee.EmployeePinCode;
+                        employeeRecord.State = employee.YesDistrict.YesState.StateName;
+                        employeeRecord.StateID = (int)employee.StateID;
+                        return employeeRecord;
+                    }
+                    else
+                        return null;
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+                return null; 
             }
         }
     }

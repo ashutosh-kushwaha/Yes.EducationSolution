@@ -7,6 +7,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
+using Yes.Models;
 using Yes.Service;
 
 namespace YES.Web.Controllers
@@ -27,9 +28,9 @@ namespace YES.Web.Controllers
         [Route("Verify")]
         public ActionResult Verify(string userid, string password)
         {
-            bool status = _loginService.VerifyUserCredential(userid, password);
-            FormsAuthentication.SetAuthCookie(userid, false);
-            if (status)
+            LoggedInUserDetailsModel loggedInUserDetails = _loginService.VerifyUserCredential(userid, password);
+            FormsAuthentication.SetAuthCookie(loggedInUserDetails.UserID.ToString(), false);
+            if (loggedInUserDetails!=null)
                return RedirectToAction("Index", "Home");
             else
                return RedirectToAction("Index");

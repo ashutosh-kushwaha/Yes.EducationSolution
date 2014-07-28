@@ -30,5 +30,11 @@ namespace Yes.Service
         {
             return _employeeAdapter.CreateEmployee(NewEmployee);
         }
+
+
+        public EmployeeModel GetEmployee(int EmployeeID)
+        {
+            return _employeeAdapter.GetEmployee(1, EmployeeID);
+        }
     }
 }

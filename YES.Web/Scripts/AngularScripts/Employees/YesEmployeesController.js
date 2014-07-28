@@ -4,6 +4,7 @@
     $scope.States = [];
     $scope.Districs = [];
     $scope.Designations = [];
+    $scope.IsEditMode = false;
     // ************************* Get All Employees List *************************************
     $scope.GetAllEmployees = function () {
         myApp.showPleaseWait();
@@ -19,7 +20,7 @@
     //***************************Create Employee start **************************************
     $scope.SaveEmployeeDetails = function (NewEmployee) {
         EmployeesService.CreateEmployee(NewEmployee).then(function (response) {
-            if (response.status === 200 && response.data>0)
+            if (response.status === 200 && response.data > 0)
                 $('#employee-modal').modal('hide');
             $scope.GetAllEmployees();
         });
@@ -56,7 +57,8 @@
 
     //************************Open create employee modal popup start *************************
     $scope.OpenCreateEmployeeModalPopup = function () {
-
+        $scope.IsEditMode = false;
+        $scope.NewEmployee = {};
         $scope.GetAllStates();
         $scope.GetAllDesignations();
     }
@@ -73,6 +75,24 @@
 
         });
     }
-    // ************************Get list of all designations end *******************************
+    // ************************Get list of all designations end ******************************
+
+    // ************************Get employee details for edit start ******************************
+    $scope.GetEmployee = function (EmployeeID) {
+        $scope.GetAllStates();
+        $scope.GetAllDesignations();
+        myApp.showPleaseWait();
+        EmployeesService.GetEmployee(EmployeeID).then(function (response) {
+            if (response.status === 200 && response.data.ID > 0) {
+               
+                $scope.NewEmployee = response.data;
+                $scope.IsEditMode = true;
+                $('#employee-modal').modal('show');
+                myApp.hidePleaseWait();
+            }
+        });
+
+    }
+    // ************************Get employee details for edit end ******************************
 
 }

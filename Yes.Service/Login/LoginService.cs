@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Practices.Unity;
 using Yes.DataAdaptder;
+using Yes.Models;
 
 namespace Yes.Service
 {
@@ -13,7 +14,7 @@ namespace Yes.Service
         [Dependency]
         public IDaoLogin _loginAdapter { get; set; }
 
-        public bool VerifyUserCredential(string userName, string password)
+        public LoggedInUserDetailsModel VerifyUserCredential(string userName, string password)
         {
             return _loginAdapter.VerifyUserCredential(userName, password);
         }

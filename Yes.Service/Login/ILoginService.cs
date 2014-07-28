@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Yes.Models;
 
 namespace Yes.Service
 {
     public interface ILoginService
     {
 
-        bool VerifyUserCredential(string userName, string password);
+        LoggedInUserDetailsModel VerifyUserCredential(string userName, string password);
     }
 }
