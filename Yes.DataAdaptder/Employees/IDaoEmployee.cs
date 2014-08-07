@@ -9,10 +9,12 @@ namespace Yes.DataAdaptder
 {
     public interface IDaoEmployee
     {
-        List<EmployeeModel> GetAllEmployees(int SchoolID=0);
-        int CreateEmployee(EmployeeModel NewEmployee, int SchoolID=0);
+        List<EmployeeModel> GetAllEmployees(int SchoolID = 0);
+        int CreateEmployee(EmployeeModel NewEmployee, int SchoolID = 0);
         IEnumerable<KeyValuePair<int, string>> GetAllDesignations();
-       EmployeeModel GetEmployee(int SchoolID = 0,int EmployeeID=0);
+        EmployeeModel GetEmployee(int SchoolID = 0, int EmployeeID = 0);
+        int UpdateEmployee(EmployeeModel NewEmployee, int SchoolID = 0);
+        int DeleteEmployee(int SchoolID = 0, int EmployeeID = 0);
 
     }
 }

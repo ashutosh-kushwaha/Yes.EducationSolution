@@ -13,5 +13,7 @@ namespace Yes.Service
         IEnumerable<KeyValuePair<int, string>> GetAllDesignations();
         int CreateEmployee(EmployeeModel NewEmployee);
         EmployeeModel GetEmployee(int EmployeeID);
+        int UpdateEmployee(EmployeeModel NewEmployee);
+        int DeleteEmployee(int EmployeeID = 0);
     }
 }

@@ -16,7 +16,7 @@
             <div class="box-tools row tableHeader">
                 <button type="button" class="btn btn-primary col-md-1 col-sm-1" ng-click="OpenCreateEmployeeModalPopup()" title="Create new employee record" data-target="#employee-modal" data-toggle="modal" ng-click="CreateEmployee()"><i class="fa fa-new"></i> Create</button>
                 <div class="input-group col-md-11 col-sm-11">
-                    <input type="text" name="table_search" class="form-control input-sm pull-right" style="width: 150px;" placeholder="Search" />
+                    <input type="text" name="table_search" ng-model="searchText" class="form-control input-sm pull-right" style="width: 150px;" placeholder="Search" />
                     <div class="input-group-btn">
                         <button class="btn btn-sm btn-default"><i class="fa fa-search"></i></button>
                     </div>
@@ -33,7 +33,7 @@
                     <th>City</th>
                     <th></th>
                 </tr>
-                <tr ng-repeat="employee in Employees">
+                <tr ng-repeat="employee in Employees|filter:searchText">
                     <td>{{employee.ID}}</td>
                     <td>{{employee.FirstName}}</td>
                     <td>{{employee.LastName}}</td>
@@ -41,7 +41,7 @@
                     <td>{{employee.EmailID}}</td>
                     <td>{{employee.DesignationName}}</td>
                     <td>{{employee.District}}</td>
-                    <td><i class="fa fa-edit cursorPointer" ng-click="GetEmployee(employee.ID)">&nbsp;&nbsp;<i class="cursorPointer fa fa-times"></i></td>
+                    <td><i class="fa fa-edit cursorPointer" ng-click="GetEmployee(employee.ID,employee.StateID)"></i>&nbsp;&nbsp;<i class="cursorPointer fa fa-times" Confirmation-Message="Are you sure want to delete?" ng-click="DeleteEmployee(employee.ID)"></i></td>
                 </tr>
 
             </table>
@@ -125,10 +125,7 @@
                                     <td class="col-md-6">
                                         <div class="form-group">
                                             <label>State</label>
-                                            <select class="form-control" ng-model="NewEmployee.StateID" ng-change="GetAllDistricts(NewEmployee.StateID)">
-                                                <option value="{{state.Key}}" ng-repeat="state in States">{{state.Value}}</option>
-
-                                            </select>
+                                            <select class="form-control" ng-model="NewEmployee.StateID" ng-options="state.Key as state.Value for state in States" ng-change="GetAllDistricts(NewEmployee.StateID)"></select>
                                         </div>
                                     </td>
                                 </tr>
@@ -136,10 +133,8 @@
                                     <td class="col-md-6">
                                         <div class="form-group">
                                             <label>District</label>
-                                            <select class="form-control" ng-model="NewEmployee.DistrictID">
-                                                <option value="{{district.Key}}" ng-repeat="district in Districts">{{district.Value}}</option>
-
-                                            </select>
+                                            <select class="form-control" ng-model="NewEmployee.DistrictID" ng-options="district.Key as district.Value for district in Districts">
+                                             </select>
                                         </div>
                                     </td>
                                     <td class="col-md-6">
@@ -163,7 +158,7 @@
                                             <label>Address Lin2</label>
                                             <textarea class="form-control" rows="3" name="EmployeeAddress2" placeholder="Enter ..." ng-model="NewEmployee.Address2"></textarea>
                                         </div>
-
+{{NewEmployee|json}}
                                     </td>
                                 </tr>
                             </table>

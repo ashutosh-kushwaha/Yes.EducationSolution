@@ -31,11 +31,15 @@ namespace YES.Web.Controllers
         [AttributeRouting.Web.Mvc.Route("CreateEmployee")]
         public int CreateEmployee(EmployeeModel NewEmployee)
         {
-            return _employeeService.CreateEmployee(NewEmployee);
+            // If ID is greater than zero it means this call is for update
+            if (NewEmployee.ID > 0)
+                return _employeeService.UpdateEmployee(NewEmployee);
+            else
+                return _employeeService.CreateEmployee(NewEmployee);
         }
 
         [AttributeRouting.Web.Mvc.Route("GetAllDesignations")]
-        public IEnumerable<KeyValuePair<int,string>> GetAllDesignations()
+        public IEnumerable<KeyValuePair<int, string>> GetAllDesignations()
         {
             return _employeeService.GetAllDesignations();
         }
@@ -43,6 +47,12 @@ namespace YES.Web.Controllers
         public EmployeeModel GetEmployees(Int32 EmployeeID)
         {
             return _employeeService.GetEmployee(EmployeeID);
+        }
+
+        [AttributeRouting.Web.Mvc.Route("DeleteEmployee/{EmployeeID}")]
+        public int GetDeleteEmployees(Int32 EmployeeID)
+        {
+            return _employeeService.DeleteEmployee(EmployeeID);
         }
     }
 }

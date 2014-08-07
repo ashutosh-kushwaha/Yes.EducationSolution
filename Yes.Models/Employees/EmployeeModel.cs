@@ -26,6 +26,7 @@ namespace Yes.Models
         public Nullable<int> PinCode { get; set; }
         public Nullable<int> DesignationID { get; set; }
         public string DesignationName { get; set; }
+        public int SchoolID { get; set; }
    
     }
 }

@@ -28,13 +28,25 @@ namespace Yes.Service
 
         public int CreateEmployee(EmployeeModel NewEmployee)
         {
-            return _employeeAdapter.CreateEmployee(NewEmployee);
+            return _employeeAdapter.CreateEmployee(NewEmployee, 1);
         }
 
 
         public EmployeeModel GetEmployee(int EmployeeID)
         {
             return _employeeAdapter.GetEmployee(1, EmployeeID);
+        }
+
+
+        public int UpdateEmployee(EmployeeModel NewEmployee)
+        {
+            return _employeeAdapter.UpdateEmployee(NewEmployee, 1);
+        }
+
+
+        public int DeleteEmployee(int EmployeeID = 0)
+        {
+            return _employeeAdapter.DeleteEmployee(EmployeeID, 1);
         }
     }
 }

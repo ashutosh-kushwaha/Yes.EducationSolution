@@ -15,6 +15,7 @@
         });
     }
     $scope.GetAllEmployees();
+
     // ***************************Get All Employees List ************************************
 
     //***************************Create Employee start **************************************
@@ -52,6 +53,7 @@
 
         });
     }
+    $scope.GetAllStates();
     // ************************Get list of all states end ************************************
 
 
@@ -75,24 +77,39 @@
 
         });
     }
+    $scope.GetAllDesignations();
     // ************************Get list of all designations end ******************************
 
     // ************************Get employee details for edit start ******************************
-    $scope.GetEmployee = function (EmployeeID) {
-        $scope.GetAllStates();
-        $scope.GetAllDesignations();
+    $scope.GetEmployee = function (EmployeeID,StateID) {
         myApp.showPleaseWait();
+        $scope.NewEmployee = {};// Clean Employee container
+        $scope.GetAllDistricts(StateID);
         EmployeesService.GetEmployee(EmployeeID).then(function (response) {
             if (response.status === 200 && response.data.ID > 0) {
-               
-                $scope.NewEmployee = response.data;
-                $scope.IsEditMode = true;
                 $('#employee-modal').modal('show');
+                $scope.NewEmployee = response.data;// Bind all data to the modal form
+                $scope.IsEditMode = true;
                 myApp.hidePleaseWait();
+              
             }
         });
 
     }
     // ************************Get employee details for edit end ******************************
+
+
+    // ************************Delete employee details start ******************************
+    $scope.DeleteEmployee = function (EmployeeID) {
+        myApp.showPleaseWait();
+        EmployeesService.DeleteEmployee(EmployeeID).then(function (response) {
+            if (response.status === 200 && response.data > 0) {
+                $scope.GetAllEmployees();
+                myApp.hidePleaseWait();
+            }
+        });
+
+    }
+    // ************************Delete employee details  end ******************************
 
 }

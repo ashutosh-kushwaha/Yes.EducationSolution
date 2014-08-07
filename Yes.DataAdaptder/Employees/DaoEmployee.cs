@@ -86,7 +86,7 @@ namespace Yes.DataAdaptder
                     newEmployee.EmployeeMobileNo = NewEmployee.MobileNo;
                     newEmployee.EmployeePinCode = NewEmployee.PinCode;
                     newEmployee.StateID = NewEmployee.StateID;
-
+                    newEmployee.SchoolID = SchoolID;
                     context.YesEmployees.Add(newEmployee);
                     context.SaveChanges();
                     return newEmployee.EmployeeID;
@@ -119,7 +119,12 @@ namespace Yes.DataAdaptder
             }
         }
 
-
+        /// <summary>
+        /// Get the details of an employee from employee ID
+        /// </summary>
+        /// <param name="SchoolID">School id of logged in user</param>
+        /// <param name="EmployeeID">Employee ID whose details want to get</param>
+        /// <returns> Employee details</returns>
         public EmployeeModel GetEmployee(int SchoolID = 0, int EmployeeID = 0)
         {
             try
@@ -149,6 +154,7 @@ namespace Yes.DataAdaptder
                         employeeRecord.PinCode = employee.EmployeePinCode;
                         employeeRecord.State = employee.YesDistrict.YesState.StateName;
                         employeeRecord.StateID = (int)employee.StateID;
+                        employeeRecord.SchoolID = SchoolID;
                         return employeeRecord;
                     }
                     else
@@ -159,7 +165,78 @@ namespace Yes.DataAdaptder
             catch (Exception ex)
             {
 
-                return null; 
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// Update the details of an employee
+        /// </summary>
+        /// <param name="NewEmployee">New Details of employee to be edited </param>
+        /// <param name="SchoolID">School ID of logged in user</param>
+        /// <returns>Employee id whose records has updated</returns>
+        public int UpdateEmployee(EmployeeModel NewEmployee, int SchoolID = 0)
+        {
+            try
+            {
+                using (YesEntities context = new YesEntities())
+                {
+                    var newEmployee = context.YesEmployees.Where(x => x.EmployeeID == NewEmployee.ID && x.YesSchool.SchoolID == SchoolID).FirstOrDefault();
+                    if (newEmployee != null)
+                    {
+                        newEmployee.DesignationID = NewEmployee.DesignationID;
+                        newEmployee.EmployeeAddress1 = NewEmployee.Address1;
+                        newEmployee.EmployeeAddress2 = NewEmployee.Address2;
+                        newEmployee.EmployeeAlternateMobileNo = NewEmployee.AlternateMobileNo;
+                        newEmployee.EmployeeCity = NewEmployee.City;
+                        newEmployee.DistrictID = NewEmployee.DistrictID;
+                        newEmployee.EmployeeEmailID = NewEmployee.EmailID;
+                        newEmployee.EmployeeFirstName = NewEmployee.FirstName;
+                        newEmployee.EmployeeMiddleName = NewEmployee.MiddleName;
+                        newEmployee.EmployeeLastName = NewEmployee.LastName;
+                        newEmployee.EmployeeMobileNo = NewEmployee.MobileNo;
+                        newEmployee.EmployeePinCode = NewEmployee.PinCode;
+                        newEmployee.StateID = NewEmployee.StateID;
+                        newEmployee.SchoolID = SchoolID;
+                        context.SaveChanges();
+                    }
+                    return newEmployee.EmployeeID;
+                }
+            }
+            catch (Exception ex)
+            {
+                return 0;
+            }
+        }
+
+        /// <summary>
+        /// Delete the record from DB
+        /// </summary>
+        /// <param name="SchoolID">Logged in user school id</param>
+        /// <param name="EmployeeID"> Employee id whose record to be deleted</param>
+        /// <returns>Deleted employees id</returns>
+        public int DeleteEmployee( int EmployeeID = 0,int SchoolID = 0)
+        {
+            try
+            {
+                using (YesEntities context = new YesEntities())
+                {
+                    var employee = context.YesEmployees.Where(x => x.EmployeeID == EmployeeID && x.SchoolID == SchoolID).FirstOrDefault();
+                    if (employee != null)
+                    {
+                        context.YesEmployees.Remove(employee);
+                        context.SaveChanges();
+                        return employee.EmployeeID;
+                    }
+                    else
+                        return 0;
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+                return 0;
             }
         }
     }
