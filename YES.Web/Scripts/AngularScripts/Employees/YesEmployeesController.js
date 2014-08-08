@@ -11,6 +11,7 @@
         EmployeesService.GetEmployees().then(function (response) {
             if (response.status === 200)
                 $scope.Employees = response.data;
+            $scope.Paging($scope.Employees);
             myApp.hidePleaseWait();
         });
     }
@@ -89,6 +90,10 @@
             if (response.status === 200 && response.data.ID > 0) {
                 $('#employee-modal').modal('show');
                 $scope.NewEmployee = response.data;// Bind all data to the modal form
+                //Mobile number is comming as string and text box is of type number
+                $scope.NewEmployee.MobileNo = Number(response.data.MobileNo);
+                if (response.data.AlternateMobileNo!=null)
+                $scope.NewEmployee.AlternateMobileNo = Number(response.data.AlternateMobileNo);
                 $scope.IsEditMode = true;
                 myApp.hidePleaseWait();
               
@@ -111,5 +116,51 @@
 
     }
     // ************************Delete employee details  end ******************************
+
+    // ************************ Paging Start************************************
+    $scope.FirstPage = {};
+    $scope.LastPage = {};
+    $scope.CurrentPage = {};
+    $scope.PageSize = {};
+    $scope.TotalNumberOfPages = {};
+    $scope.PagingArray = {};
+  
+    $scope.Paging = function (ListCollection) {
+        $scope.FirstPage = false;
+        $scope.LastPage = false;
+        $scope.CurrentPage = 1;
+        $scope.PageSize = 10;
+        $scope.Start = -1;
+        $scope.End = $scope.PageSize;
+
+        $scope.TotalNumberOfPages = Math.floor(ListCollection.length / $scope.PageSize); // Get the absolute number of devidend
+        var quotient = ListCollection.length % $scope.PageSize;
+        if (quotient > 0)// If quotient>0 then need to draw one extra page
+            $scope.PagingArray = new Array($scope.TotalNumberOfPages + 1); // No. of pages are 
+        else // If quotient is zoro then need to draw exact page no.
+            $scope.PagingArray = new Array($scope.TotalNumberOfPages); // No. of pages are 
+        // Initialising array
+        if ($scope.TotalNumberOfPages > 0) // Only current page is greater than one will show the previous button
+            $scope.LastPage = true;
+
+    }
+
+    $scope.PageChange = function (pageNumber) {
+        $scope.Start = ($scope.PageSize * (pageNumber - 1))-1; // subtract one because ng-repeat on view is working on index basis
+        $scope.End = $scope.PageSize * pageNumber;
+        if (pageNumber > 1) // If landing on other than one page show previous button
+            $scope.FirstPage = true;
+        else
+            $scope.FirstPage = false;
+
+        if (pageNumber == $scope.TotalNumberOfPages + 1)
+            $scope.LastPage = false;
+        else
+            $scope.LastPage = true;
+
+        $scope.CurrentPage = pageNumber; // Set current page with page number
+    }
+    //************************* Paging End *****************************//
+
 
 }

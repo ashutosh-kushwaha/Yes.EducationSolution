@@ -10,7 +10,7 @@
 
 <!-- Main content -->
 <section class="content" ng-controller="EmployeeController">
-    <div class="col-xs-12 ContentPage">
+    <div class="col-xs-12 ContentPage box box-primary">
         <!-- /.box-header -->
         <div class="box-body table-responsive no-padding">
             <div class="box-tools row tableHeader">
@@ -33,7 +33,7 @@
                     <th>City</th>
                     <th></th>
                 </tr>
-                <tr ng-repeat="employee in Employees|filter:searchText">
+                <tr ng-repeat="employee in Employees|filter:searchText" ng-show="Start<$index && $index<End">
                     <td>{{employee.ID}}</td>
                     <td>{{employee.FirstName}}</td>
                     <td>{{employee.LastName}}</td>
@@ -45,6 +45,13 @@
                 </tr>
 
             </table>
+              <div class=" col-sm-12 col-md-12 pull-right">
+                <ul class="pagination pull-right" ng-show="Employees.length> PageSize">
+                    <li ng-show="FirstPage" ng-click="PageChange(CurrentPage-1)"><a href="javascript:void(0)">&laquo;</a></li>
+                    <li ng-repeat="p in PagingArray track by $index" ng-click="PageChange($index+1)" ng-class="{'active':$index==(CurrentPage-1)}"><a href="javascript:void(0)">{{$index+1}}</a></li>
+                    <li ng-show="LastPage" ng-click="PageChange(CurrentPage+1)"><a href="javascript:void(0)">&raquo;</a></li>
+                </ul>
+            </div>
         </div>
         <!-- /.box-body -->
     </div>
@@ -110,7 +117,7 @@
                                         <div class="form-group">
                                             <label>Alternate Phone No.</label>
                                             <input type="number" ng-minlength="10" ng-maxlength="10" class="form-control" name="EmployeeAlternateMobileNo" placeholder="Enter ..." ng-model="NewEmployee.AlternateMobileNo" />
-                                            <p ng-show="EmployeeForm.EmployeeAlternateMobileNo.$invalid && !EmployeeForm.EmployeeAlternateMobileNo.$pristine" class="text-dange yesErrorMessage">Enter a valid 10 digit alternate mobile number.</p>
+                                            <p ng-show="EmployeeForm.EmployeeAlternateMobileNo.$invalid && !EmployeeForm.EmployeeAlternateMobileNo.$pristine" class="text-danger yesErrorMessage">Enter a valid 10 digit alternate mobile number.</p>
                                         </div>
                                     </td>
                                 </tr>
@@ -118,7 +125,7 @@
                                     <td class="col-md-6">
                                         <div class="form-group">
                                             <label>Email Address</label>
-                                            <input type="email" class="form-control" placeholder="Enter ..." name="EmployeeEmailId" ng-model="NewEmployee.EmailId" />
+                                            <input type="email" class="form-control" placeholder="Enter ..." name="EmployeeEmailId" ng-model="NewEmployee.EmailID" />
                                             <p ng-show="EmployeeForm.EmployeeEmailId.$invalid && !EmployeeForm.EmployeeEmailId.$pristine" class="text-danger yesErrorMessage">Enter a valid e-mail address.</p>
                                         </div>
                                     </td>
@@ -158,7 +165,6 @@
                                             <label>Address Lin2</label>
                                             <textarea class="form-control" rows="3" name="EmployeeAddress2" placeholder="Enter ..." ng-model="NewEmployee.Address2"></textarea>
                                         </div>
-{{NewEmployee|json}}
                                     </td>
                                 </tr>
                             </table>
