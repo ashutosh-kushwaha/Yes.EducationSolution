@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Course\DaoCourse.cs" />
+    <Compile Include="Course\IDaoCourse.cs" />
     <Compile Include="Employees\DaoEmployee.cs" />
     <Compile Include="Employees\IDaoEmployee.cs" />
     <Compile Include="Login\DaoLogin.cs" />

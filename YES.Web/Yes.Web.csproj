@@ -186,6 +186,8 @@
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="Controllers\Courses\CourseApiController.cs" />
+    <Compile Include="Controllers\Courses\CourseController.cs" />
     <Compile Include="Controllers\Employees\EmployeesApiController.cs" />
     <Compile Include="Controllers\Employees\EmployeesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -567,6 +569,8 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\bootstrap\" />
+    <Folder Include="Controllers\Fees\" />
+    <Folder Include="Controllers\Students\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -584,6 +588,9 @@
       <Project>{487b1332-1e79-4a91-b6f9-c2d8b793da68}</Project>
       <Name>Yes.Service</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Course\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

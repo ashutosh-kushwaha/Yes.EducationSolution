@@ -9,6 +9,7 @@ using Yes.Models;
 using Yes.Service;
 using AttributeRouting;
 using AttributeRouting.Web.Mvc;
+using System.Web;
 
 namespace YES.Web.Controllers
 {
@@ -18,24 +19,27 @@ namespace YES.Web.Controllers
     {
         [Dependency]
         public IEmployeeService _employeeService { get; set; }
-
+        [Dependency]
+        public ILoginService _loginService { get; set; }
         [Dependency]
         public IStateDistrictService _stateDistrictService { get; set; }
 
         [AttributeRouting.Web.Mvc.Route("GetAllEmployees")]
         public List<EmployeeModel> GetAllEmployees()
         {
-            return _employeeService.GetAllEmployees();
+            LoggedInUserDetailsModel userDetails= _loginService.GetLoggedInUserDetails(Convert.ToInt32(HttpContext.Current.User.Identity.Name));
+            return _employeeService.GetAllEmployees(userDetails.SchoolID);
         }
 
         [AttributeRouting.Web.Mvc.Route("CreateEmployee")]
         public int CreateEmployee(EmployeeModel NewEmployee)
         {
+            LoggedInUserDetailsModel userDetails = _loginService.GetLoggedInUserDetails(Convert.ToInt32(HttpContext.Current.User.Identity.Name));
             // If ID is greater than zero it means this call is for update
             if (NewEmployee.ID > 0)
-                return _employeeService.UpdateEmployee(NewEmployee);
+                return _employeeService.UpdateEmployee(NewEmployee, userDetails.SchoolID);
             else
-                return _employeeService.CreateEmployee(NewEmployee);
+                return _employeeService.CreateEmployee(NewEmployee, userDetails.SchoolID);
         }
 
         [AttributeRouting.Web.Mvc.Route("GetAllDesignations")]
@@ -46,13 +50,15 @@ namespace YES.Web.Controllers
         [AttributeRouting.Web.Mvc.Route("GetEmployee/{EmployeeID}")]
         public EmployeeModel GetEmployees(Int32 EmployeeID)
         {
-            return _employeeService.GetEmployee(EmployeeID);
+            LoggedInUserDetailsModel userDetails = _loginService.GetLoggedInUserDetails(Convert.ToInt32(HttpContext.Current.User.Identity.Name));
+            return _employeeService.GetEmployee(userDetails.SchoolID,EmployeeID);
         }
 
         [AttributeRouting.Web.Mvc.Route("DeleteEmployee/{EmployeeID}")]
         public int GetDeleteEmployees(Int32 EmployeeID)
         {
-            return _employeeService.DeleteEmployee(EmployeeID);
+            LoggedInUserDetailsModel userDetails = _loginService.GetLoggedInUserDetails(Convert.ToInt32(HttpContext.Current.User.Identity.Name));
+            return _employeeService.DeleteEmployee(userDetails.SchoolID,EmployeeID);
         }
     }
 }

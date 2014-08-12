@@ -18,5 +18,10 @@ namespace Yes.Service
         {
             return _loginAdapter.VerifyUserCredential(userName, password);
         }
+
+        public LoggedInUserDetailsModel GetLoggedInUserDetails(int userID)
+        {
+            return _loginAdapter.GetLoggedInUserDetails(userID);
+        }
     }
 }

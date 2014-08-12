@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Yes.DataAdaptder;
 using Yes.Models;
+using System.Web;
 
 namespace Yes.Service
 {
@@ -14,9 +15,9 @@ namespace Yes.Service
         [Dependency]
         public IDaoEmployee _employeeAdapter { get; set; }
 
-        public List<EmployeeModel> GetAllEmployees()
+        public List<EmployeeModel> GetAllEmployees(int schoolID)
         {
-            return _employeeAdapter.GetAllEmployees();
+            return _employeeAdapter.GetAllEmployees(schoolID);
         }
 
 
@@ -26,27 +27,27 @@ namespace Yes.Service
         }
 
 
-        public int CreateEmployee(EmployeeModel NewEmployee)
+        public int CreateEmployee(EmployeeModel NewEmployee, int schoolID)
         {
-            return _employeeAdapter.CreateEmployee(NewEmployee, 1);
+            return _employeeAdapter.CreateEmployee(NewEmployee, schoolID);
         }
 
 
-        public EmployeeModel GetEmployee(int EmployeeID)
+        public EmployeeModel GetEmployee(int schoolID,int EmployeeID)
         {
-            return _employeeAdapter.GetEmployee(1, EmployeeID);
+            return _employeeAdapter.GetEmployee(schoolID, EmployeeID);
         }
 
 
-        public int UpdateEmployee(EmployeeModel NewEmployee)
+        public int UpdateEmployee(EmployeeModel NewEmployee, int schoolID)
         {
-            return _employeeAdapter.UpdateEmployee(NewEmployee, 1);
+            return _employeeAdapter.UpdateEmployee(NewEmployee, schoolID);
         }
 
 
-        public int DeleteEmployee(int EmployeeID = 0)
+        public int DeleteEmployee(int schoolID,int EmployeeID = 0)
         {
-            return _employeeAdapter.DeleteEmployee(EmployeeID, 1);
+            return _employeeAdapter.DeleteEmployee(EmployeeID, schoolID);
         }
     }
 }

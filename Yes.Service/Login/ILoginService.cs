@@ -11,5 +11,6 @@ namespace Yes.Service
     {
 
         LoggedInUserDetailsModel VerifyUserCredential(string userName, string password);
+        LoggedInUserDetailsModel GetLoggedInUserDetails(int userID);
     }
 }

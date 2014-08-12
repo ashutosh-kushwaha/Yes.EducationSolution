@@ -9,11 +9,11 @@ namespace Yes.Service
 {
     public interface IEmployeeService
     {
-        List<EmployeeModel> GetAllEmployees();
+        List<EmployeeModel> GetAllEmployees(int schoolID);
         IEnumerable<KeyValuePair<int, string>> GetAllDesignations();
-        int CreateEmployee(EmployeeModel NewEmployee);
-        EmployeeModel GetEmployee(int EmployeeID);
-        int UpdateEmployee(EmployeeModel NewEmployee);
-        int DeleteEmployee(int EmployeeID = 0);
+        int CreateEmployee(EmployeeModel NewEmployee, int schoolID);
+        EmployeeModel GetEmployee(int schoolID,int EmployeeID);
+        int UpdateEmployee(EmployeeModel NewEmployee, int schoolID);
+        int DeleteEmployee(int schoolID,int EmployeeID = 0);
     }
 }
