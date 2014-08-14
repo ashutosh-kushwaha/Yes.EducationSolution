@@ -47,9 +47,13 @@
     <Compile Include="Employees\IDaoEmployee.cs" />
     <Compile Include="Login\DaoLogin.cs" />
     <Compile Include="Login\IDaoLogin.cs" />
+    <Compile Include="Parent\DaoParent.cs" />
+    <Compile Include="Parent\IDaoParent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="State_District\DaoStateDistrict.cs" />
     <Compile Include="State_District\IDaoStateDistrict.cs" />
+    <Compile Include="Students\DaoStudent.cs" />
+    <Compile Include="Students\IDaoStudent.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Yes.EntityFramework\Yes.EntityFramework.csproj">
@@ -64,6 +68,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -43,6 +43,15 @@ namespace YES.Web
 
         container.RegisterType<IStateDistrictService, StateDistrictService>();
         container.RegisterType<IDaoStateDistrict, DaoStateDistrict>();
+
+        container.RegisterType<ICourseService, CourseService>();
+        container.RegisterType<IDaoCourse, DaoCourse>();
+
+        container.RegisterType<IParentService, ParentService>();
+        container.RegisterType<IDaoParent, DaoParent>();
+
+        container.RegisterType<IStudentService, StudentService>();
+        container.RegisterType<IDaoStudent, DaoStudent>();
     }
   }
 }

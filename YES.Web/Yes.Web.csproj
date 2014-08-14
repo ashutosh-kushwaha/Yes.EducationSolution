@@ -193,6 +193,8 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\State_District\StateDistrictApiController.cs" />
+    <Compile Include="Controllers\Students\StudentsApiController.cs" />
+    <Compile Include="Controllers\Students\StudentsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -570,7 +572,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Content\bootstrap\" />
     <Folder Include="Controllers\Fees\" />
-    <Folder Include="Controllers\Students\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
