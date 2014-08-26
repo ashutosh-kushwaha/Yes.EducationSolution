@@ -179,12 +179,14 @@
       <PropertyRef Name="StudentID" />
     </Key>
     <Property Name="StudentID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="StudentFirstName" Type="nvarchar" MaxLength="200" />
+    <Property Name="StudentFirstName" Type="nvarchar" Nullable="false" MaxLength="200" />
     <Property Name="StudentMiddleName" Type="nvarchar" MaxLength="200" />
     <Property Name="StudentLastName" Type="nvarchar" MaxLength="200" />
-    <Property Name="StudentRollNumber" Type="int" />
-    <Property Name="ParentID" Type="int" />
-    <Property Name="CourseID" Type="int" />
+    <Property Name="StudentRollNumber" Type="int" Nullable="false" />
+    <Property Name="StudentDOB" Type="date" />
+    <Property Name="StudentGender" Type="nchar" Nullable="false" MaxLength="1" />
+    <Property Name="ParentID" Type="int" Nullable="false" />
+    <Property Name="CourseID" Type="int" Nullable="false" />
     <Property Name="SchoolID" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="YesUser">
@@ -290,7 +292,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_YesStudent_YesCourse">
-    <End Role="YesCourse" Type="YesModel.Store.YesCourse" Multiplicity="0..1" />
+    <End Role="YesCourse" Type="YesModel.Store.YesCourse" Multiplicity="1" />
     <End Role="YesStudent" Type="YesModel.Store.YesStudent" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="YesCourse">
@@ -302,7 +304,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_YesStudent_YesParent">
-    <End Role="YesParent" Type="YesModel.Store.YesParent" Multiplicity="0..1" />
+    <End Role="YesParent" Type="YesModel.Store.YesParent" Multiplicity="1" />
     <End Role="YesStudent" Type="YesModel.Store.YesStudent" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="YesParent">

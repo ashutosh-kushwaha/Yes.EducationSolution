@@ -18,13 +18,15 @@ namespace Yes.EntityFramework
         public string StudentFirstName { get; set; }
         public string StudentMiddleName { get; set; }
         public string StudentLastName { get; set; }
-        public Nullable<int> StudentRollNumber { get; set; }
-        public Nullable<int> ParentID { get; set; }
-        public Nullable<int> CourseID { get; set; }
+        public int StudentRollNumber { get; set; }
+        public Nullable<System.DateTime> StudentDOB { get; set; }
+        public string StudentGender { get; set; }
+        public int ParentID { get; set; }
+        public int CourseID { get; set; }
         public int SchoolID { get; set; }
     
         public virtual YesCourse YesCourse { get; set; }
-        public virtual YesSchool YesSchool { get; set; }
         public virtual YesParent YesParent { get; set; }
+        public virtual YesSchool YesSchool { get; set; }
     }
 }

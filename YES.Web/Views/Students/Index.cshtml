@@ -1,0 +1,227 @@
+﻿<section class="content-header">
+    <h4>Students
+                        <small>Control panel</small>
+    </h4>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i>Dashboard</a></li>
+        <li class="active">Students</li>
+    </ol>
+</section>
+
+<!-- Main content -->
+<section class="content" ng-controller="StudentsController">
+    <div class="col-xs-12 ContentPage box box-primary">
+        <!-- /.box-header -->
+        <div class="box-body table-responsive no-padding">
+            <div class="box-tools row tableHeader">
+                <button type="button" class="btn btn-primary col-md-1 col-sm-1" ng-click="OpenCreateStudentModalPopup()" title="Create new Student record" data-target="#Student-modal" data-toggle="modal" ng-click="CreateStudent()"><i class="fa fa-new"></i>Create</button>
+                <div class="input-group col-md-11 col-sm-11">
+                    <input type="text" name="table_search" ng-model="searchText" class="form-control input-sm pull-right" style="width: 150px;" placeholder="Search" />
+                    <div class="input-group-btn">
+                        <button class="btn btn-sm btn-default"><i class="fa fa-search"></i></button>
+                    </div>
+                </div>
+            </div>
+            <table class="table">
+                <tr>
+                    @*<th>ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Course ID</th>
+                    <th>Address</th>
+                    <th>Guardian First Name</th>
+                    <th>Guardian Last Name</th>*@
+                    <th></th>
+                </tr>
+                <tr ng-repeat="Student in Students|filter:searchText" ng-show="Start<$index && $index<End">
+                    <td>
+                        <div class="row">
+                            <div class="col-sm-3 col-md-2">
+                                <div class="thumbnail">
+                                    <img ng-show="Student.StudentGender=='M'" data-src="" alt="..." src="../../Images/avatar5.png">
+                                    <img ng-show="Student.StudentGender=='F'" data-src="" alt="..." src="../../Images/avatar2.png">
+                                    <div class="caption text-center">
+                                        <h4>{{Student.StudentFirstName}} {{Student.StudentMiddleName}} {{Student.StudentLastName}}</h4>
+                                        <i class="btn bg-green fa fa-edit fa-lg cursorPointer" ng-click="GetStudent(Student.ID,Student.StateID)"></i>&nbsp;&nbsp;<i class="cursorPointer btn bg-red fa fa-times fa-lg " Confirmation-Message="Are you sure want to delete?" ng-click="DeleteStudent(Student.ID)"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-9 col-md-10">
+                                    <table class="table table-striped  box box-danger">
+                                        <tr>
+                                            <td><b>Guardian Name - </b>{{Student.ParentFirstName}} {{Student.ParentMiddleName}} {{Student.ParentLastName}} </td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>Class - </b> {{Student.CourseName}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>Roll No. - </b> {{Student.StudentRollNumber}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>Date of Birth - </b>{{Student.StudentDateOfBirth}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>Gender - </b>{{Student.StudentGender}}</td>
+                                        </tr>
+                                        <tr><td><b>Address - </b>{{Student.ParentAddress1}}, {{Student.ParentAddress2}}</td></tr>
+                                        <tr><td><b>PIN - </b>{{ Student.ParentPinCode}}</td></tr>
+                                      </table>
+                            </div>
+                        </div>
+                    </td>
+                    @*<td>{{Student.StudentFirstName}}</td>
+                    <td>{{Student.StudentLastName}}</td>
+                    <td>{{Student.CourseID}}</td>
+                    <td>{{Student.ParentAddress1}}</td>
+                    <td>{{Student.ParentFirstName}}</td>
+                    <td>{{Student.ParentLastName}}</td>
+                    <td><i class="fa fa-edit cursorPointer" ng-click="GetStudent(Student.ID,Student.StateID)"></i>&nbsp;&nbsp;<i class="cursorPointer fa fa-times" Confirmation-Message="Are you sure want to delete?" ng-click="DeleteStudent(Student.ID)"></i></td>*@
+                </tr>
+
+            </table>
+            <div class=" col-sm-12 col-md-12 pull-right">
+                <ul class="pagination pull-right" ng-show="Students.length> PageSize">
+                    <li ng-show="FirstPage" ng-click="PageChange(CurrentPage-1)"><a href="javascript:void(0)">&laquo;</a></li>
+                    <li ng-repeat="p in PagingArray track by $index" ng-click="PageChange($index+1)" ng-class="{'active':$index==(CurrentPage-1)}"><a href="javascript:void(0)">{{$index+1}}</a></li>
+                    <li ng-show="LastPage" ng-click="PageChange(CurrentPage+1)"><a href="javascript:void(0)">&raquo;</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- /.box-body -->
+    </div>
+
+    <!-- Student CREATE MODAL -->
+    <div class="modal fade" id="Student-modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form role="form" name="StudentForm" novalidate>
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" ng-show="!IsEditMode"><i class="fa fa-user"></i>New Student</h4>
+                        <h4 class="modal-title" ng-show="IsEditMode"><i class="fa fa-user"></i>Edit Student</h4>
+                    </div>
+                    <div class="modal-body  box box-warning">
+                        @*  <div class="box-header">
+                                    <h3 class="box-title">General Elements</h3>
+                                </div><!-- /.box-header -->*@
+                        <div class="box-body">
+                            <table width="100%">
+                                <tr class="row">
+                                    <td class="col-md-6">
+                                        <div class="form-group">
+                                            <label>First Name</label>
+                                            <input type="text" class="form-control" name="StudentFirstName" placeholder="Required" ng-model="NewStudent.FirstName" required />
+                                            <p ng-show="StudentForm.StudentFirstName.$invalid && !StudentForm.StudentFirstName.$pristine" class="text-danger yesErrorMessage">Enter a valid first name.</p>
+                                        </div>
+                                    </td>
+
+                                    <td class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Middle Name</label>
+                                            <input type="text" class="form-control" name="StudentMiddleName" placeholder="Enter ..." ng-model="NewStudent.MiddleName" />
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="row">
+                                    <td class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Last Name</label>
+                                            <input type="text" class="form-control" name="StudentLastName" placeholder="Required" ng-model="NewStudent.LastName" required />
+                                            <p ng-show="StudentForm.StudentLastName.$invalid && !StudentForm.StudentLastName.$pristine" class="text-danger yesErrorMessage">Enter a valid last name.</p>
+                                        </div>
+                                    </td>
+                                    <td class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Designation</label>
+                                            <select class="form-control" ng-model="NewStudent.DesignationID" name="StudentDesignation">
+                                                <option value="{{designation.Key}}" ng-repeat="designation in Designations">{{designation.Value}}</option>
+                                            </select>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="row">
+                                    <td class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Mobile Phone No.</label>
+                                            <input type="number" ng-minlength="10" ng-maxlength="10" class="form-control" name="StudentMobileNo" placeholder="Required" ng-model="NewStudent.MobileNo" required />
+                                            <p ng-show="StudentForm.StudentMobileNo.$invalid && !StudentForm.StudentMobileNo.$pristine" class="text-danger yesErrorMessage">Enter a valid 10 digit mobile no.</p>
+                                        </div>
+                                    </td>
+                                    <td class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Alternate Phone No.</label>
+                                            <input type="number" ng-minlength="10" ng-maxlength="10" class="form-control" name="StudentAlternateMobileNo" placeholder="Enter ..." ng-model="NewStudent.AlternateMobileNo" />
+                                            <p ng-show="StudentForm.StudentAlternateMobileNo.$invalid && !StudentForm.StudentAlternateMobileNo.$pristine" class="text-danger yesErrorMessage">Enter a valid 10 digit alternate mobile number.</p>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="row">
+                                    <td class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Email Address</label>
+                                            <input type="email" class="form-control" placeholder="Enter ..." name="StudentEmailId" ng-model="NewStudent.EmailID" />
+                                            <p ng-show="StudentForm.StudentEmailId.$invalid && !StudentForm.StudentEmailId.$pristine" class="text-danger yesErrorMessage">Enter a valid e-mail address.</p>
+                                        </div>
+                                    </td>
+                                    <td class="col-md-6">
+                                        <div class="form-group">
+                                            <label>State</label>
+                                            <select class="form-control" ng-model="NewStudent.StateID" ng-options="state.Key as state.Value for state in States" ng-change="GetAllDistricts(NewStudent.StateID)"></select>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="row">
+                                    <td class="col-md-6">
+                                        <div class="form-group">
+                                            <label>District</label>
+                                            <select class="form-control" ng-model="NewStudent.DistrictID" ng-options="district.Key as district.Value for district in Districts">
+                                            </select>
+                                        </div>
+                                    </td>
+                                    <td class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Pin</label>
+                                            <input type="number" mg-minlength="6" ng-maxlength="6" class="form-control" name="StudentPIN" placeholder="Enter ..." ng-model="NewStudent.PinCode" />
+                                            <p ng-show="StudentForm.StudentPIN.$invalid && !StudentForm.StudentPIN.$pristine" class="text-danger yesErrorMessage">Enter a valid 6 digit PIN.</p>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="row">
+                                    <td class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Address Line1</label>
+                                            <textarea class="form-control" rows="3" name="StudentAddress1" placeholder="Required" ng-model="NewStudent.Address1" required></textarea>
+                                            <p ng-show="StudentForm.StudentAddress1.$invalid && !StudentForm.StudentAddress1.$pristine" class="text-danger yesErrorMessage">Enter a valid address.</p>
+                                        </div>
+                                    </td>
+                                    <td class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Address Lin2</label>
+                                            <textarea class="form-control" rows="3" name="StudentAddress2" placeholder="Enter ..." ng-model="NewStudent.Address2"></textarea>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </div>
+                        <!-- /.box-body -->
+
+                    </div>
+                    <div class="modal-footer clearfix">
+
+                        <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i>Discard</button>
+
+                        <button type="submit" class="btn btn-primary pull-left" ng-disabled="StudentForm.$invalid" ng-click="SaveStudentDetails(NewStudent)"><i class="fa fa-check"></i>Save</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+</section>
+<script src="~/Scripts/AngularScripts/Students/YesStudentsController.js"></script>
+<script src="~/Scripts/AngularScripts/State_District/YesStateDistrictService.js"></script>
+<script src="~/Scripts/AngularScripts/Students/YesStudentsService.js"></script>
