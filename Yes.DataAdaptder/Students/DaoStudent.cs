@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Transactions;
 using Yes.EntityFramework;
 using Yes.Models;
 
@@ -60,6 +61,72 @@ namespace Yes.DataAdaptder
             }
         }
 
-        
+        public int CreateStudent(StudentModel NewStudent, int SchoolID = 0)
+        {
+            try
+            {
+                using (YesEntities context = new YesEntities())
+                {
+                    using (TransactionScope scope = new TransactionScope()) // Making both the create in one transection so that if fail, the whole process should rollback
+                    {
+                        // Create parent record to the database
+                        var parent = new YesParent();
+                        parent.DistrictID = NewStudent.DistrictID;
+                        parent.ParentAddress1 = NewStudent.ParentAddress1;
+                        parent.ParentAddress2 = NewStudent.ParentAddress2;
+                        parent.ParentAlternateMobileNo = NewStudent.ParentAlternateMobileNo;
+                        parent.ParentCity = NewStudent.ParentCity;
+                        parent.ParentEmailID = NewStudent.ParentEmailID;
+                        parent.ParentFirstName = NewStudent.ParentFirstName;
+                        parent.ParentLastName = NewStudent.ParentLastName;
+                        parent.ParentMiddleName = NewStudent.ParentMiddleName;
+                        parent.ParentMobileNo = NewStudent.ParentMobileNo;
+                        parent.ParentOccupation = NewStudent.ParentOccupation;
+                        parent.ParentPinCode = NewStudent.ParentPinCode;
+                        parent.StateID = NewStudent.StateID;
+                        context.YesParents.Add(parent);
+                        context.SaveChanges();
+
+                        // Create student record
+                        var student = new YesStudent();
+                        student.StudentID = NewStudent.StudentID;
+                        student.CourseID = NewStudent.CourseID;
+                        student.ParentID = parent.ParentID;
+                        student.SchoolID = SchoolID;
+                        student.StudentDOB = NewStudent.StudentDateOfBirth;
+                        student.StudentFirstName = NewStudent.StudentFirstName;
+                        student.StudentMiddleName = NewStudent.StudentMiddleName;
+                        student.StudentLastName = NewStudent.StudentLastName;
+                        student.StudentGender = NewStudent.StudentGender.ToString();
+                        student.StudentRollNumber = NewStudent.StudentRollNumber;
+                        context.YesStudents.Add(student);
+                        context.SaveChanges();
+                        scope.Complete();// Commit the transection
+                        return student.StudentID;
+                    }
+                  
+                }
+            }
+            catch(Exception ex)
+            {
+                
+                return 0;
+            }
+        }
+
+        public StudentModel GetStudent(int SchoolID = 0, int StudentID = 0)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int UpdateStudent(StudentModel NewStudent, int SchoolID = 0)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int DeleteStudent(int SchoolID = 0, int StudentID = 0)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

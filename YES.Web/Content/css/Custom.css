@@ -24,4 +24,11 @@
     position:absolute;
     font-size:13px;
 }
-
+.studentTumbnails{
+height:152px;
+width:130px;
+}
+.studentImage{
+    height:85px;
+    width:90px;
+}

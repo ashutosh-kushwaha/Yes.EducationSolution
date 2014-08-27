@@ -20,3 +20,9 @@ yesApp.directive('confirmationMessage', function () {
     };
 });
 
+// Add filter for formating date time with help of moment.js
+angular.module('yesApp').filter('moment', function () {
+    return function (date,format) {
+        return moment(date).format(format);
+    }
+});

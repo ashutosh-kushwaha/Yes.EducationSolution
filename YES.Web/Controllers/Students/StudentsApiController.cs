@@ -25,5 +25,16 @@ namespace YES.Web.Controllers
             LoggedInUserDetailsModel userDetails = _loginService.GetLoggedInUserDetails(Convert.ToInt32(HttpContext.Current.User.Identity.Name));
             return _studentService.GetAllStudents(userDetails.SchoolID);
         }
+
+        [AttributeRouting.Web.Mvc.Route("CreateStudent")]
+        public int CreateStudent(StudentModel NewStudent)
+        {
+            LoggedInUserDetailsModel userDetails = _loginService.GetLoggedInUserDetails(Convert.ToInt32(HttpContext.Current.User.Identity.Name));
+            // If ID is greater than zero it means this call is for update
+            if (NewStudent.StudentID > 0)
+                return _studentService.UpdateStudent(NewStudent, userDetails.SchoolID);
+            else
+                return _studentService.CreateStudent(NewStudent, userDetails.SchoolID);
+        }
     }
 }

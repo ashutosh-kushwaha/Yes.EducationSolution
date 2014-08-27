@@ -16,7 +16,16 @@ function StudentsController($scope, StudentsService, StateDistrictService) {
     $scope.GetAllStudents();
 
     // ***************************Get All Students List ************************************
+    //***************************Create Student start **************************************
+    $scope.SaveStudentDetails = function (NewStudent) {
+        StudentsService.CreateStudent(NewStudent).then(function (response) {
+            if (response.status === 200 && response.data > 0)
+                $('#student-modal').modal('hide');
+            $scope.GetAllStudents();
+        });
+    }
 
+    //**************************Create Employee end ******************************************
     // ************************ Paging Start************************************
     $scope.FirstPage = {};
     $scope.LastPage = {};
