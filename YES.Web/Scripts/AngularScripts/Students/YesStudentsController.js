@@ -3,6 +3,7 @@
 function StudentsController($scope, StudentsService, StateDistrictService) {
 
     $scope.Students = [];
+    $scope.NewStudent = {};
     // ************************* Get All Studets List *************************************
     $scope.GetAllStudents = function () {
         myApp.showPleaseWait();
@@ -26,6 +27,57 @@ function StudentsController($scope, StudentsService, StateDistrictService) {
     }
 
     //**************************Create Employee end ******************************************
+
+    //*************************Get list of all districts for given state start****************
+    $scope.GetAllDistricts = function (StateID) {
+        StateDistrictService.GetAllDistricts(StateID).then(function (response) {
+            if (response.status == 200) {
+                $scope.Districts = response.data;
+                if ($scope.Districts.length > 0)
+                    $scope.NewStudent.DistrictID = $scope.Districts[0].Key;
+            }
+
+        });
+    }
+    // ************************Get list of all districts for given state end *****************
+    //*************************Get list of all states start***********************************
+    $scope.GetAllStates = function () {
+        StateDistrictService.GetAllStates().then(function (response) {
+            if (response.status == 200) {
+                $scope.States = response.data;
+                if ($scope.States.length > 0) {
+                    $scope.NewStudent.StateID = $scope.States[0].Key; //Set default state
+                    $scope.GetAllDistricts($scope.NewStudent.StateID);// Pass default StateID
+                }
+            }
+
+        });
+    }
+  
+    // ************************Get list of all states end ************************************
+
+    //*************************Get list of all states start***********************************
+    $scope.GetAllCourse = function () {
+        StudentsService.GetAllCourse().then(function (response) {
+            if (response.status == 200) {
+                $scope.Courses = response.data;
+                $scope.NewStudent.CourseID = $scope.Courses[0].CourseID; //Set default course
+            }
+
+        });
+    }
+    // ************************Get list of all states end ************************************
+    //************************Open create employee modal popup start *************************
+    $scope.OpenCreateStudentModalPopup = function () {
+        $scope.IsEditMode = false;
+        $scope.NewStudent = {};
+        $scope.GetAllStates();
+        $scope.GetAllCourse();
+
+      
+    }
+    //************************Open create employee modal popup end ***************************
+
     // ************************ Paging Start************************************
     $scope.FirstPage = {};
     $scope.LastPage = {};

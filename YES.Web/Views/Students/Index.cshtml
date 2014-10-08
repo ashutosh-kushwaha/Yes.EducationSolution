@@ -110,8 +110,8 @@
                                         <ul class="nav nav-tabs">
                                             <li class="active"><a href="#tab_1" data-toggle="tab">Student Details</a></li>
                                             <li><a href="#tab_2" data-toggle="tab">Parent Details</a></li>
-                                            
-@*                                            <li class="pull-right"><a href="#" class="text-muted"><i class="fa fa-gear"></i></a></li>*@
+
+                                            @*                                            <li class="pull-right"><a href="#" class="text-muted"><i class="fa fa-gear"></i></a></li>*@
                                         </ul>
                                         <div class="tab-content">
                                             <div class="tab-pane active" id="tab_1">
@@ -143,93 +143,50 @@
                                                         <td class="col-md-6">
                                                             <div class="form-group">
                                                                 <label>Class</label>
-                                                                <select class="form-control" ng-model="NewStudent.CourseID" name="StudentClass">
+                                                               @* <select class="form-control" ng-model="NewStudent.CourseID" name="StudentClass">
                                                                     <option value="{{course.Key}}" ng-repeat="course in Courses">{{course.Value}}</option>
-                                                                </select>
+                                                                </select>*@
+                                                                <select class="form-control" ng-model="NewStudent.CourseID" ng-options="course.CourseID as course.CourseName for course in Courses" ></select>
                                                             </div>
                                                         </td>
                                                     </tr>
+
                                                     <tr class="row">
                                                         <td class="col-md-6">
                                                             <div class="form-group">
-                                                                <label>Parent Mobile No.</label>
-                                                                <input type="number" ng-minlength="10" ng-maxlength="10" class="form-control" name="ParentMobileNo" placeholder="Required" ng-model="NewStudent.ParentMobileNo" required />
-                                                                <p ng-show="StudentForm.ParentMobileNo.$invalid && !StudentForm.ParentMobileNo.$pristine" class="text-danger yesErrorMessage">Enter a valid 10 digit mobile no.</p>
-                                                            </div>
-                                                        </td>
-                                                        <td class="col-md-6">
-                                                            <div class="form-group">
-                                                                <label>Alternate Phone No.</label>
-                                                                <input type="number" ng-minlength="10" ng-maxlength="10" class="form-control" name="ParentAlternateMobileNo" placeholder="Enter ..." ng-model="NewStudent.ParentAlternateMobileNo" />
-                                                                <p ng-show="StudentForm.ParentAlternateMobileNo.$invalid && !StudentForm.ParentAlternateMobileNo.$pristine" class="text-danger yesErrorMessage">Enter a valid 10 digit alternate mobile number.</p>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr class="row">
-                                                        <td class="col-md-6">
-                                                            <div class="form-group">
-                                                                <label>Parent Email Id</label>
-                                                                <input type="email" class="form-control" placeholder="Enter ..." name="ParentEmailId" ng-model="NewStudent.ParentEmailId" />
-                                                                <p ng-show="StudentForm.ParentEmailId.$invalid && !StudentForm.ParentEmailId.$pristine" class="text-danger yesErrorMessage">Enter a valid e-mail address.</p>
-                                                            </div>
-                                                        </td>
-                                                        <td class="col-md-6">
-                                                            <div class="form-group">
-                                                                <label>State</label>
+                                                                <label>Parent State</label>
                                                                 <select class="form-control" ng-model="NewStudent.StateID" ng-options="state.Key as state.Value for state in States" ng-change="GetAllDistricts(NewStudent.StateID)"></select>
                                                             </div>
                                                         </td>
-                                                    </tr>
-                                                    <tr class="row">
                                                         <td class="col-md-6">
                                                             <div class="form-group">
-                                                                <label>District</label>
+                                                                <label>Parent District</label>
                                                                 <select class="form-control" ng-model="NewStudent.DistrictID" ng-options="district.Key as district.Value for district in Districts">
                                                                 </select>
                                                             </div>
                                                         </td>
-                                                        <td class="col-md-6">
-                                                            <div class="form-group">
-                                                                <label>Pin</label>
-                                                                <input type="number" mg-minlength="6" ng-maxlength="6" class="form-control" name="StudentPIN" placeholder="Enter ..." ng-model="NewStudent.PinCode" />
-                                                                <p ng-show="StudentForm.StudentPIN.$invalid && !StudentForm.StudentPIN.$pristine" class="text-danger yesErrorMessage">Enter a valid 6 digit PIN.</p>
-                                                            </div>
-                                                        </td>
                                                     </tr>
-                                                    <tr class="row">
-                                                        <td class="col-md-6">
-                                                            <div class="form-group">
-                                                                <label>Address Line1</label>
-                                                                <textarea class="form-control" rows="3" name="StudentAddress1" placeholder="Required" ng-model="NewStudent.Address1" required></textarea>
-                                                                <p ng-show="StudentForm.StudentAddress1.$invalid && !StudentForm.StudentAddress1.$pristine" class="text-danger yesErrorMessage">Enter a valid address.</p>
-                                                            </div>
-                                                        </td>
-                                                        <td class="col-md-6">
-                                                            <div class="form-group">
-                                                                <label>Address Lin2</label>
-                                                                <textarea class="form-control" rows="3" name="StudentAddress2" placeholder="Enter ..." ng-model="NewStudent.Address2"></textarea>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
+
+
                                                 </table>
                                             </div>
                                             <!-- /.tab-pane -->
-                                      
+
                                             <div class="tab-pane" id="tab_2">
                                                 <table width="100%" style="border: 1px solid #dddddd; border-top: none;">
                                                     <tr class="row">
                                                         <td class="col-md-6">
                                                             <div class="form-group">
-                                                                <label>First Name</label>
-                                                                <input type="text" class="form-control" name="StudentFirstName" placeholder="Required" ng-model="NewStudent.StudentFirstName" required />
-                                                                <p ng-show="StudentForm.StudentFirstName.$invalid && !StudentForm.StudentFirstName.$pristine" class="text-danger yesErrorMessage">Enter a valid first name.</p>
+                                                                <label>Parent First Name</label>
+                                                                <input type="text" class="form-control" name="StudentFirstName" placeholder="Required" ng-model="NewStudent.ParentFirstName" required />
+                                                                <p ng-show="StudentForm.ParentFirstName.$invalid && !StudentForm.ParentFirstName.$pristine" class="text-danger yesErrorMessage">Enter a valid first name.</p>
                                                             </div>
                                                         </td>
 
                                                         <td class="col-md-6">
                                                             <div class="form-group">
-                                                                <label>Middle Name</label>
-                                                                <input type="text" class="form-control" name="StudentMiddleName" placeholder="Enter ..." ng-model="NewStudent.StudentMiddleName" />
+                                                                <label>Parent Middle Name</label>
+                                                                <input type="text" class="form-control" name="ParentMiddleName" placeholder="Enter ..." ng-model="NewStudent.ParentMiddleName" />
                                                             </div>
                                                         </td>
                                                     </tr>
@@ -237,20 +194,10 @@
                                                         <td class="col-md-6">
                                                             <div class="form-group">
                                                                 <label>Last Name</label>
-                                                                <input type="text" class="form-control" name="StudentLastName" placeholder="Required" ng-model="NewStudent.StudentLastName" required />
-                                                                <p ng-show="StudentForm.StudentLastName.$invalid && !StudentForm.StudentLastName.$pristine" class="text-danger yesErrorMessage">Enter a valid last name.</p>
+                                                                <input type="text" class="form-control" name="ParentLastName" placeholder="Required" ng-model="NewStudent.ParentLastName" required />
+                                                                <p ng-show="StudentForm.ParentLastName.$invalid && !StudentForm.ParentLastName.$pristine" class="text-danger yesErrorMessage">Enter a valid last name.</p>
                                                             </div>
                                                         </td>
-                                                        <td class="col-md-6">
-                                                            <div class="form-group">
-                                                                <label>Class</label>
-                                                                <select class="form-control" ng-model="NewStudent.CourseID" name="StudentClass">
-                                                                    <option value="{{course.Key}}" ng-repeat="course in Courses">{{course.Value}}</option>
-                                                                </select>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr class="row">
                                                         <td class="col-md-6">
                                                             <div class="form-group">
                                                                 <label>Parent Mobile No.</label>
@@ -258,6 +205,8 @@
                                                                 <p ng-show="StudentForm.ParentMobileNo.$invalid && !StudentForm.ParentMobileNo.$pristine" class="text-danger yesErrorMessage">Enter a valid 10 digit mobile no.</p>
                                                             </div>
                                                         </td>
+                                                    </tr>
+                                                    <tr class="row">
                                                         <td class="col-md-6">
                                                             <div class="form-group">
                                                                 <label>Alternate Phone No.</label>
@@ -265,8 +214,6 @@
                                                                 <p ng-show="StudentForm.ParentAlternateMobileNo.$invalid && !StudentForm.ParentAlternateMobileNo.$pristine" class="text-danger yesErrorMessage">Enter a valid 10 digit alternate mobile number.</p>
                                                             </div>
                                                         </td>
-                                                    </tr>
-                                                    <tr class="row">
                                                         <td class="col-md-6">
                                                             <div class="form-group">
                                                                 <label>Parent Email Id</label>
@@ -274,29 +221,9 @@
                                                                 <p ng-show="StudentForm.ParentEmailId.$invalid && !StudentForm.ParentEmailId.$pristine" class="text-danger yesErrorMessage">Enter a valid e-mail address.</p>
                                                             </div>
                                                         </td>
-                                                        <td class="col-md-6">
-                                                            <div class="form-group">
-                                                                <label>State</label>
-                                                                <select class="form-control" ng-model="NewStudent.StateID" ng-options="state.Key as state.Value for state in States" ng-change="GetAllDistricts(NewStudent.StateID)"></select>
-                                                            </div>
-                                                        </td>
                                                     </tr>
-                                                    <tr class="row">
-                                                        <td class="col-md-6">
-                                                            <div class="form-group">
-                                                                <label>District</label>
-                                                                <select class="form-control" ng-model="NewStudent.DistrictID" ng-options="district.Key as district.Value for district in Districts">
-                                                                </select>
-                                                            </div>
-                                                        </td>
-                                                        <td class="col-md-6">
-                                                            <div class="form-group">
-                                                                <label>Pin</label>
-                                                                <input type="number" mg-minlength="6" ng-maxlength="6" class="form-control" name="StudentPIN" placeholder="Enter ..." ng-model="NewStudent.PinCode" />
-                                                                <p ng-show="StudentForm.StudentPIN.$invalid && !StudentForm.StudentPIN.$pristine" class="text-danger yesErrorMessage">Enter a valid 6 digit PIN.</p>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
+
+
                                                     <tr class="row">
                                                         <td class="col-md-6">
                                                             <div class="form-group">
@@ -308,13 +235,23 @@
                                                         <td class="col-md-6">
                                                             <div class="form-group">
                                                                 <label>Address Lin2</label>
-                                                                <textarea class="form-control" rows="3" name="StudentAddress2" placeholder="Enter ..." ng-model="NewStudent.Address2"></textarea>
+                                                                <textarea class="form-control" rows="3" name="ParentAddress2" placeholder="Enter ..." ng-model="NewStudent.ParentAddress2"></textarea>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="row">
+
+                                                        <td class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label>Pin</label>
+                                                                <input type="number" mg-minlength="6" ng-maxlength="6" class="form-control" name="ParentPinCode" placeholder="Enter ..." ng-model="NewStudent.ParentPinCode" />
+                                                                <p ng-show="StudentForm.ParentPinCode.$invalid && !StudentForm.ParentPinCode.$pristine" class="text-danger yesErrorMessage">Enter a valid 6 digit PIN.</p>
                                                             </div>
                                                         </td>
                                                     </tr>
                                                 </table>
                                             </div>
-                                   
+
                                             <!-- /.tab-pane -->
                                         </div>
                                         <!-- /.tab-content -->
