@@ -67,7 +67,7 @@ function StudentsController($scope, StudentsService, StateDistrictService) {
         });
     }
     // ************************Get list of all states end ************************************
-    //************************Open create employee modal popup start *************************
+    //************************Open create student modal popup start *************************
     $scope.OpenCreateStudentModalPopup = function () {
         $scope.IsEditMode = false;
         $scope.NewStudent = {};
@@ -76,8 +76,28 @@ function StudentsController($scope, StudentsService, StateDistrictService) {
 
       
     }
-    //************************Open create employee modal popup end ***************************
+    //************************Open create student modal popup end ***************************
+    // ************************Get employee details for edit start ******************************
+    $scope.GetStudent = function (StudentID, StateID) {
+        myApp.showPleaseWait();
+        $scope.NewStudent = {};// Clean Employee container
+        $scope.GetAllDistricts(StateID);
+        StudentsService.GetStudent(StudentID).then(function (response) {
+            if (response.status === 200 && response.data.ID > 0) {
+                $('#student-modal').modal('show');
+                $scope.NewStudent = response.data;// Bind all data to the modal form
+                //Mobile number is comming as string and text box is of type number
+                $scope.NewStudent.ParentMobileNo = Number(response.data.ParentMobileNo);
+                if (response.data.AlternateMobileNo != null)
+                    $scope.NewStudent.ParentAlternateMobileNo = Number(response.data.ParentAlternateMobileNo);
+                $scope.IsEditMode = true;
+                myApp.hidePleaseWait();
 
+            }
+        });
+
+    }
+    // ************************Get employee details for edit end ******************************
     // ************************ Paging Start************************************
     $scope.FirstPage = {};
     $scope.LastPage = {};

@@ -22,6 +22,9 @@ namespace Yes.EntityFramework
         public int PrivilegeID { get; set; }
         public string PrivilegeName { get; set; }
         public string PrivilegeDescription { get; set; }
+        public Nullable<System.DateTime> CreatedDate { get; set; }
+        public Nullable<System.DateTime> ModifiedDate { get; set; }
+        public Nullable<bool> IsActive { get; set; }
     
         public virtual ICollection<YesUserPrivilege> YesUserPrivileges { get; set; }
     }

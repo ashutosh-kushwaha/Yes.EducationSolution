@@ -57,6 +57,8 @@
     <Compile Include="State_Disctrict\StateDistrictService.cs" />
     <Compile Include="Student\IStudentService.cs" />
     <Compile Include="Student\StudentService.cs" />
+    <Compile Include="Subject\ISubjectService.cs" />
+    <Compile Include="Subject\SubjectService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Yes.DataAdaptder\Yes.DataAdapter.csproj">

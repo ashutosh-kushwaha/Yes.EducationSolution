@@ -22,7 +22,7 @@ yesApp.factory('StudentsService', function ($http) {
 
     StudentsServiceFactory.CreateStudent = function (NewStudent) {
 
-        var promise = $http({ method: 'POST', url: 'api/Student/CreateStudent', data: NewStudent }).
+        var promise = $http({ method: 'POST', url: 'api/Students/CreateStudent', data: NewStudent }).
             success(function (data, status, headers, config) {
                 // this callback will be called asynchronously
                 // when the response is available
@@ -56,6 +56,26 @@ yesApp.factory('StudentsService', function ($http) {
         return promise;
     }
     // ***************************************** End course ****************************************
+
+    // *********************** Create new student record start***************************
+
+    StudentsServiceFactory.GetStudent = function (StudentID) {
+
+        var promise = $http({ method: 'GET', url: 'api/Students/GetStudent/'+StudentID }).
+            success(function (data, status, headers, config) {
+                // this callback will be called asynchronously
+                // when the response is available
+                return data;
+
+            }).
+            error(function (data, status, headers, config) {
+                // called asynchronously if an error occurs
+                // or server returns response with an error status.
+                return { 'status': false };
+            });
+        return promise;
+    }
+    // *******************************Create Students end **********************************
 
     return StudentsServiceFactory;
 });

@@ -34,6 +34,9 @@ namespace Yes.EntityFramework
         public Nullable<int> EmployeePinCode { get; set; }
         public Nullable<int> DesignationID { get; set; }
         public Nullable<int> SchoolID { get; set; }
+        public Nullable<System.DateTime> CreatedDate { get; set; }
+        public Nullable<System.DateTime> ModifiedDate { get; set; }
+        public Nullable<bool> IsActive { get; set; }
     
         public virtual YesDesignation YesDesignation { get; set; }
         public virtual YesDistrict YesDistrict { get; set; }

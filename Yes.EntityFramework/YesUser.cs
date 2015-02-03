@@ -24,8 +24,11 @@ namespace Yes.EntityFramework
         public string UserPassword { get; set; }
         public Nullable<short> FalseLoginCount { get; set; }
         public Nullable<int> EmployeeID { get; set; }
+        public Nullable<System.DateTime> CreatedDate { get; set; }
+        public Nullable<System.DateTime> ModifiedDate { get; set; }
+        public Nullable<bool> IsActive { get; set; }
     
-        public virtual ICollection<YesUserPrivilege> YesUserPrivileges { get; set; }
         public virtual YesEmployee YesEmployee { get; set; }
+        public virtual ICollection<YesUserPrivilege> YesUserPrivileges { get; set; }
     }
 }

@@ -6,12 +6,16 @@
     <EntitySet Name="YesDesignation" EntityType="YesModel.Store.YesDesignation" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="YesDistrict" EntityType="YesModel.Store.YesDistrict" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="YesEmployee" EntityType="YesModel.Store.YesEmployee" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="YesExamType" EntityType="YesModel.Store.YesExamType" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="YesFee" EntityType="YesModel.Store.YesFee" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="YesParent" EntityType="YesModel.Store.YesParent" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="YesPrivilege" EntityType="YesModel.Store.YesPrivilege" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="YesSchool" EntityType="YesModel.Store.YesSchool" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="YesState" EntityType="YesModel.Store.YesState" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="YesStudent" EntityType="YesModel.Store.YesStudent" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="YesStudentMarks" EntityType="YesModel.Store.YesStudentMarks" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="YesStudentSubjectMap" EntityType="YesModel.Store.YesStudentSubjectMap" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="YesSubject" EntityType="YesModel.Store.YesSubject" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="YesUser" EntityType="YesModel.Store.YesUser" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="YesUserPrivilege" EntityType="YesModel.Store.YesUserPrivilege" store:Type="Tables" Schema="dbo" />
     <AssociationSet Name="FK_YesCourseFee_YesCourse" Association="YesModel.Store.FK_YesCourseFee_YesCourse">
@@ -54,6 +58,22 @@
       <End Role="YesSchool" EntitySet="YesSchool" />
       <End Role="YesStudent" EntitySet="YesStudent" />
     </AssociationSet>
+    <AssociationSet Name="FK_YesStudentMarks_YesExamType" Association="YesModel.Store.FK_YesStudentMarks_YesExamType">
+      <End Role="YesExamType" EntitySet="YesExamType" />
+      <End Role="YesStudentMarks" EntitySet="YesStudentMarks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_YesStudentMarks_YesStudentSubjectMap" Association="YesModel.Store.FK_YesStudentMarks_YesStudentSubjectMap">
+      <End Role="YesStudentSubjectMap" EntitySet="YesStudentSubjectMap" />
+      <End Role="YesStudentMarks" EntitySet="YesStudentMarks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_YesStudentSubjectMap_YesStudent" Association="YesModel.Store.FK_YesStudentSubjectMap_YesStudent">
+      <End Role="YesStudent" EntitySet="YesStudent" />
+      <End Role="YesStudentSubjectMap" EntitySet="YesStudentSubjectMap" />
+    </AssociationSet>
+    <AssociationSet Name="FK_YesStudentSubjectMap_YesSubject" Association="YesModel.Store.FK_YesStudentSubjectMap_YesSubject">
+      <End Role="YesSubject" EntitySet="YesSubject" />
+      <End Role="YesStudentSubjectMap" EntitySet="YesStudentSubjectMap" />
+    </AssociationSet>
     <AssociationSet Name="FK_YesUser_YesEmployee" Association="YesModel.Store.FK_YesUser_YesEmployee">
       <End Role="YesEmployee" EntitySet="YesEmployee" />
       <End Role="YesUser" EntitySet="YesUser" />
@@ -72,8 +92,11 @@
       <PropertyRef Name="CourseID" />
     </Key>
     <Property Name="CourseID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="CourseName" Type="nvarchar" MaxLength="100" />
+    <Property Name="CourseName" Type="nvarchar" Nullable="false" MaxLength="100" />
     <Property Name="CourseDescription" Type="text" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="ModifiedDate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
   </EntityType>
   <EntityType Name="YesCourseFee">
     <Key>
@@ -82,6 +105,9 @@
     <Property Name="CourseFeeID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="CourseID" Type="int" />
     <Property Name="FeeID" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="ModifiedDate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
   </EntityType>
   <EntityType Name="YesDesignation">
     <Key>
@@ -90,6 +116,9 @@
     <Property Name="DesignationID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="DesignationName" Type="nvarchar" MaxLength="100" />
     <Property Name="DesignationDescription" Type="nvarchar" MaxLength="200" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="ModifiedDate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
   </EntityType>
   <EntityType Name="YesDistrict">
     <Key>
@@ -99,6 +128,7 @@
     <Property Name="DisctrictName" Type="nvarchar" Nullable="false" MaxLength="100" />
     <Property Name="StateID" Type="int" Nullable="false" />
     <Property Name="DisctrictDescription" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="IsActive" Type="bit" />
   </EntityType>
   <EntityType Name="YesEmployee">
     <Key>
@@ -119,6 +149,20 @@
     <Property Name="EmployeePinCode" Type="int" />
     <Property Name="DesignationID" Type="int" />
     <Property Name="SchoolID" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="ModifiedDate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="YesExamType">
+    <Key>
+      <PropertyRef Name="ExamTypeID" />
+    </Key>
+    <Property Name="ExamTypeID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ExamType" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="ExamTypeDescription" Type="nvarchar" MaxLength="200" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="YesFee">
     <Key>
@@ -128,6 +172,9 @@
     <Property Name="FeeName" Type="nvarchar" MaxLength="200" />
     <Property Name="FeeDescription" Type="nvarchar" MaxLength="500" />
     <Property Name="FeeAmount" Type="money" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="ModifiedDate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
   </EntityType>
   <EntityType Name="YesParent">
     <Key>
@@ -147,14 +194,20 @@
     <Property Name="StateID" Type="int" />
     <Property Name="ParentPinCode" Type="int" />
     <Property Name="ParentOccupation" Type="nvarchar" MaxLength="100" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="ModifiedDate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
   </EntityType>
   <EntityType Name="YesPrivilege">
     <Key>
       <PropertyRef Name="PrivilegeID" />
     </Key>
     <Property Name="PrivilegeID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="PrivilegeName" Type="nvarchar" MaxLength="100" />
-    <Property Name="PrivilegeDescription" Type="nvarchar" MaxLength="200" />
+    <Property Name="PrivilegeName" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="PrivilegeDescription" Type="nvarchar" Nullable="false" MaxLength="200" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="ModifiedDate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
   </EntityType>
   <EntityType Name="YesSchool">
     <Key>
@@ -165,6 +218,7 @@
     <Property Name="SchoolAddress1" Type="text" Nullable="false" />
     <Property Name="SchoolAddress2" Type="text" />
     <Property Name="SchoolEstiblishmentYear" Type="int" />
+    <Property Name="IsActive" Type="bit" />
   </EntityType>
   <EntityType Name="YesState">
     <Key>
@@ -188,6 +242,43 @@
     <Property Name="ParentID" Type="int" Nullable="false" />
     <Property Name="CourseID" Type="int" Nullable="false" />
     <Property Name="SchoolID" Type="int" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="ModifiedDate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="YesStudentMarks">
+    <Key>
+      <PropertyRef Name="StudentMarksID" />
+    </Key>
+    <Property Name="StudentMarksID" Type="int" Nullable="false" />
+    <Property Name="StudentSubjectID" Type="int" Nullable="false" />
+    <Property Name="ExamTypeID" Type="int" Nullable="false" />
+    <Property Name="ObtainedMarks" Type="smallint" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="YesStudentSubjectMap">
+    <Key>
+      <PropertyRef Name="StudentSubjectID" />
+    </Key>
+    <Property Name="StudentSubjectID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="StudentID" Type="int" Nullable="false" />
+    <Property Name="SubjectID" Type="int" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="YesSubject">
+    <Key>
+      <PropertyRef Name="SubjectID" />
+    </Key>
+    <Property Name="SubjectID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="SubjectName" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="SubjectMarks" Type="smallint" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="YesUser">
     <Key>
@@ -198,14 +289,20 @@
     <Property Name="UserPassword" Type="nvarchar" MaxLength="200" />
     <Property Name="FalseLoginCount" Type="smallint" />
     <Property Name="EmployeeID" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="ModifiedDate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
   </EntityType>
   <EntityType Name="YesUserPrivilege">
     <Key>
       <PropertyRef Name="UserPrivilegeID" />
     </Key>
     <Property Name="UserPrivilegeID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="PrivilegeID" Type="int" />
-    <Property Name="UserID" Type="int" />
+    <Property Name="PrivilegeID" Type="int" Nullable="false" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
   </EntityType>
   <Association Name="FK_YesCourseFee_YesCourse">
     <End Role="YesCourse" Type="YesModel.Store.YesCourse" Multiplicity="0..1" />
@@ -327,6 +424,54 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_YesStudentMarks_YesExamType">
+    <End Role="YesExamType" Type="YesModel.Store.YesExamType" Multiplicity="1" />
+    <End Role="YesStudentMarks" Type="YesModel.Store.YesStudentMarks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="YesExamType">
+        <PropertyRef Name="ExamTypeID" />
+      </Principal>
+      <Dependent Role="YesStudentMarks">
+        <PropertyRef Name="ExamTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_YesStudentMarks_YesStudentSubjectMap">
+    <End Role="YesStudentSubjectMap" Type="YesModel.Store.YesStudentSubjectMap" Multiplicity="1" />
+    <End Role="YesStudentMarks" Type="YesModel.Store.YesStudentMarks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="YesStudentSubjectMap">
+        <PropertyRef Name="StudentSubjectID" />
+      </Principal>
+      <Dependent Role="YesStudentMarks">
+        <PropertyRef Name="StudentSubjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_YesStudentSubjectMap_YesStudent">
+    <End Role="YesStudent" Type="YesModel.Store.YesStudent" Multiplicity="1" />
+    <End Role="YesStudentSubjectMap" Type="YesModel.Store.YesStudentSubjectMap" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="YesStudent">
+        <PropertyRef Name="StudentID" />
+      </Principal>
+      <Dependent Role="YesStudentSubjectMap">
+        <PropertyRef Name="StudentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_YesStudentSubjectMap_YesSubject">
+    <End Role="YesSubject" Type="YesModel.Store.YesSubject" Multiplicity="1" />
+    <End Role="YesStudentSubjectMap" Type="YesModel.Store.YesStudentSubjectMap" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="YesSubject">
+        <PropertyRef Name="SubjectID" />
+      </Principal>
+      <Dependent Role="YesStudentSubjectMap">
+        <PropertyRef Name="SubjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_YesUser_YesEmployee">
     <End Role="YesEmployee" Type="YesModel.Store.YesEmployee" Multiplicity="0..1" />
     <End Role="YesUser" Type="YesModel.Store.YesUser" Multiplicity="*" />
@@ -340,7 +485,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_YesUserPrivilege_YesPrivilege">
-    <End Role="YesPrivilege" Type="YesModel.Store.YesPrivilege" Multiplicity="0..1" />
+    <End Role="YesPrivilege" Type="YesModel.Store.YesPrivilege" Multiplicity="1" />
     <End Role="YesUserPrivilege" Type="YesModel.Store.YesUserPrivilege" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="YesPrivilege">
@@ -352,7 +497,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_YesUserPrivilege_YesUser">
-    <End Role="YesUser" Type="YesModel.Store.YesUser" Multiplicity="0..1" />
+    <End Role="YesUser" Type="YesModel.Store.YesUser" Multiplicity="1" />
     <End Role="YesUserPrivilege" Type="YesModel.Store.YesUserPrivilege" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="YesUser">

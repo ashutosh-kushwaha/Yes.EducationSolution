@@ -52,6 +52,9 @@ namespace YES.Web
 
         container.RegisterType<IStudentService, StudentService>();
         container.RegisterType<IDaoStudent, DaoStudent>();
+
+        container.RegisterType<ISubjectService, SubjectService>();
+        container.RegisterType<IDaoSubject, DaoSubject>();
     }
   }
 }

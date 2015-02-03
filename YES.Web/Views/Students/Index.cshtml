@@ -42,7 +42,7 @@
                                     <img class="studentImage" ng-show="Student.StudentGender=='F'" data-src="" alt="..." src="../../Images/avatar2.png">
                                     <div class="caption text-center">
                                         <b>{{Student.StudentFirstName}}</b><br />
-                                        <i class="btn bg-green btn-sm fa fa-edit  cursorPointer" ng-click="GetStudent(Student.ID,Student.StateID)"></i>&nbsp;&nbsp;<i class="cursorPointer btn bg-red btn-sm fa fa-times" confirmation-message="Are you sure want to delete?" ng-click="DeleteStudent(Student.ID)"></i>
+                                        <i class="btn bg-green btn-sm fa fa-edit  cursorPointer" ng-click="GetStudent(Student.StudentID,Student.StateID)"></i>&nbsp;&nbsp;<i class="cursorPointer btn bg-red btn-sm fa fa-times" confirmation-message="Are you sure want to delete?" ng-click="DeleteStudent(Student.StudentID)"></i>
                                     </div>
                                 </div>
                             </div>
@@ -92,7 +92,7 @@
     </div>
 
     <!-- Student CREATE MODAL -->
-    <div class="modal fade" id="Student-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal fade" id="student-modal" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <form role="form" name="StudentForm" novalidate>
@@ -150,7 +150,22 @@
                                                             </div>
                                                         </td>
                                                     </tr>
+                                                    <tr class="row">
+                                                        <td class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label>Roll Number</label>
+                                                                <input type="text" class="form-control" name="StudentFirstName" placeholder="Required" ng-model="NewStudent.StudentFirstName" required />
+                                                                <p ng-show="StudentForm.StudentFirstName.$invalid && !StudentForm.StudentFirstName.$pristine" class="text-danger yesErrorMessage">Enter a valid first name.</p>
+                                                            </div>
+                                                        </td>
 
+                                                        <td class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label>Gender</label>
+                                                                <input type="text" class="form-control" name="StudentMiddleName" placeholder="Enter ..." ng-model="NewStudent.StudentMiddleName" />
+                                                            </div>
+                                                        </td>
+                                                    </tr>
                                                     <tr class="row">
                                                         <td class="col-md-6">
                                                             <div class="form-group">

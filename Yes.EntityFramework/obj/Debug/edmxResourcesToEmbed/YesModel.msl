@@ -4,6 +4,9 @@
     <EntitySetMapping Name="YesCourses">
       <EntityTypeMapping TypeName="YesModel.YesCourse">
         <MappingFragment StoreEntitySet="YesCourse">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
           <ScalarProperty Name="CourseDescription" ColumnName="CourseDescription" />
           <ScalarProperty Name="CourseName" ColumnName="CourseName" />
           <ScalarProperty Name="CourseID" ColumnName="CourseID" />
@@ -13,6 +16,9 @@
     <EntitySetMapping Name="YesCourseFees">
       <EntityTypeMapping TypeName="YesModel.YesCourseFee">
         <MappingFragment StoreEntitySet="YesCourseFee">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
           <ScalarProperty Name="FeeID" ColumnName="FeeID" />
           <ScalarProperty Name="CourseID" ColumnName="CourseID" />
           <ScalarProperty Name="CourseFeeID" ColumnName="CourseFeeID" />
@@ -22,6 +28,9 @@
     <EntitySetMapping Name="YesDesignations">
       <EntityTypeMapping TypeName="YesModel.YesDesignation">
         <MappingFragment StoreEntitySet="YesDesignation">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
           <ScalarProperty Name="DesignationDescription" ColumnName="DesignationDescription" />
           <ScalarProperty Name="DesignationName" ColumnName="DesignationName" />
           <ScalarProperty Name="DesignationID" ColumnName="DesignationID" />
@@ -31,6 +40,7 @@
     <EntitySetMapping Name="YesDistricts">
       <EntityTypeMapping TypeName="YesModel.YesDistrict">
         <MappingFragment StoreEntitySet="YesDistrict">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
           <ScalarProperty Name="DisctrictDescription" ColumnName="DisctrictDescription" />
           <ScalarProperty Name="StateID" ColumnName="StateID" />
           <ScalarProperty Name="DisctrictName" ColumnName="DisctrictName" />
@@ -38,68 +48,12 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="YesFees">
-      <EntityTypeMapping TypeName="YesModel.YesFee">
-        <MappingFragment StoreEntitySet="YesFee">
-          <ScalarProperty Name="FeeAmount" ColumnName="FeeAmount" />
-          <ScalarProperty Name="FeeDescription" ColumnName="FeeDescription" />
-          <ScalarProperty Name="FeeName" ColumnName="FeeName" />
-          <ScalarProperty Name="FeeID" ColumnName="FeeID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="YesPrivileges">
-      <EntityTypeMapping TypeName="YesModel.YesPrivilege">
-        <MappingFragment StoreEntitySet="YesPrivilege">
-          <ScalarProperty Name="PrivilegeDescription" ColumnName="PrivilegeDescription" />
-          <ScalarProperty Name="PrivilegeName" ColumnName="PrivilegeName" />
-          <ScalarProperty Name="PrivilegeID" ColumnName="PrivilegeID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="YesSchools">
-      <EntityTypeMapping TypeName="YesModel.YesSchool">
-        <MappingFragment StoreEntitySet="YesSchool">
-          <ScalarProperty Name="SchoolEstiblishmentYear" ColumnName="SchoolEstiblishmentYear" />
-          <ScalarProperty Name="SchoolAddress2" ColumnName="SchoolAddress2" />
-          <ScalarProperty Name="SchoolAddress1" ColumnName="SchoolAddress1" />
-          <ScalarProperty Name="SchoolName" ColumnName="SchoolName" />
-          <ScalarProperty Name="SchoolID" ColumnName="SchoolID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="YesStates">
-      <EntityTypeMapping TypeName="YesModel.YesState">
-        <MappingFragment StoreEntitySet="YesState">
-          <ScalarProperty Name="StateDescription" ColumnName="StateDescription" />
-          <ScalarProperty Name="StateName" ColumnName="StateName" />
-          <ScalarProperty Name="StateID" ColumnName="StateID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="YesUsers">
-      <EntityTypeMapping TypeName="YesModel.YesUser">
-        <MappingFragment StoreEntitySet="YesUser">
-          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
-          <ScalarProperty Name="FalseLoginCount" ColumnName="FalseLoginCount" />
-          <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
-          <ScalarProperty Name="UserName" ColumnName="UserName" />
-          <ScalarProperty Name="UserID" ColumnName="UserID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="YesUserPrivileges">
-      <EntityTypeMapping TypeName="YesModel.YesUserPrivilege">
-        <MappingFragment StoreEntitySet="YesUserPrivilege">
-          <ScalarProperty Name="UserID" ColumnName="UserID" />
-          <ScalarProperty Name="PrivilegeID" ColumnName="PrivilegeID" />
-          <ScalarProperty Name="UserPrivilegeID" ColumnName="UserPrivilegeID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="YesEmployees">
       <EntityTypeMapping TypeName="YesModel.YesEmployee">
         <MappingFragment StoreEntitySet="YesEmployee">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
           <ScalarProperty Name="SchoolID" ColumnName="SchoolID" />
           <ScalarProperty Name="DesignationID" ColumnName="DesignationID" />
           <ScalarProperty Name="EmployeePinCode" ColumnName="EmployeePinCode" />
@@ -118,9 +72,37 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="YesExamTypes">
+      <EntityTypeMapping TypeName="YesModel.YesExamType">
+        <MappingFragment StoreEntitySet="YesExamType">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ExamTypeDescription" ColumnName="ExamTypeDescription" />
+          <ScalarProperty Name="ExamType" ColumnName="ExamType" />
+          <ScalarProperty Name="ExamTypeID" ColumnName="ExamTypeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="YesFees">
+      <EntityTypeMapping TypeName="YesModel.YesFee">
+        <MappingFragment StoreEntitySet="YesFee">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="FeeAmount" ColumnName="FeeAmount" />
+          <ScalarProperty Name="FeeDescription" ColumnName="FeeDescription" />
+          <ScalarProperty Name="FeeName" ColumnName="FeeName" />
+          <ScalarProperty Name="FeeID" ColumnName="FeeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="YesParents">
       <EntityTypeMapping TypeName="YesModel.YesParent">
         <MappingFragment StoreEntitySet="YesParent">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
           <ScalarProperty Name="ParentOccupation" ColumnName="ParentOccupation" />
           <ScalarProperty Name="ParentPinCode" ColumnName="ParentPinCode" />
           <ScalarProperty Name="StateID" ColumnName="StateID" />
@@ -138,9 +120,45 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="YesPrivileges">
+      <EntityTypeMapping TypeName="YesModel.YesPrivilege">
+        <MappingFragment StoreEntitySet="YesPrivilege">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="PrivilegeDescription" ColumnName="PrivilegeDescription" />
+          <ScalarProperty Name="PrivilegeName" ColumnName="PrivilegeName" />
+          <ScalarProperty Name="PrivilegeID" ColumnName="PrivilegeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="YesSchools">
+      <EntityTypeMapping TypeName="YesModel.YesSchool">
+        <MappingFragment StoreEntitySet="YesSchool">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="SchoolEstiblishmentYear" ColumnName="SchoolEstiblishmentYear" />
+          <ScalarProperty Name="SchoolAddress2" ColumnName="SchoolAddress2" />
+          <ScalarProperty Name="SchoolAddress1" ColumnName="SchoolAddress1" />
+          <ScalarProperty Name="SchoolName" ColumnName="SchoolName" />
+          <ScalarProperty Name="SchoolID" ColumnName="SchoolID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="YesStates">
+      <EntityTypeMapping TypeName="YesModel.YesState">
+        <MappingFragment StoreEntitySet="YesState">
+          <ScalarProperty Name="StateDescription" ColumnName="StateDescription" />
+          <ScalarProperty Name="StateName" ColumnName="StateName" />
+          <ScalarProperty Name="StateID" ColumnName="StateID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="YesStudents">
       <EntityTypeMapping TypeName="YesModel.YesStudent">
         <MappingFragment StoreEntitySet="YesStudent">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
           <ScalarProperty Name="SchoolID" ColumnName="SchoolID" />
           <ScalarProperty Name="CourseID" ColumnName="CourseID" />
           <ScalarProperty Name="ParentID" ColumnName="ParentID" />
@@ -151,6 +169,69 @@
           <ScalarProperty Name="StudentMiddleName" ColumnName="StudentMiddleName" />
           <ScalarProperty Name="StudentFirstName" ColumnName="StudentFirstName" />
           <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="YesStudentMarks">
+      <EntityTypeMapping TypeName="YesModel.YesStudentMark">
+        <MappingFragment StoreEntitySet="YesStudentMarks">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ObtainedMarks" ColumnName="ObtainedMarks" />
+          <ScalarProperty Name="ExamTypeID" ColumnName="ExamTypeID" />
+          <ScalarProperty Name="StudentSubjectID" ColumnName="StudentSubjectID" />
+          <ScalarProperty Name="StudentMarksID" ColumnName="StudentMarksID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="YesStudentSubjectMaps">
+      <EntityTypeMapping TypeName="YesModel.YesStudentSubjectMap">
+        <MappingFragment StoreEntitySet="YesStudentSubjectMap">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="SubjectID" ColumnName="SubjectID" />
+          <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+          <ScalarProperty Name="StudentSubjectID" ColumnName="StudentSubjectID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="YesSubjects">
+      <EntityTypeMapping TypeName="YesModel.YesSubject">
+        <MappingFragment StoreEntitySet="YesSubject">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="SubjectMarks" ColumnName="SubjectMarks" />
+          <ScalarProperty Name="SubjectName" ColumnName="SubjectName" />
+          <ScalarProperty Name="SubjectID" ColumnName="SubjectID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="YesUsers">
+      <EntityTypeMapping TypeName="YesModel.YesUser">
+        <MappingFragment StoreEntitySet="YesUser">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="FalseLoginCount" ColumnName="FalseLoginCount" />
+          <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="YesUserPrivileges">
+      <EntityTypeMapping TypeName="YesModel.YesUserPrivilege">
+        <MappingFragment StoreEntitySet="YesUserPrivilege">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="PrivilegeID" ColumnName="PrivilegeID" />
+          <ScalarProperty Name="UserPrivilegeID" ColumnName="UserPrivilegeID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

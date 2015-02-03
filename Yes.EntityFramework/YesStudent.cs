@@ -14,6 +14,11 @@ namespace Yes.EntityFramework
     
     public partial class YesStudent
     {
+        public YesStudent()
+        {
+            this.YesStudentSubjectMaps = new HashSet<YesStudentSubjectMap>();
+        }
+    
         public int StudentID { get; set; }
         public string StudentFirstName { get; set; }
         public string StudentMiddleName { get; set; }
@@ -24,9 +29,13 @@ namespace Yes.EntityFramework
         public int ParentID { get; set; }
         public int CourseID { get; set; }
         public int SchoolID { get; set; }
+        public Nullable<System.DateTime> CreatedDate { get; set; }
+        public Nullable<System.DateTime> ModifiedDate { get; set; }
+        public Nullable<bool> IsActive { get; set; }
     
         public virtual YesCourse YesCourse { get; set; }
         public virtual YesParent YesParent { get; set; }
         public virtual YesSchool YesSchool { get; set; }
+        public virtual ICollection<YesStudentSubjectMap> YesStudentSubjectMaps { get; set; }
     }
 }

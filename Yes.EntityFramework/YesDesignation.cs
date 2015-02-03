@@ -22,6 +22,9 @@ namespace Yes.EntityFramework
         public int DesignationID { get; set; }
         public string DesignationName { get; set; }
         public string DesignationDescription { get; set; }
+        public Nullable<System.DateTime> CreatedDate { get; set; }
+        public Nullable<System.DateTime> ModifiedDate { get; set; }
+        public Nullable<bool> IsActive { get; set; }
     
         public virtual ICollection<YesEmployee> YesEmployees { get; set; }
     }

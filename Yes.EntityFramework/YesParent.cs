@@ -33,6 +33,9 @@ namespace Yes.EntityFramework
         public Nullable<int> StateID { get; set; }
         public Nullable<int> ParentPinCode { get; set; }
         public string ParentOccupation { get; set; }
+        public Nullable<System.DateTime> CreatedDate { get; set; }
+        public Nullable<System.DateTime> ModifiedDate { get; set; }
+        public Nullable<bool> IsActive { get; set; }
     
         public virtual YesDistrict YesDistrict { get; set; }
         public virtual ICollection<YesStudent> YesStudents { get; set; }

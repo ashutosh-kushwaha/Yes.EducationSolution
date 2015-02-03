@@ -17,6 +17,9 @@ namespace Yes.EntityFramework
         public int CourseFeeID { get; set; }
         public Nullable<int> CourseID { get; set; }
         public Nullable<int> FeeID { get; set; }
+        public Nullable<System.DateTime> CreatedDate { get; set; }
+        public Nullable<System.DateTime> ModifiedDate { get; set; }
+        public Nullable<bool> IsActive { get; set; }
     
         public virtual YesCourse YesCourse { get; set; }
         public virtual YesFee YesFee { get; set; }

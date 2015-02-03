@@ -4,33 +4,41 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="68d61df32cb740a8b4d82bf21d26d879" Name="Diagram1">
-        <EntityTypeShape EntityType="YesModel.YesCourse" Width="1.5" PointX="3.75" PointY="20.625" />
-        <EntityTypeShape EntityType="YesModel.YesCourseFee" Width="1.5" PointX="5" PointY="10.875" />
-        <EntityTypeShape EntityType="YesModel.YesDesignation" Width="1.5" PointX="0.5" PointY="22.875" />
-        <EntityTypeShape EntityType="YesModel.YesDistrict" Width="1.5" PointX="6.1053428734211916" PointY="26.048318994254021" />
-        <EntityTypeShape EntityType="YesModel.YesFee" Width="1.5" PointX="0.40875105206330825" PointY="18.791658708263029" />
-        <EntityTypeShape EntityType="YesModel.YesPrivilege" Width="1.5" PointX="5.7542303026440695" PointY="20.819144184151266" />
-        <EntityTypeShape EntityType="YesModel.YesSchool" Width="1.5" PointX="1.875" PointY="20.375" />
-        <EntityTypeShape EntityType="YesModel.YesState" Width="1.5" PointX="7.0418212763228549" PointY="15.755978830045079" />
-        <EntityTypeShape EntityType="YesModel.YesUser" Width="1.5" PointX="2.6036064841801334" PointY="23.2445174712895" />
-        <EntityTypeShape EntityType="YesModel.YesUserPrivilege" Width="1.5" PointX="8.509720219536554" PointY="13.652579015890407" />
+      <Diagram DiagramId="68d61df32cb740a8b4d82bf21d26d879" Name="Diagram1" ZoomLevel="62">
+        <EntityTypeShape EntityType="YesModel.YesCourse" Width="1.5" PointX="1.580754865697005" PointY="18.242417761237554" />
+        <EntityTypeShape EntityType="YesModel.YesCourseFee" Width="1.5" PointX="3.125949943031161" PointY="4.9397576176280893" />
+        <EntityTypeShape EntityType="YesModel.YesDesignation" Width="1.5" PointX="8.8348982151760254" PointY="2.8571030957890224" />
+        <EntityTypeShape EntityType="YesModel.YesDistrict" Width="1.5" PointX="4.1824956444010581" PointY="6.5797874362113831" />
+        <EntityTypeShape EntityType="YesModel.YesEmployee" Width="1.5" PointX="2.7598753956891016" PointY="13.449060803954053" />
+        <EntityTypeShape EntityType="YesModel.YesExamType" Width="1.5" PointX="11.987721338862423" PointY="28.733437894253729" />
+        <EntityTypeShape EntityType="YesModel.YesFee" Width="1.5" PointX="2.3945530794535546" PointY="11.743370776876514" />
+        <EntityTypeShape EntityType="YesModel.YesParent" Width="1.5" PointX="2.757159815522451" PointY="26.469283011960464" />
+        <EntityTypeShape EntityType="YesModel.YesPrivilege" Width="1.5" PointX="11.987537126982369" PointY="14.115656635777865" />
+        <EntityTypeShape EntityType="YesModel.YesSchool" Width="1.5" PointX="10.324296946788344" PointY="18.082200580314826" />
+        <EntityTypeShape EntityType="YesModel.YesState" Width="1.5" PointX="4.5982234406276712" PointY="26.949221072229193" />
+        <EntityTypeShape EntityType="YesModel.YesStudent" Width="1.5" PointX="0.37514680641477316" PointY="19.541927912990531" />
+        <EntityTypeShape EntityType="YesModel.YesStudentMark" Width="1.5" PointX="9.0416959491752529" PointY="22.971438105670472" />
+        <EntityTypeShape EntityType="YesModel.YesStudentSubjectMap" Width="1.5" PointX="5.0622763620048188" PointY="3.7598628717287736" />
+        <EntityTypeShape EntityType="YesModel.YesSubject" Width="1.5" PointX="9.8495334116041349" PointY="22.936950738978084" />
+        <EntityTypeShape EntityType="YesModel.YesUser" Width="1.5" PointX="3.9357810858338049" PointY="1.6759074189122336" />
+        <EntityTypeShape EntityType="YesModel.YesUserPrivilege" Width="1.5" PointX="0.021940872083390538" PointY="15.026055536710683" />
         <AssociationConnector Association="YesModel.FK_YesCourseFee_YesCourse" />
+        <AssociationConnector Association="YesModel.FK_YesStudent_YesCourse" />
         <AssociationConnector Association="YesModel.FK_YesCourseFee_YesFee" />
-        <AssociationConnector Association="YesModel.FK_YesDistrict_YesState" />
-        <AssociationConnector Association="YesModel.FK_YesUserPrivilege_YesPrivilege" />
-        <AssociationConnector Association="YesModel.FK_YesUserPrivilege_YesUser" />
-        <EntityTypeShape EntityType="YesModel.YesEmployee" Width="1.5" PointX="7.1605240456576116" PointY="8.2760691681299683" />
-        <EntityTypeShape EntityType="YesModel.YesParent" Width="1.5" PointX="5.8780676023466825" PointY="17.201738618873868" />
         <AssociationConnector Association="YesModel.FK_YesEmployee_YesDesignation" />
+        <AssociationConnector Association="YesModel.FK_YesDistrict_YesState" />
         <AssociationConnector Association="YesModel.FK_YesEmployee_YesDistrict" />
         <AssociationConnector Association="YesModel.FK_YesParent_YesDistrict" />
         <AssociationConnector Association="YesModel.FK_YesEmployee_YesSchool" />
         <AssociationConnector Association="YesModel.FK_YesUser_YesEmployee" />
-        <EntityTypeShape EntityType="YesModel.YesStudent" Width="1.5" PointX="0.46203318446037978" PointY="8.4542446920900822" />
-        <AssociationConnector Association="YesModel.FK_YesStudent_YesCourse" />
+        <AssociationConnector Association="YesModel.FK_YesStudentMarks_YesExamType" />
         <AssociationConnector Association="YesModel.FK_YesStudent_YesParent" />
+        <AssociationConnector Association="YesModel.FK_YesUserPrivilege_YesPrivilege" />
         <AssociationConnector Association="YesModel.FK_YesStudent_YesSchool" />
+        <AssociationConnector Association="YesModel.FK_YesStudentSubjectMap_YesStudent" />
+        <AssociationConnector Association="YesModel.FK_YesStudentMarks_YesStudentSubjectMap" />
+        <AssociationConnector Association="YesModel.FK_YesStudentSubjectMap_YesSubject" />
+        <AssociationConnector Association="YesModel.FK_YesUserPrivilege_YesUser" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

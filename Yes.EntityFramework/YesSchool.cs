@@ -25,6 +25,7 @@ namespace Yes.EntityFramework
         public string SchoolAddress1 { get; set; }
         public string SchoolAddress2 { get; set; }
         public Nullable<int> SchoolEstiblishmentYear { get; set; }
+        public Nullable<bool> IsActive { get; set; }
     
         public virtual ICollection<YesEmployee> YesEmployees { get; set; }
         public virtual ICollection<YesStudent> YesStudents { get; set; }

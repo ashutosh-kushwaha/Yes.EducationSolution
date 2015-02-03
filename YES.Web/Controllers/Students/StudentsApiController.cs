@@ -36,5 +36,12 @@ namespace YES.Web.Controllers
             else
                 return _studentService.CreateStudent(NewStudent, userDetails.SchoolID);
         }
+
+        [AttributeRouting.Web.Mvc.Route("GetStudent")]
+        public StudentModel GetStudent(int StudentID)
+        {
+            LoggedInUserDetailsModel userDetails = _loginService.GetLoggedInUserDetails(Convert.ToInt32(HttpContext.Current.User.Identity.Name));
+            return _studentService.GetStudent(userDetails.SchoolID,StudentID);
+        }
     }
 }

@@ -24,6 +24,7 @@ namespace Yes.EntityFramework
         public string DisctrictName { get; set; }
         public int StateID { get; set; }
         public string DisctrictDescription { get; set; }
+        public Nullable<bool> IsActive { get; set; }
     
         public virtual YesState YesState { get; set; }
         public virtual ICollection<YesEmployee> YesEmployees { get; set; }

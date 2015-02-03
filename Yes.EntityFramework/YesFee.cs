@@ -23,6 +23,9 @@ namespace Yes.EntityFramework
         public string FeeName { get; set; }
         public string FeeDescription { get; set; }
         public Nullable<decimal> FeeAmount { get; set; }
+        public Nullable<System.DateTime> CreatedDate { get; set; }
+        public Nullable<System.DateTime> ModifiedDate { get; set; }
+        public Nullable<bool> IsActive { get; set; }
     
         public virtual ICollection<YesCourseFee> YesCourseFees { get; set; }
     }

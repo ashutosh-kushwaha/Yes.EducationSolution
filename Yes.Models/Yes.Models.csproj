@@ -45,6 +45,7 @@
     <Compile Include="Parent\ParentModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Student\StudentModel.cs" />
+    <Compile Include="Subject\SubjectModel.cs" />
     <Compile Include="User\LoggedInUserDetailsModel.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -14,7 +14,7 @@ namespace YES.Web.Controllers
         //
         // GET: /Employees/
         [Route("")]
-        public ActionResult Index()
+        public ViewResult Index()
         {
             return View();
         }

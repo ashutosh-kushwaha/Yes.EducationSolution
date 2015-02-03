@@ -16,7 +16,7 @@ namespace Yes.Models
         public DateTime StudentDateOfBirth { get; set; }
         public Char StudentGender { get; set; }
         public string CourseName { get; set; }
-        public int ParentID { get; set; }
+      //  public int ParentID { get; set; }
         public int CourseID { get; set; }
         public int SchoolID { get; set; }
 
