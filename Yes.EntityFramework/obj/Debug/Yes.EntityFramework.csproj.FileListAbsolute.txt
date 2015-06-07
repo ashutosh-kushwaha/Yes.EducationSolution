@@ -13,3 +13,4 @@ D:\Ashutosh\Google\Yes.EducationSolution\Yes.EntityFramework\bin\Debug\EntityFra
 D:\Ashutosh\Google\Yes.EducationSolution\Yes.EntityFramework\bin\Debug\EntityFramework.xml
 D:\Ashutosh\Google\Yes.EducationSolution\Yes.EntityFramework\obj\Debug\Yes.EntityFramework.dll
 D:\Ashutosh\Google\Yes.EducationSolution\Yes.EntityFramework\obj\Debug\Yes.EntityFramework.pdb
+D:\Ashutosh\Google\Yes.EducationSolution\Yes.EntityFramework\obj\Debug\Yes.EntityFramework.csprojResolveAssemblyReference.cache

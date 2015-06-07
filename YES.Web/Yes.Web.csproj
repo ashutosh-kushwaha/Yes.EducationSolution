@@ -255,6 +255,8 @@
     <Content Include="Scripts\AngularScripts\State_District\YesStateDistrictService.js" />
     <Content Include="Scripts\AngularScripts\Students\YesStudentsController.js" />
     <Content Include="Scripts\AngularScripts\Students\YesStudentsService.js" />
+    <Content Include="Scripts\AngularScripts\Subjects\YesSubjectsController.js" />
+    <Content Include="Scripts\AngularScripts\Subjects\YesSubjectsService.js" />
     <Content Include="Scripts\AngularScripts\YesLayoutController.js" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
@@ -603,7 +605,7 @@
     <Content Include="Views\Students\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Subjects\Index.cshtml" />
+    <Content Include="Views\Subject\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

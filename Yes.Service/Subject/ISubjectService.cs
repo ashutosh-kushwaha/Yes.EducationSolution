@@ -10,9 +10,9 @@ namespace Yes.Service
     public interface ISubjectService
     {
         SubjectModel GetSubject(int subjectID);
-        bool CreateSubject(SubjectModel subject);
+        bool CreateSubject(SubjectModel subject,int schoolId);
         bool DeleteSubject(int subjectID);
-        bool UpdateSubject(int subjectID);
+        bool UpdateSubject(SubjectModel subject);
         IEnumerable<SubjectModel> GetAllSubjects();
     }
 }

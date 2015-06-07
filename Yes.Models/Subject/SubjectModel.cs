@@ -10,6 +10,7 @@ namespace Yes.Models
     {
         public int SubjectID { get; set; }
         public string SubjectName { get; set; }
-        public int SubjectMarks { get; set; }
+        public short SubjectMarks { get; set; }
+        public bool IsActive { get; set; }
     }
 }

@@ -33,10 +33,27 @@ namespace Yes.DataAdaptder
                 return null;
             }
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="subject"></param>
+        /// <returns></returns>
         public bool CreateSubject(Models.SubjectModel subject)
         {
-            throw new NotImplementedException();
+            using (YesEntities context = new YesEntities())
+            {
+                var newsubject = new YesSubject();
+                newsubject.SubjectName = subject.SubjectName;
+                newsubject.SubjectMarks = subject.SubjectMarks;
+                newsubject.IsActive = subject.IsActive;
+                newsubject.CreatedDate=DateTime.Now;
+                context.YesSubjects.Add(newsubject);
+                context.SaveChanges();
+                if (newsubject.SubjectID > 0)
+                    return true;
+                else
+                    return false;
+            }
         }
 
         public bool DeleteSubject(int subjectID)
@@ -46,7 +63,19 @@ namespace Yes.DataAdaptder
 
         public bool UpdateSubject(SubjectModel subject)
         {
-            throw new NotImplementedException();
+            using (YesEntities context = new YesEntities())
+            {
+                var newSubject = context.YesSubjects.Where(x => x.SubjectID == subject.SubjectID).FirstOrDefault();
+                if (newSubject != null)
+                {
+                    newSubject.SubjectName = subject.SubjectName;
+                    newSubject.SubjectMarks = subject.SubjectMarks;
+                    newSubject.IsActive = subject.IsActive;
+                    newSubject.ModifiedDate = DateTime.Now;
+                    context.SaveChanges();
+                }
+                return true;
+            }
         }
 
         public IEnumerable<SubjectModel> GetAllSubjects()
@@ -66,6 +95,7 @@ namespace Yes.DataAdaptder
                             sm.SubjectID = subject.SubjectID;
                             sm.SubjectName = subject.SubjectName;
                             sm.SubjectMarks = subject.SubjectMarks;
+                            sm.IsActive = subject.IsActive;
                             subjectList.Add(sm);
                         }
 
