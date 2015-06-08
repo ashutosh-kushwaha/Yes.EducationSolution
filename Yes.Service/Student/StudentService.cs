@@ -24,7 +24,7 @@ namespace Yes.Service
 
         public StudentModel GetStudent(int SchoolID, int StudentID)
         {
-            throw new NotImplementedException();
+            return _studentDataAdapter.GetStudent(SchoolID, StudentID);
         }
 
         public int UpdateStudent(StudentModel NewStudent, int SchoolID)

@@ -47,6 +47,7 @@ namespace Yes.DataAdaptder
                 newsubject.SubjectMarks = subject.SubjectMarks;
                 newsubject.IsActive = subject.IsActive;
                 newsubject.CreatedDate=DateTime.Now;
+                newsubject.ModifiedDate = DateTime.Now;
                 context.YesSubjects.Add(newsubject);
                 context.SaveChanges();
                 if (newsubject.SubjectID > 0)

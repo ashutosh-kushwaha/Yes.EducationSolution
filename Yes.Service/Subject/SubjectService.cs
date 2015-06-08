@@ -13,7 +13,7 @@ namespace Yes.Service
     {
        [Dependency]
        public IDaoSubject _subjectAdapter { get; set; }
-        public SubjectModel GetSubject(int subjectID)
+        public SubjectModel GetSubject(int schoolID,int subjectID)
         {
             return _subjectAdapter.GetSubject(subjectID);
         }
@@ -23,12 +23,12 @@ namespace Yes.Service
             return _subjectAdapter.CreateSubject(subject);
         }
 
-        public bool DeleteSubject(int subjectID)
+        public bool DeleteSubject(int schoolID,int subjectID)
         {
             throw new NotImplementedException();
         }
 
-        public bool UpdateSubject(SubjectModel subject)
+        public bool UpdateSubject(int schoolID,SubjectModel subject)
         {
             return _subjectAdapter.UpdateSubject(subject);
         }

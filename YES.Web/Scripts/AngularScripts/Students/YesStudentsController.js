@@ -83,7 +83,7 @@ function StudentsController($scope, StudentsService, StateDistrictService) {
         $scope.NewStudent = {};// Clean Employee container
         $scope.GetAllDistricts(StateID);
         StudentsService.GetStudent(StudentID).then(function (response) {
-            if (response.status === 200 && response.data.ID > 0) {
+            if (response.status === 200 && response.data.StudentID > 0) {
                 $('#student-modal').modal('show');
                 $scope.NewStudent = response.data;// Bind all data to the modal form
                 //Mobile number is comming as string and text box is of type number

@@ -1,4 +1,4 @@
-﻿type=button<section class="content-header">
+﻿<section class="content-header">
     <h4>Subjects
                         <small>Control panel</small>
     </h4>
@@ -37,7 +37,7 @@
                         <td>{{subject.SubjectName}}</td>
                         <td>{{subject.SubjectMarks}}</td>
                         <td>{{subject.IsActive}}</td>
-                        <td><i class="fa fa-edit cursorPointer" ng-click="GetSubject(subject.ID)"></i>&nbsp;&nbsp;<i class="cursorPointer fa fa-times" confirmation-message="Are you sure want to delete?" ng-click="DeleteSubject(subject.ID)"></i></td>
+                        <td><i class="fa fa-edit cursorPointer" ng-click="GetSubject(subject.ID)"></i>&nbsp;&nbsp;<i class="cursorPointer fa fa-times" confirmation-message="Are you sure want to delete?" ng-click="DeleteSubject(subject.SubjectID)"></i></td>
                     </tr>
 
                 </table>
@@ -79,7 +79,7 @@
                         <td>{{subject.SubjectName}}</td>
                         <td>{{subject.SubjectMarks}}</td>
                         <td>{{subject.IsActive}}</td>
-                        <td><i class="fa fa-edit cursorPointer" ng-click="GetSubject(subject.ID)"></i>&nbsp;&nbsp;<i class="cursorPointer fa fa-times" confirmation-message="Are you sure want to delete?" ng-click="DeleteSubject(subject.ID)"></i></td>
+                        <td><i class="fa fa-edit cursorPointer" ng-click="GetSubject(subject.ID)"></i>&nbsp;&nbsp;<i class="cursorPointer fa fa-times" confirmation-message="Are you sure want to delete?" ng-click="DeleteSubject(subject.SubjectID)"></i></td>
                     </tr>
 
                 </table>

@@ -14,15 +14,31 @@ function SubjectsController($scope, SubjectsService) {
     $scope.GetAllSubjects();
     // ******************** Get All subject details End ********************
     // ******************** Save subject details Start ********************
-    $scope.SaveSubjectDetails = function () {
-        SubjectsService.SaveSubjectDetails().then(function (response) {
+    $scope.SaveSubjectDetails = function (newSubject) {
+        SubjectsService.SaveSubjectDetails(newSubject).then(function (response) {
             myApp.showPleaseWait();
             if (response.status === 200)
-                $scope.Subjects = response.data;
+                $('#subject-modal').modal('hide');
+            $scope.GetAllSubjects();
             // $scope.Paging($scope.Subjects);
             myApp.hidePleaseWait();
+           
         });
     }
-    $scope.GetAllSubjects();
+   
+    // ******************** Save subject details End ********************
+
+    // ******************** Delete subject details Start ********************
+    $scope.DeleteSubject = function (subjectID) {
+        SubjectsService.DeleteSubject(subjectID).then(function (response) {
+            myApp.showPleaseWait();
+            if (response.status === 200)
+            $scope.GetAllSubjects();
+            // $scope.Paging($scope.Subjects);
+            myApp.hidePleaseWait();
+
+        });
+    }
+
     // ******************** Save subject details End ********************
 }

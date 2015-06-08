@@ -120,40 +120,39 @@ namespace Yes.DataAdaptder
             {
                 using (YesEntities context = new YesEntities())
                 {
-                   // var student = context.once you login then only i can see.Select(c => c.StudentID==StudentID).FirstOrDefault();
-                    //StudentModel Student = null;
-                    //Student = new StudentModel();
-                    //if (student != null)
-                    //      Student = new StudentModel();
-                    //        Student.CourseID = student.YesCourse.CourseID;
-                    //        Student.ParentFirstName = student.YesParent.ParentFirstName;
-                    //        Student.ParentMiddleName = student.YesParent.ParentMiddleName;
-                    //        Student.ParentLastName = student.YesParent.ParentLastName;
-                    //        Student.ParentAddress1 = student.YesParent.ParentAddress1;
-                    //        Student.ParentAddress2 = student.YesParent.ParentAddress2;
-                    //        if (student.StudentDOB != null)
-                    //            Student.StudentDateOfBirth = (DateTime)student.StudentDOB;
-                    //        Student.StudentGender = Convert.ToChar(student.StudentGender);
-                    //        if (student.YesParent.ParentAlternateMobileNo != null)
-                    //            Student.ParentAlternateMobileNo = (long)student.YesParent.ParentAlternateMobileNo;
-                    //        Student.ParentCity = student.YesParent.ParentCity;
-                    //        if (student.YesParent.DistrictID != null)
-                    //            Student.DistrictID = (int)student.YesParent.DistrictID;
-                    //        Student.ParentEmailID = student.YesParent.ParentEmailID;
-                    //        Student.StudentFirstName = student.StudentFirstName;
-                    //        Student.StudentID = student.StudentID;
-                    //        Student.StudentLastName = student.StudentLastName;
-                    //        Student.StudentMiddleName = student.StudentMiddleName;
-                    //        if (student.YesParent.ParentPinCode != null)
-                    //            Student.ParentPinCode = (int)student.YesParent.ParentPinCode;
-                    //        Student.StateID = (int)student.YesParent.StateID;
-                    //        Student.CourseName = student.YesCourse.CourseName;
-                    //        Student.StudentRollNumber = student.StudentRollNumber;
+                    //once you login then only i can see
+                    var student = context.YesStudents.Where(c => c.StudentID==StudentID && c.SchoolID==SchoolID).FirstOrDefault();
+                    StudentModel Student = null;
+                    Student = new StudentModel();
+                    if (student != null)
+                          Student = new StudentModel();
+                            Student.CourseID = student.YesCourse.CourseID;
+                            Student.ParentFirstName = student.YesParent.ParentFirstName;
+                            Student.ParentMiddleName = student.YesParent.ParentMiddleName;
+                            Student.ParentLastName = student.YesParent.ParentLastName;
+                            Student.ParentAddress1 = student.YesParent.ParentAddress1;
+                            Student.ParentAddress2 = student.YesParent.ParentAddress2;
+                            if (student.StudentDOB != null)
+                                Student.StudentDateOfBirth = (DateTime)student.StudentDOB;
+                            Student.StudentGender = Convert.ToChar(student.StudentGender);
+                            if (student.YesParent.ParentAlternateMobileNo != null)
+                                Student.ParentAlternateMobileNo = (long)student.YesParent.ParentAlternateMobileNo;
+                            Student.ParentCity = student.YesParent.ParentCity;
+                            if (student.YesParent.DistrictID != null)
+                                Student.DistrictID = (int)student.YesParent.DistrictID;
+                            Student.ParentEmailID = student.YesParent.ParentEmailID;
+                            Student.StudentFirstName = student.StudentFirstName;
+                            Student.StudentID = student.StudentID;
+                            Student.StudentLastName = student.StudentLastName;
+                            Student.StudentMiddleName = student.StudentMiddleName;
+                            if (student.YesParent.ParentPinCode != null)
+                                Student.ParentPinCode = (int)student.YesParent.ParentPinCode;
+                            Student.StateID = (int)student.YesParent.StateID;
+                            Student.CourseName = student.YesCourse.CourseName;
+                            Student.StudentRollNumber = student.StudentRollNumber;
 
-                    //        Students.Add(Student);
-                       
-                    //return Students;
-                    return null;
+                    return Student;
+                   // return null;
                 }
             }
 

@@ -33,16 +33,22 @@ namespace YES.Web.Controllers
             LoggedInUserDetailsModel userDetails = _loginService.GetLoggedInUserDetails(Convert.ToInt32(HttpContext.Current.User.Identity.Name));
             // If ID is greater than zero it means this call is for update
             if (NewSubject.SubjectID > 0)
-                return _subjectService.UpdateSubject(NewSubject);
+                return _subjectService.UpdateSubject(userDetails.SchoolID, NewSubject);
             else
-                return _subjectService.CreateSubject(NewSubject,1);
+                return _subjectService.CreateSubject(NewSubject, userDetails.SchoolID);
         }
 
-        //[AttributeRouting.Web.Mvc.Route("GetStudent")]
-        //public StudentModel GetStudent(int StudentID)
-        //{
-        //    LoggedInUserDetailsModel userDetails = _loginService.GetLoggedInUserDetails(Convert.ToInt32(HttpContext.Current.User.Identity.Name));
-        //    return _studentService.GetStudent(userDetails.SchoolID,StudentID);
-        //}
+        [AttributeRouting.Web.Mvc.Route("GetSubject")]
+        public SubjectModel GetSubject(int SubjectID)
+        {
+            LoggedInUserDetailsModel userDetails = _loginService.GetLoggedInUserDetails(Convert.ToInt32(HttpContext.Current.User.Identity.Name));
+            return _subjectService.GetSubject(userDetails.SchoolID, SubjectID);
+        }
+        [AttributeRouting.Web.Mvc.Route("DeleteSubject/{SubjectID}")]
+        public bool DeleteSubjectDeleteStudent(int SubjectID)
+        {
+            LoggedInUserDetailsModel userDetails = _loginService.GetLoggedInUserDetails(Convert.ToInt32(HttpContext.Current.User.Identity.Name));
+            return _subjectService.DeleteSubject(userDetails.SchoolID,SubjectID);
+        }
     }
 }
