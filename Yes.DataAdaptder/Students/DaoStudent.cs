@@ -169,7 +169,13 @@ namespace Yes.DataAdaptder
 
         public int DeleteStudent(int SchoolID = 0, int StudentID = 0)
         {
-            throw new NotImplementedException();
+            using (YesEntities context = new YesEntities())
+            {
+                var student = context.YesStudents.Where(c => c.SchoolID == SchoolID && c.StudentID==StudentID).FirstOrDefault();
+                student.IsActive = false;
+               return  context.SaveChanges();
+              
+            }
         }
     }
 }

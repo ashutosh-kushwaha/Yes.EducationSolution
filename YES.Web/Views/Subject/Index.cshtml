@@ -57,7 +57,7 @@
             <!-- /.box-header -->
             <div class="box-body table-responsive no-padding">
                 <div class="box-tools row tableHeader">
-                    <button type="button" class="btn btn-danger col-md-2" style="margin-left: 8px;" ng-click="OpenCreateSubjectModalPopup()" title="Create new Subject record" data-target="#subject-modal" data-toggle="modal" ng-click="Createsubject()"><i class="fa fa-new"></i>Create</button>
+                    <button type="button" class="btn btn-danger col-md-2" style="margin-left: 8px;" ng-click="OpenSubjectStudentModalPopup()" title="Create new Subject record" data-target="#subject-Student-modal" data-toggle="modal" ng-click="Createsubject()"><i class="fa fa-new"></i>Create</button>
                     <div class="input-group">
                         <input type="text" name="table_search" ng-model="searchText" class="form-control input-sm pull-right" style="width: 150px;" placeholder="Search" />
                         <div class="input-group-btn">
@@ -158,6 +158,65 @@
     <!-- /.modal-dialog -->
     </div>
     <!-- /.modal -->
+    <!-- Subject Student Mapping  MODAL -->
+    <div class="modal fade" id="subject-Student-modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form role="form" name="SubjectStudentForm" novalidate>
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" ng-show="!IsEditMode"><i class="fa fa-user"></i>New Subject</h4>
+                        <h4 class="modal-title" ng-show="IsEditMode"><i class="fa fa-user"></i>Edit subject</h4>
+                    </div>
+                    <div class="box box-warning">
+                        <div class="box-body">
+
+                            <table width="100%">
+                                <tr class="row">
+                                    <td class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Student Name</label>
+                                            <input type="text" class="form-control" name="StudentName" placeholder="Required" ng-model="NewSubjectStudent.StudentName" required />
+                                            <p ng-show="SubjectForm.SubjectName.$invalid && !SubjectForm.SubjectName.$pristine" class="text-danger yesErrorMessage">Enter a valid first name.</p>
+                                        </div>
+                                    </td>
+                                  
+                                </tr>
+                                <tr class="row" ng-repeat="sub in subjectsList">
+                                    <td class="col-md-6">
+                                       <div class="form-group">
+                                             <input type="checkbox" class="" name="" placeholder="Required" ng-model="NewSubject.IsActive" required />
+                                        </div>
+                                    </td>
+                                    <td class="col-md-6">
+                                        <div class="form-group">
+                                             <input type="checkbox" class="" name="" placeholder="Required" ng-model="NewSubject.IsActive" required />
+                                        </div>
+                                    </td>
+                                </tr>
+
+                            </table>
+
+
+
+                        </div>
+            <!-- /.box-body -->
+        </div>
+        <div class="modal-footer clearfix">
+
+            <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i>Discard</button>
+
+            <button type="submit" class="btn btn-primary pull-left" ng-disabled="SubjectForm.$invalid" ng-click="SaveSubjectDetails(NewSubject)"><i class="fa fa-check"></i>Save</button>
+        </div>
+        </form>
+    </div>
+
+    <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+
 </section>
 <script src="~/Scripts/AngularScripts/Subjects/YesSubjectsController.js"></script>
 <script src="~/Scripts/AngularScripts/Subjects/YesSubjectsService.js"></script>

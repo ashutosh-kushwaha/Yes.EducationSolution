@@ -55,6 +55,8 @@
     <Compile Include="State_District\IDaoStateDistrict.cs" />
     <Compile Include="Students\DaoStudent.cs" />
     <Compile Include="Students\IDaoStudent.cs" />
+    <Compile Include="Subject\DaoSubject.cs" />
+    <Compile Include="Subject\IDaoSubject.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Yes.EntityFramework\Yes.EntityFramework.csproj">

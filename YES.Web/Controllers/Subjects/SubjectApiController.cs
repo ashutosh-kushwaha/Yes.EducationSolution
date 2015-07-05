@@ -45,6 +45,7 @@ namespace YES.Web.Controllers
             return _subjectService.GetSubject(userDetails.SchoolID, SubjectID);
         }
         [AttributeRouting.Web.Mvc.Route("DeleteSubject/{SubjectID}")]
+        [AcceptVerbs("GET")]
         public bool DeleteSubjectDeleteStudent(int SubjectID)
         {
             LoggedInUserDetailsModel userDetails = _loginService.GetLoggedInUserDetails(Convert.ToInt32(HttpContext.Current.User.Identity.Name));

@@ -41,7 +41,7 @@ yesApp.factory('SubjectsService', function ($http) {
     // Save new subject into web api call
     SubjectsServiceFactory.DeleteSubject = function (subjectID) {
 
-        var promise = $http({ method: 'POST', url: 'api/Subjects/DeleteSubject/'+ subjectID }).
+        var promise = $http({ method: 'GET', url: 'api/Subjects/DeleteSubject/'+ subjectID }).
             success(function (data, status, headers, config) {
                 // this callback will be called asynchronously
                 // when the response is available

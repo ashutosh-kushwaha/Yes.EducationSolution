@@ -25,7 +25,7 @@ namespace Yes.Service
 
         public bool DeleteSubject(int schoolID,int subjectID)
         {
-            throw new NotImplementedException();
+            return _subjectAdapter.DeleteSubject(schoolID, subjectID);
         }
 
         public bool UpdateSubject(int schoolID,SubjectModel subject)

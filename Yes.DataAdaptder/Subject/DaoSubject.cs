@@ -57,9 +57,15 @@ namespace Yes.DataAdaptder
             }
         }
 
-        public bool DeleteSubject(int subjectID)
+        public bool DeleteSubject(int schoolID, int subjectID)
         {
-            throw new NotImplementedException();
+            using (YesEntities context = new YesEntities())
+            {
+               var subject= context.YesSubjects.Where(c => c.SubjectID == subjectID).FirstOrDefault();
+               subject.IsActive = false;
+               context.SaveChanges();
+               return true;
+            }
         }
 
         public bool UpdateSubject(SubjectModel subject)

@@ -41,4 +41,14 @@ function SubjectsController($scope, SubjectsService) {
     }
 
     // ******************** Save subject details End ********************
+
+    //************************Open create employee modal popup start *************************
+    $scope.OpenSubjectStudentModalPopup = function () {
+        $scope.IsEditMode = false;
+        $scope.NewSubjectStudent = {};
+        
+    }
+    //************************Open create employee modal popup end ***************************
+
+
 }

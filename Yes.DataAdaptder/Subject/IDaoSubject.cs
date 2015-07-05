@@ -11,7 +11,7 @@ namespace Yes.DataAdaptder
     {
         SubjectModel GetSubject(int subjectID);
        bool CreateSubject(SubjectModel subject);
-       bool DeleteSubject(int subjectID);
+       bool DeleteSubject(int schoolID,int subjectID);
        bool UpdateSubject(SubjectModel subject);
        IEnumerable<SubjectModel> GetAllSubjects();
     }
